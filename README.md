@@ -41,3 +41,7 @@ Technical Details:
 Changelog:
 
 v1.0 - Baruk Khazad!  Woodcutting for the masses
+
+v1.1 - Hard fork to litecoin branch.  Block 3002
+
+
