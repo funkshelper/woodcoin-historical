@@ -130,7 +130,7 @@ private:
 
 public:
     CECKey() {
-        pkey = EC_KEY_new_by_curve_name(NID_secp256k1);
+        pkey = EC_KEY_new_by_curve_name(NID_X9_62_prime256v1);
         assert(pkey != NULL);
     }
 
