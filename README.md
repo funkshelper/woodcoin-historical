@@ -1,73 +1,43 @@
-Litecoin integration/staging tree
-================================
+A Funkenstein the Dwarf Presentation: 
 
-http://www.litecoin.org
+============================================
 
-Copyright (c) 2009-2014 Bitcoin Developers
-Copyright (c) 2011-2014 Litecoin Developers
+While many dwarfs were content to toil in the mines I have always felt affinity for the forest.  
 
-What is Litecoin?
-----------------
+Now you can chop logs.  
 
-Litecoin is a lite version of Bitcoin using scrypt as a proof-of-work algorithm.
- - 2.5 minute block targets
- - subsidy halves in 840k blocks (~4 years)
- - ~84 million total coins
+The Woodcoin chain is a log structured database.
 
-The rest is the same as Bitcoin.
- - 50 coins per block
- - 2016 blocks to retarget difficulty
+The money supply is logarithmic.
 
-For more information, as well as an immediately useable, binary version of
-the Litecoin client sofware, see http://www.litecoin.org.
+The unit is log.
+ 
+============================================
 
-License
--------
+Technical Details:
 
-Litecoin is released under the terms of the MIT license. See `COPYING` for more
-information or see http://opensource.org/licenses/MIT.
+*RPC Port = 9338
 
-Development process
--------------------
+*P2P Ports = 8338 (testnet 18338)
 
-Developers work in their own trees, then submit pull requests when they think
-their feature or bug fix is ready.
+*In Wallet woodcutting = Console, "setgenerate true"
 
-If it is a simple/trivial/non-controversial change, then one of the Litecoin
-development team members simply pulls it.
+*120 Second Block Target, Diff Retarget every 1 hour
 
-If it is a *more complicated or potentially controversial* change, then the patch
-submitter will be asked to start a discussion with the devs and community.
+*30 Confirms for spendable-coins
 
-The patch will be accepted if there is broad consensus that it is a good thing.
-Developers should expect to rework and resubmit patches if the code doesn't
-match the project's coding conventions (see `doc/coding.txt`) or are
-controversial.
+*Block reward = Harmonic Series
 
-The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/litecoin-project/litecoin/tags) are created
-regularly to indicate new official, stable release versions of Litecoin.
+1000000/nHeight logs  (after first 100 blocks which form unspendable forest of 5187377 logs) 
 
-Testing
--------
+*Money Supply = 1000000*(log(nHeight) + gamma)     gamma=Euler-Mascheroni constant 
 
-Testing and code review is the bottleneck for development; we get more pull
-requests than we can review and test. Please be patient and help out, and
-remember this is a security-critical project where any mistake might cost people
-lots of money.
+*New ECDSA curve: X9_62_prime256v1 
 
-### Automated Testing
+*Algo = Pure Skein (double skein) Bruce Schneier is a lumberjack and NSA didn't choose this algo.
 
-Developers are strongly encouraged to write unit tests for new code, and to
-submit new unit tests for old code.
+=============================================
 
-Unit tests for the core code are in `src/test/`. To compile and run them:
+Changelog:
 
-    cd src; make -f makefile.unix test
-
-Unit tests for the GUI code are in `src/qt/test/`. To compile and run them:
-
-    qmake BITCOIN_QT_TEST=1 -o Makefile.test bitcoin-qt.pro
-    make -f Makefile.test
-    ./litecoin-qt_test
-
+v1.0 - Baruk Khazad!  Woodcutting for the masses
