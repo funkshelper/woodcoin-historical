@@ -1,4 +1,4 @@
-<!DOCTYPE RCC><RCC version="1.0">
+<RCC>
     <qresource prefix="/icons">
         <file alias="bitcoin">res/icons/bitcoin.png</file>
         <file alias="address-book">res/icons/address-book.png</file>
@@ -45,11 +45,8 @@
         <file alias="about">res/images/about.png</file>
         <file alias="splash">res/images/splash.png</file>
         <file alias="splash_testnet">res/images/splash_testnet.png</file>
-    </qresource>
-    <qresource prefix="/movies">
-        <file alias="update_spinner">res/movies/update_spinner.mng</file>
-    </qresource>
-    <qresource prefix="/translations">
+	</qresource>
+      <qresource prefix="/translations">
         <file alias="af_ZA">locale/bitcoin_af_ZA.qm</file>
         <file alias="ar">locale/bitcoin_ar.qm</file>
         <file alias="bg">locale/bitcoin_bg.qm</file>
@@ -97,5 +94,8 @@
         <file alias="uk">locale/bitcoin_uk.qm</file>
         <file alias="zh_CN">locale/bitcoin_zh_CN.qm</file>
         <file alias="zh_TW">locale/bitcoin_zh_TW.qm</file>
+    </qresource>
+    <qresource prefix="/">
+        <file alias="woodcoinlogo.png">res/images/woodcoinlogo.png</file>
     </qresource>
 </RCC>
