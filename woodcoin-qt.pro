@@ -1,7 +1,13 @@
 TEMPLATE = app
+<<<<<<< HEAD:woodcoin-qt.pro
 TARGET = woodcoin-qt
 macx:TARGET = "Woodcoin-Qt"
 VERSION = 0.8.7.4
+=======
+TARGET = litecoin-qt
+macx:TARGET = "Litecoin-Qt"
+VERSION = 0.8.7.5
+>>>>>>> upstream/master-0.8:bitcoin-qt.pro
 INCLUDEPATH += src src/json src/qt
 QT += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
