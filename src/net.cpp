@@ -1160,30 +1160,17 @@ void MapPort(bool)
 }
 #endif
 
-
-
-
-
-
-
-
-
 // DNS seeds
 // Each pair gives a source name and a seed name.
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
 static const char *strMainNetDNSSeed[][2] = {
     {"woodcoin.org", "dnsseed.woodcoin.org"},
-    {"174.129.89.163", "174.129.89.163"},
-    {"54.163.78.104", "54.163.78.104"},
-    {"54.237.250.12","54.237.250.12"},
-    {"54.90.255.55", "54.90.255.55"},
     {NULL, NULL}
 };
 
 static const char *strTestNetDNSSeed[][2] = {
     {"woodcointools.com", "testnet-seed.woodcointools.com"},
-    {"174.129.89.163","174.129.89.163"},
     {NULL, NULL}
 };
 
