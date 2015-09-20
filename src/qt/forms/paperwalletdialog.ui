@@ -16,10 +16,10 @@
   <widget class="QLabel" name="privateKeyQRCode">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>420</x>
      <y>20</y>
-     <width>149</width>
-     <height>149</height>
+     <width>101</width>
+     <height>101</height>
     </rect>
    </property>
    <property name="text">
@@ -35,10 +35,10 @@
   <widget class="QLabel" name="addressQRCode">
    <property name="geometry">
     <rect>
-     <x>47</x>
-     <y>86</y>
-     <width>120</width>
-     <height>120</height>
+     <x>70</x>
+     <y>90</y>
+     <width>181</width>
+     <height>161</height>
     </rect>
    </property>
    <property name="text">
@@ -81,16 +81,16 @@
     <string notr="true"/>
    </property>
    <property name="pixmap">
-    <pixmap resource="../bitcoin.qrc">:/images/res/images/paper_wallet.png</pixmap>
+    <pixmap resource="../bitcoin.qrc">:/images/res/images/paper-wallet1v2.png</pixmap>
    </property>
   </widget>
-  <widget class="VerticalLabel" name="addressText">
+  <widget class="QLabel" name="addressText">
    <property name="geometry">
     <rect>
-     <x>212</x>
-     <y>20</y>
-     <width>31</width>
-     <height>341</height>
+     <x>50</x>
+     <y>340</y>
+     <width>401</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -112,13 +112,13 @@
     <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
    </property>
   </widget>
-  <widget class="VerticalLabel" name="privateKeyText">
+  <widget class="QLabel" name="privateKeyText">
    <property name="geometry">
     <rect>
-     <x>490</x>
-     <y>0</y>
-     <width>31</width>
-     <height>361</height>
+     <x>450</x>
+     <y>320</y>
+     <width>231</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -138,6 +138,9 @@
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
    </property>
    <property name="textInteractionFlags">
     <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -304,6 +307,22 @@ p, li { white-space: pre-wrap; }
     <string>Public Key:</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>190</y>
+     <width>71</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Do Not Share Your Private Key! (This Side)</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
   <zorder>getNewAddress</zorder>
   <zorder>paperTemplate</zorder>
   <zorder>addressQRCode</zorder>
@@ -316,14 +335,8 @@ p, li { white-space: pre-wrap; }
   <zorder>walletCount</zorder>
   <zorder>publicKey</zorder>
   <zorder>label_2</zorder>
+  <zorder>label_3</zorder>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>VerticalLabel</class>
-   <extends>QLabel</extends>
-   <header>verticallabel.h</header>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="../bitcoin.qrc"/>
  </resources>

@@ -34,11 +34,17 @@ For Qt 5 you need the following, otherwise you get an error with lrelease when r
 
     apt-get install qt5-qmake libqt5gui5 libqt5core5 libqt5dbus5 qttools5-dev-tools
 
+For QR codes and Paper Wallets to work:
+		cd /contrib/libqrencode
+		./autogen.sh
+		./configure
+		make && sudo make install
+
 then execute the following:
 
 ::
 
-    qmake
+    qmake [optional: qmake "USE_QRCODE=1"]
     make
 
 Alternatively, install `Qt Creator`_ and open the `litecoin-qt.pro` file.
