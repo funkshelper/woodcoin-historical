@@ -1,10 +1,3 @@
-Copyright (c) 2009-2013 Bitcoin Developers
-
-Distributed under the MIT/X11 software license, see the accompanying
-file COPYING or http://www.opensource.org/licenses/mit-license.php.
-This product includes software developed by the OpenSSL Project for use in the [OpenSSL Toolkit](http://www.openssl.org/). This product includes
-cryptographic software written by Eric Young ([eay@cryptsoft.com](mailto:eay@cryptsoft.com)), and UPnP software written by Thomas Bernard.
-
 UNIX BUILD NOTES
 ====================
 
@@ -68,6 +61,21 @@ for Ubuntu 12.04:
  but using these will break binary wallet compatibility, and is not recommended.
 
 for other Ubuntu & Debian:
+
+Edit your sources list:
+
+	nano /etc/apt/sources.list
+
+Make sure you have:
+
+        deb http://ftp.us.debian.org/debian squeeze main 
+
+(This contains the proper packages as of 9/12/15).
+
+Update: 
+	sudo apt-get update
+
+Then install the following: 	
 
 	sudo apt-get install libdb4.8-dev
 	sudo apt-get install libdb4.8++-dev

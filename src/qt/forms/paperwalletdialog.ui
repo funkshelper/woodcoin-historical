@@ -25,6 +25,9 @@
    <property name="text">
     <string/>
    </property>
+   <property name="pixmap">
+    <pixmap resource="../bitcoin.qrc">:/icons/qrcode</pixmap>
+   </property>
    <property name="scaledContents">
     <bool>true</bool>
    </property>
@@ -40,6 +43,9 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../bitcoin.qrc">:/icons/qrcode</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -75,7 +81,7 @@
     <string notr="true"/>
    </property>
    <property name="pixmap">
-    <pixmap>../res/images/paper_wallet.png</pixmap>
+    <pixmap resource="../bitcoin.qrc">:/images/res/images/paper_wallet.png</pixmap>
    </property>
   </widget>
   <widget class="VerticalLabel" name="addressText">
