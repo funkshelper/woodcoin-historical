@@ -6,6 +6,7 @@
 #define WALLETVIEW_H
 
 #include <QStackedWidget>
+#include <QWidget>
 
 class BitcoinGUI;
 class ClientModel;
@@ -20,6 +21,7 @@ class RPCConsole;
 QT_BEGIN_NAMESPACE
 class QLabel;
 class QModelIndex;
+class QProgressDialog;
 QT_END_NAMESPACE
 
 /*
@@ -95,6 +97,8 @@ public slots:
     void changePassphrase();
     /** Ask for passphrase to unlock wallet temporarily */
     void unlockWallet();
+    /** paper wallet dialog */
+    void printPaperWallets();
 
     void setEncryptionStatus();
 

@@ -15,6 +15,7 @@
 #include "overviewpage.h"
 #include "askpassphrasedialog.h"
 #include "ui_interface.h"
+#include "utilitydialog.h"
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -26,6 +27,10 @@
 #endif
 #include <QFileDialog>
 #include <QPushButton>
+#include <QActionGroup>
+#include <QProgressDialog>
+#include <QPushButton>
+
 
 WalletView::WalletView(QWidget *parent, BitcoinGUI *_gui):
     QStackedWidget(parent),
@@ -270,4 +275,14 @@ void WalletView::unlockWallet()
         dlg.setModel(walletModel);
         dlg.exec();
     }
+}
+
+void WalletView::printPaperWallets()
+{
+    if(!walletModel)
+        return;
+
+    PaperWalletDialog dlg( this );
+    dlg.setModel(walletModel);
+    dlg.exec();
 }

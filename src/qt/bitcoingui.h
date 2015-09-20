@@ -106,6 +106,7 @@ private:
     QAction *changePassphraseAction;
     QAction *aboutQtAction;
     QAction *openRPCConsoleAction;
+    QAction *paperWalletAction;
 
     QSystemTrayIcon *trayIcon;
     Notificator *notificator;

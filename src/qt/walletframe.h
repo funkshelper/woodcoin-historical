@@ -6,12 +6,14 @@
 #define WALLETFRAME_H
 
 #include <QFrame>
+#include <QMap>
 
 class BitcoinGUI;
 class ClientModel;
 class WalletModel;
 class WalletStack;
 class WalletView;
+class SendCoinsRecipient;
 
 class WalletFrame : public QFrame
 {
@@ -64,6 +66,7 @@ public slots:
     void changePassphrase();
     /** Ask for passphrase to unlock wallet temporarily */
     void unlockWallet();
+    void printPaperWallets();
 
     /** Set the encryption status as shown in the UI.
      @param[in] status            current encryption status

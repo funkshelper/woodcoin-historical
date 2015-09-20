@@ -45,8 +45,8 @@
         <file alias="about">res/images/about.png</file>
         <file alias="splash">res/images/splash.png</file>
         <file alias="splash_testnet">res/images/splash_testnet.png</file>
-	</qresource>
-      <qresource prefix="/translations">
+    </qresource>
+    <qresource prefix="/translations">
         <file alias="af_ZA">locale/bitcoin_af_ZA.qm</file>
         <file alias="ar">locale/bitcoin_ar.qm</file>
         <file alias="bg">locale/bitcoin_bg.qm</file>
