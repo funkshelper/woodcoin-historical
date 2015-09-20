@@ -1,13 +1,15 @@
 TEMPLATE = app
 TARGET = woodcoin-qt
 macx:TARGET = "Woodcoin-Qt"
-VERSION = 1.1.0.0
+VERSION = 1.2.0.0
 INCLUDEPATH += src src/json src/qt
 QT += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
 CONFIG += thread
+QT += \
+    printsupport
 
 # for boost 1.37, add -mt to the boost libraries
 # use: qmake BOOST_LIB_SUFFIX=-mt
@@ -222,7 +224,9 @@ HEADERS += src/qt/bitcoingui.h \
     src/sph_skein.h \
     src/sph_types.h \
     src/qt/macnotificationhandler.h \
-    src/qt/splashscreen.h
+    src/qt/splashscreen.h \
+    src/qt/verticallabel.h \
+    src/qt/utilitydialog.h
 
 SOURCES += src/qt/bitcoin.cpp \
     src/qt/bitcoingui.cpp \
@@ -293,7 +297,9 @@ SOURCES += src/qt/bitcoin.cpp \
     src/noui.cpp \
     src/leveldb.cpp \
     src/txdb.cpp \
-    src/qt/splashscreen.cpp
+    src/qt/splashscreen.cpp \
+    src/qt/verticallabel.cpp \
+    src/qt/utilitydialog.cpp 
 
 RESOURCES += src/qt/bitcoin.qrc
 
@@ -308,7 +314,8 @@ FORMS += src/qt/forms/sendcoinsdialog.ui \
     src/qt/forms/sendcoinsentry.ui \
     src/qt/forms/askpassphrasedialog.ui \
     src/qt/forms/rpcconsole.ui \
-    src/qt/forms/optionsdialog.ui
+    src/qt/forms/optionsdialog.ui \
+    src/qt/forms/paperwalletdialog.ui
 
 contains(USE_QRCODE, 1) {
 HEADERS += src/qt/qrcodedialog.h
@@ -446,3 +453,7 @@ contains(RELEASE, 1) {
 }
 
 system($$QMAKE_LRELEASE -silent $$TRANSLATIONS)
+
+DISTFILES += \
+    src/leveldb/libleveldb.a \
+    src/leveldb/libmemenv.a
