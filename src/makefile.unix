@@ -144,13 +144,6 @@ OBJS= \
     obj/leveldb.o \
     obj/txdb.o
 
-
-ifdef USE_SSE2
-DEFS += -DUSE_SSE2
-OBJS_SSE2= obj/scrypt-sse2.o
-OBJS += $(OBJS_SSE2)
-endif
-
 all: woodcoind
 
 test check: test_woodcoin FORCE
