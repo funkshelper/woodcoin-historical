@@ -53,6 +53,8 @@ const std::string CLIENT_NAME("Funkenstein");
 //#    endif
 //#endif
 
+//Those github versionings were annoying. Code left in place in case we ever need it back. -- phm@woodcoin.org 9/21/2015
+
 #ifndef BUILD_DESC
 #    define BUILD_DESC "Funkenstein 1.2.0.10"
 #endif
