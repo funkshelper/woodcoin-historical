@@ -52,17 +52,10 @@ const std::string CLIENT_NAME("Funkenstein");
 //#        define BUILD_DESC BUILD_DESC_FROM_UNKNOWN(CLIENT_VERSION_MAJOR, CLIENT_VERSION_MINOR, CLIENT_VERSION_REVISION, CLIENT_VERSION_BUILD)
 //#    endif
 //#endif
-//
-// These version names are very confusing and frankly unnecessary. I could care less what BIP 13 or whatever said.
-// We can simply remember to update BUILD_DESC below, and if we ever are updating often enough to need it, we can uncomment the above lines
-// and go with the GIT version control.
 
 #ifndef BUILD_DESC
-#    define BUILD_DESC "1.2.0.10"
+#    define BUILD_DESC "Funkenstein 1.2.0.10"
 #endif
-
-// However, this BUILD_DATE is handy.
-// -- phm@woodcoin.org 9/21/15
 
 #ifndef BUILD_DATE
 #    ifdef GIT_COMMIT_DATE
@@ -72,5 +65,5 @@ const std::string CLIENT_NAME("Funkenstein");
 #    endif
 #endif
 
-const std::string CLIENT_BUILD(CLIENT_NAME BUILD_DESC);
+const std::string CLIENT_BUILD(BUILD_DESC);
 const std::string CLIENT_DATE(BUILD_DATE);
