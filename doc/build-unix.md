@@ -5,9 +5,9 @@ To Build
 ---------------------
 
 	cd src/
-	make -f makefile.unix		# Headless litecoin
+	make -f makefile.unix		# Headless woodcoin
 
-See readme-qt.rst for instructions on building Litecoin-Qt, the graphical user interface.
+See readme-qt.rst for instructions on building Woodcoin-Qt, the graphical user interface.
 
 Dependencies
 ---------------------
@@ -121,7 +121,7 @@ If you need to build Boost yourself:
 
 Security
 --------
-To help make your litecoin installation more secure by making certain attacks impossible to
+To help make your woodcoin installation more secure by making certain attacks impossible to
 exploit even if a vulnerability is found, you can take the following measures:
 
 * Position Independent Executable
@@ -139,7 +139,7 @@ exploit even if a vulnerability is found, you can take the following measures:
 
     To test that you have built PIE executable, install scanelf, part of paxutils, and use:
 
-    	scanelf -e ./litecoin
+    	scanelf -e ./woodcoin
 
     The output should contain:
      TYPE
@@ -153,7 +153,7 @@ exploit even if a vulnerability is found, you can take the following measures:
     executable without the non-executable stack protection.
 
     To verify that the stack is non-executable after compiling use:
-    `scanelf -e ./litecoin`
+    `scanelf -e ./woodcoin`
 
     the output should contain:
 	STK/REL/PTL
