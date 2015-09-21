@@ -1,8 +1,0 @@
-grep: input file ‘client2.txt’ is also the output
-version.cpp.autosave:#define CLIENT_VERSION_SUFFIX   "-log"
-version.cpp.autosave:// finally CLIENT_VERSION_SUFFIX is added
-version.cpp.autosave:const std::string CLIENT_BUILD(BUILD_DESC CLIENT_VERSION_SUFFIX);
-client.txt:version.cpp:const std::string CLIENT_BUILD(BUILD_DESC CLIENT_VERSION_SUFFIX);
-version.cpp:#define CLIENT_VERSION_SUFFIX   "-log"
-version.cpp:// finally CLIENT_VERSION_SUFFIX is added
-version.cpp:const std::string CLIENT_BUILD(BUILD_DESC CLIENT_VERSION_SUFFIX);

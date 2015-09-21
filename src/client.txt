@@ -1,6 +1,0 @@
-grep: input file ‘client.txt’ is also the output
-util.cpp:    return CLIENT_BUILD;
-version.cpp:// The following part of the code determines the CLIENT_BUILD variable.
-version.cpp:// * then, three options exist for determining CLIENT_BUILD:
-version.cpp:const std::string CLIENT_BUILD(BUILD_DESC CLIENT_VERSION_SUFFIX);
-version.h:extern const std::string CLIENT_BUILD;
