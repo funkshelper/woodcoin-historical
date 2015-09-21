@@ -1,0 +1,1020 @@
+wallet.h:/** (client) version numbers for particular wallet features */
+wallet.h:    FEATURE_BASE = 10500, // the earliest version new wallets supports (only useful for getinfo's clientversion output)
+wallet.h:    // the current wallet version: clients below this version are not able to load the wallet
+wallet.h:    // the maximum wallet format version: memory-only variable that specifies to what version this wallet may be upgraded
+wallet.h:    // change which version we're allowed to upgrade to (note that this does not immediately imply upgrading to that format)
+wallet.h:    // get the current wallet format (the oldest client version guaranteed to understand this wallet)
+wallet.h:        pthis->mapValue.erase("version");
+net.h:    // store the sanitized version in cleanSubVer. The original should be used when dealing with
+net.h:    // a) it allows us to not relay tx invs before receiving the peer's version message
+net.h:    // b) the peer may tell us in their version message that we should not relay tx invs
+net.h:        fClient = false; // set by version message
+net.h:        // Be shy and don't send version until we hear
+net.h:    // now but might be valid in a later version is also
+addrman.h:        // * version byte (currently 0)
+rpcrawtransaction.cpp:    entry.push_back(Pair("version", tx.nVersion));
+makefile.unix:    obj/version.o \
+makefile.unix:version.cpp: obj/build.h
+main.cpp:        strReason = "version";
+main.cpp:            // Allow replacing with a newer version of the same transaction
+main.cpp:            printf("CTxMemPool::accept() : replacing tx %s with new version\n", ptxOld->GetHash().ToString().c_str());
+main.cpp:        // No network rules currently depend on the version here, so an inconsistency is harmless
+main.cpp:        // but it must be corrected before txout nversion ever influences a network rule.
+main.cpp:    // Check it again in case a previous version let a bad block in
+main.cpp:    // Check the version of the last 100 blocks to see if we need to upgrade:
+main.cpp:            printf("SetBestChain: %d of last 100 blocks above version %d\n", nUpgraded, CBlock::CURRENT_VERSION);
+main.cpp:            strMiscWarning = _("Warning: This version is obsolete, upgrade required!");
+main.cpp:    if (strCommand == "version")
+main.cpp:        // Each connection can only send one version message
+main.cpp:            // disconnect from peers older than this proto version
+main.cpp:            printf("partner %s using obsolete version %i; disconnecting\n", pfrom->addr.ToString().c_str(), pfrom->nVersion);
+main.cpp:        // Be shy and don't send version until we hear
+main.cpp:        // Change version
+main.cpp:        printf("receive version message: %s: version %d, blocks=%d, us=%s, them=%s, peer=%s\n", pfrom->cleanSubVer.c_str(), pfrom->nVersion, pfrom->nStartingHeight, addrMe.ToString().c_str(), addrFrom.ToString().c_str(), pfrom->addr.ToString().c_str());
+main.cpp:        // Must have a version message before anything else
+main.cpp:        // Don't want addr from older versions unless seeding
+main.cpp:        if (strCommand == "version" || strCommand == "addr" || strCommand == "inv" || strCommand == "getdata" || strCommand == "ping")
+main.cpp:        // Don't send anything until we get their version message
+main.cpp:    unsigned int nHeight = pindexPrev->nHeight+1; // Height first in coinbase required for block.version=2
+grep: input file ‘version.txt’ is also the output
+walletdb.cpp:#include <boost/version.hpp>
+walletdb.cpp:        else if (strType == "version")
+walletdb.cpp:        if (Read((string)"minversion", nMinVersion))
+walletdb.cpp:    // Rewrite encrypted wallets of versions 0.4.0 and 0.5.0rc:
+leveldb/db/version_set_test.cc:#include "db/version_set.h"
+leveldb/db/db_impl.h:  VersionSet* versions_;
+leveldb/db/version_set.cc:#include "db/version_set.h"
+leveldb/db/version_set.cc:// An internal iterator.  For a given version/level pair, yields
+leveldb/db/version_set.cc:  assert(this != &vset_->dummy_versions_);
+leveldb/db/version_set.cc:      dummy_versions_(this),
+leveldb/db/version_set.cc:  assert(dummy_versions_.next_ == &dummy_versions_);  // List must be empty
+leveldb/db/version_set.cc:  v->prev_ = dummy_versions_.prev_;
+leveldb/db/version_set.cc:  v->next_ = &dummy_versions_;
+leveldb/db/version_set.cc:  // a temporary file that contains a snapshot of the current version.
+leveldb/db/version_set.cc:              "version to prevent mismatch between in-memory and logged state");
+leveldb/db/version_set.cc:  // Install the new version
+leveldb/db/version_set.cc:    // Install recovered version
+leveldb/db/version_set.cc:  for (Version* v = dummy_versions_.next_;
+leveldb/db/version_set.cc:       v != &dummy_versions_;
+leveldb/db/version_set.cc:  c->input_version_ = current_;
+leveldb/db/version_set.cc:  c->input_version_->Ref();
+leveldb/db/version_set.cc:  c->input_version_ = current_;
+leveldb/db/version_set.cc:  c->input_version_->Ref();
+leveldb/db/version_set.cc:      input_version_(NULL),
+leveldb/db/version_set.cc:  if (input_version_ != NULL) {
+leveldb/db/version_set.cc:    input_version_->Unref();
+leveldb/db/version_set.cc:  const Comparator* user_cmp = input_version_->vset_->icmp_.user_comparator();
+leveldb/db/version_set.cc:    const std::vector<FileMetaData*>& files = input_version_->files_[lvl];
+leveldb/db/version_set.cc:  const InternalKeyComparator* icmp = &input_version_->vset_->icmp_;
+leveldb/db/version_set.cc:  if (input_version_ != NULL) {
+leveldb/db/version_set.cc:    input_version_->Unref();
+leveldb/db/version_set.cc:    input_version_ = NULL;
+leveldb/db/c.cc:int leveldb_major_version() {
+leveldb/db/c.cc:int leveldb_minor_version() {
+leveldb/db/corruption_test.cc:#include "db/version_set.h"
+leveldb/db/c_test.c:  CheckCondition(leveldb_major_version() >= 1);
+leveldb/db/c_test.c:  CheckCondition(leveldb_minor_version() >= 1);
+Binary file leveldb/db/version_edit.o matches
+leveldb/db/db_bench.cc:#include "db/version_set.h"
+leveldb/db/db_bench.cc:    fprintf(stderr, "LevelDB:    version %d.%d\n",
+leveldb/db/builder.cc:#include "db/version_edit.h"
+Binary file leveldb/db/version_set.o matches
+leveldb/db/version_set.h:// newest version is called "current".  Older versions may be kept
+leveldb/db/version_set.h:// entire set of versions is maintained in a VersionSet.
+leveldb/db/version_set.h:#include "db/version_edit.h"
+leveldb/db/version_set.h:  // REQUIRES: This version has been saved (see VersionSet::SaveTo)
+leveldb/db/version_set.h:  // Return a human readable string that describes this version's contents.
+leveldb/db/version_set.h:  Version* next_;               // Next version in linked list
+leveldb/db/version_set.h:  Version* prev_;               // Previous version in linked list
+leveldb/db/version_set.h:  int refs_;                    // Number of live refs to this version
+leveldb/db/version_set.h:  // Apply *edit to the current version to form a new descriptor that
+leveldb/db/version_set.h:  // current version.  Will release *mu while actually writing to the file.
+leveldb/db/version_set.h:  // Return the current version.
+leveldb/db/version_set.h:  // Add all files listed in any live version to *live.
+leveldb/db/version_set.h:  // "key" as of version "v".
+leveldb/db/version_set.h:  Version dummy_versions_;  // Head of circular doubly-linked list of versions.
+leveldb/db/version_set.h:  Version* current_;        // == dummy_versions_.prev_
+leveldb/db/version_set.h:  // Release the input version for the compaction, once the compaction
+leveldb/db/version_set.h:  Version* input_version_;
+leveldb/db/version_set.h:  // level_ptrs_ holds indices into input_version_->levels_: our state
+leveldb/db/version_edit.h:  // REQUIRES: This version has not been saved (see VersionSet::SaveTo)
+leveldb/db/leveldb_main.cc:#include "db/version_edit.h"
+leveldb/db/db_impl.cc:#include "db/version_set.h"
+leveldb/db/db_impl.cc:  versions_ = new VersionSet(dbname_, &options_, table_cache_,
+leveldb/db/db_impl.cc:  delete versions_;
+leveldb/db/db_impl.cc:  versions_->AddLiveFiles(&live);
+leveldb/db/db_impl.cc:          keep = ((number >= versions_->LogNumber()) ||
+leveldb/db/db_impl.cc:                  (number == versions_->PrevLogNumber()));
+leveldb/db/db_impl.cc:          keep = (number >= versions_->ManifestFileNumber());
+leveldb/db/db_impl.cc:  s = versions_->Recover();
+leveldb/db/db_impl.cc:    // produced by an older version of leveldb.
+leveldb/db/db_impl.cc:    const uint64_t min_log = versions_->LogNumber();
+leveldb/db/db_impl.cc:    const uint64_t prev_log = versions_->PrevLogNumber();
+leveldb/db/db_impl.cc:    versions_->AddLiveFiles(&expected);
+leveldb/db/db_impl.cc:      versions_->MarkFileNumberUsed(logs[i]);
+leveldb/db/db_impl.cc:      if (versions_->LastSequence() < max_sequence) {
+leveldb/db/db_impl.cc:        versions_->SetLastSequence(max_sequence);
+leveldb/db/db_impl.cc:  meta.number = versions_->NewFileNumber();
+leveldb/db/db_impl.cc:  Version* base = versions_->current();
+leveldb/db/db_impl.cc:    s = versions_->LogAndApply(&edit, &mutex_);
+leveldb/db/db_impl.cc:    Version* base = versions_->current();
+leveldb/db/db_impl.cc:             !versions_->NeedsCompaction()) {
+leveldb/db/db_impl.cc:    c = versions_->CompactRange(m->level, m->begin, m->end);
+leveldb/db/db_impl.cc:    c = versions_->PickCompaction();
+leveldb/db/db_impl.cc:    status = versions_->LogAndApply(c->edit(), &mutex_);
+leveldb/db/db_impl.cc:        versions_->LevelSummary(&tmp));
+leveldb/db/db_impl.cc:    file_number = versions_->NewFileNumber();
+leveldb/db/db_impl.cc:  return versions_->LogAndApply(compact->compaction->edit(), &mutex_);
+leveldb/db/db_impl.cc:  assert(versions_->NumLevelFiles(compact->compaction->level()) > 0);
+leveldb/db/db_impl.cc:    compact->smallest_snapshot = versions_->LastSequence();
+leveldb/db/db_impl.cc:  Iterator* input = versions_->MakeInputIterator(compact->compaction);
+leveldb/db/db_impl.cc:      "compacted to: %s", versions_->LevelSummary(&tmp));
+leveldb/db/db_impl.cc:  Version* version;
+leveldb/db/db_impl.cc:  state->version->Unref();
+leveldb/db/db_impl.cc:  *latest_snapshot = versions_->LastSequence();
+leveldb/db/db_impl.cc:  versions_->current()->AddIterators(options, &list);
+leveldb/db/db_impl.cc:  versions_->current()->Ref();
+leveldb/db/db_impl.cc:  cleanup->version = versions_->current();
+leveldb/db/db_impl.cc:  return versions_->MaxNextLevelOverlappingBytes();
+leveldb/db/db_impl.cc:    snapshot = versions_->LastSequence();
+leveldb/db/db_impl.cc:  Version* current = versions_->current();
+leveldb/db/db_impl.cc:  if (versions_->current()->RecordReadSample(key)) {
+leveldb/db/db_impl.cc:  return snapshots_.New(versions_->LastSequence());
+leveldb/db/db_impl.cc:  uint64_t last_sequence = versions_->LastSequence();
+leveldb/db/db_impl.cc:    versions_->SetLastSequence(last_sequence);
+leveldb/db/db_impl.cc:        versions_->NumLevelFiles(0) >= config::kL0_SlowdownWritesTrigger) {
+leveldb/db/db_impl.cc:    } else if (versions_->NumLevelFiles(0) >= config::kL0_StopWritesTrigger) {
+leveldb/db/db_impl.cc:      assert(versions_->PrevLogNumber() == 0);
+leveldb/db/db_impl.cc:      uint64_t new_log_number = versions_->NewFileNumber();
+leveldb/db/db_impl.cc:        versions_->ReuseFileNumber(new_log_number);
+leveldb/db/db_impl.cc:               versions_->NumLevelFiles(static_cast<int>(level)));
+leveldb/db/db_impl.cc:      int files = versions_->NumLevelFiles(level);
+leveldb/db/db_impl.cc:            versions_->NumLevelBytes(level) / 1048576.0,
+leveldb/db/db_impl.cc:    *value = versions_->current()->DebugString();
+leveldb/db/db_impl.cc:    versions_->current()->Ref();
+leveldb/db/db_impl.cc:    v = versions_->current();
+leveldb/db/db_impl.cc:    uint64_t start = versions_->ApproximateOffsetOf(v, k1);
+leveldb/db/db_impl.cc:    uint64_t limit = versions_->ApproximateOffsetOf(v, k2);
+leveldb/db/db_impl.cc:    uint64_t new_log_number = impl->versions_->NewFileNumber();
+leveldb/db/db_impl.cc:      s = impl->versions_->LogAndApply(&edit, &impl->mutex_);
+leveldb/db/log_reader.cc:          // Handle bug in earlier versions of log::Writer where
+leveldb/db/log_reader.cc:          // Handle bug in earlier versions of log::Writer where
+leveldb/db/version_edit_test.cc:#include "db/version_edit.h"
+leveldb/db/db_test.cc:#include "db/version_set.h"
+Binary file leveldb/db/c.o matches
+leveldb/db/version_edit.cc:#include "db/version_edit.h"
+leveldb/db/version_edit.cc:#include "db/version_set.h"
+Binary file leveldb/db/db_impl.o matches
+leveldb/db/repair.cc:#include "db/version_edit.h"
+leveldb/db/repair.cc:        Log(options_.info_log, "Log #%llu: ignoring conversion error: %s",
+leveldb/db/repair.cc:    // Do not record a version edit for this conversion to a Table
+leveldb/db/skiplist.h:    // version of the returned Node.
+leveldb/db/skiplist.h:    // pointer observes a fully initialized version of the inserted node.
+Binary file leveldb/db/repair.o matches
+leveldb/AUTHORS:# Initial version authors:
+Binary file leveldb/libleveldb.a matches
+leveldb/doc/index.html:that a read should operate on a particular version of the DB state.
+leveldb/doc/index.html:a little bit of pre-planning.  For example, you could store a version
+leveldb/doc/index.html:(a) keep the same comparator name (b) increment the version number
+leveldb/doc/index.html:version numbers found in the keys to decide how to interpret them.
+leveldb/doc/bench/db_bench_sqlite3.cc:    fprintf(stderr, "SQLite:     version %s\n", SQLITE_VERSION);
+leveldb/doc/bench/db_bench_tree_db.cc:    fprintf(stderr, "Kyoto Cabinet:    version %s, lib ver %d, lib rev %d\n",
+leveldb/doc/benchmark.html:<p>In order to test LevelDB's performance, we benchmark it against other well-established database implementations. We compare LevelDB (revision 39) against <a href="http://www.sqlite.org/">SQLite3</a> (version 3.7.6.3) and <a href="http://fallabs.com/kyotocabinet/spex.html">Kyoto Cabinet's</a> (version 1.2.67) TreeDB (a B+Tree based key-value store). We would like to acknowledge Scott Hess and Mikio Hirabayashi for their suggestions and contributions to the SQLite3 and Kyoto Cabinet benchmarks, respectively.</p>
+leveldb/doc/benchmark.html:<li>TreeDB: TreeDB was compiled using the <a href="http://www.oberhumer.com/opensource/lzo/">LZO</a> compression library (version 2.03). Furthermore, we enabled the TSMALL and TLINEAR options when opening the database in order to reduce the footprint of each record.</li>
+leveldb/build_config.mk:SOURCES=db/builder.cc db/c.cc db/dbformat.cc db/db_impl.cc db/db_iter.cc db/filename.cc db/log_reader.cc db/log_writer.cc db/memtable.cc db/repair.cc db/table_cache.cc db/version_edit.cc db/version_set.cc db/write_batch.cc table/block_builder.cc table/block.cc table/filter_block.cc table/format.cc table/iterator.cc table/merger.cc table/table_builder.cc table/table.cc table/two_level_iterator.cc util/arena.cc util/bloom.cc util/cache.cc util/coding.cc util/comparator.cc util/crc32c.cc util/env.cc util/env_posix.cc util/env_win.cc util/filter_policy.cc util/hash.cc util/histogram.cc util/logging.cc util/options.cc util/status.cc  port/port_posix.cc
+leveldb/table/table_test.cc:// code never generates such blocks, but the Java version of leveldb
+leveldb/build_detect_platform:#   PLATFORM_SHARED_VERSIONED   Set to 'true' if platform supports versioned
+leveldb/WINDOWS.md:Install the [Windows Software Development Kit version 7.1](http://www.microsoft.com/downloads/dlx/en-us/listdetailsview.aspx?FamilyID=6b6c21d2-2006-4afa-9702-529fa782d63b).
+leveldb/include/leveldb/c.h:/* Return the major version number for this release. */
+leveldb/include/leveldb/c.h:extern int leveldb_major_version();
+leveldb/include/leveldb/c.h:/* Return the minor version number for this release. */
+leveldb/include/leveldb/c.h:extern int leveldb_minor_version();
+leveldb/include/leveldb/db.h:  // In particular, deleted and overwritten versions are discarded,
+leveldb/Makefile:	version_edit_test \
+leveldb/Makefile:	version_set_test \
+leveldb/Makefile:version_edit_test: db/version_edit_test.o $(LIBOBJECTS) $(TESTHARNESS)
+leveldb/Makefile:	$(CXX) $(LDFLAGS) db/version_edit_test.o $(LIBOBJECTS) $(TESTHARNESS) -o $@ $(LIBS)
+leveldb/Makefile:version_set_test: db/version_set_test.o $(LIBOBJECTS) $(TESTHARNESS)
+leveldb/Makefile:	$(CXX) $(LDFLAGS) db/version_set_test.o $(LIBOBJECTS) $(TESTHARNESS) -o $@ $(LIBS)
+leveldb/Makefile:IOSVERSION=$(shell defaults read $(PLATFORMSROOT)/iPhoneOS.platform/version CFBundleShortVersionString)
+leveldb/util/logging.h:// Return a human-readable version of "value".
+leveldb/util/hash.cc:// This one is a fallback version for unsupported compilers.
+leveldb/util/cache_test.cc:// Conversions between numeric keys/values and the types expected by Cache.
+leveldb/util/coding.h:// Lower-level versions of Put... that write directly into a character buffer
+leveldb/util/coding.h:// Lower-level versions of Put... that write directly into a character buffer
+leveldb/util/coding.h:// Lower-level versions of Get... that read directly from a character buffer
+leveldb/port/atomic_pointer.h:// - If cstdatomic is present (on newer versions of gcc, it is), we use
+leveldb/port/atomic_pointer.h://   barrier based version, because at least on a gcc 4.4 32-bit build
+leveldb/port/win/stdint.h:// MSVC didn't ship with this file until the 2010 version.
+rpcnet.cpp:        obj.push_back(Pair("version", stats.nVersion));
+rpcblockchain.cpp:    result.push_back(Pair("version", block.nVersion));
+rpcblockchain.cpp:    ret.push_back(Pair("version", coins.nVersion));
+init.cpp:            std::string strUsage = _("Woodcoin version") + " " + FormatFullVersion() + "\n\n" +
+init.cpp:        "  -socks=<n>             " + _("Select the version of socks proxy to use (4-5, default: 5)") + "\n" +
+init.cpp:    // Minimum supported OS versions: WinXP SP3, WinVista >= SP1, Win Server 2008
+init.cpp:    printf("Woodcoin version %s (%s)\n", FormatFullVersion().c_str(), CLIENT_DATE.c_str());
+init.cpp:    printf("Using OpenSSL version %s\n", SSLeay_version(SSLEAY_VERSION));
+init.cpp:        return InitError(strprintf(_("Unknown -socks proxy version requested: %i"), nSocksVersion));
+init.cpp:                strErrors << _("Error loading wallet.dat: Wallet requires newer version of Woodcoin") << "\n";
+bignum.h:            throw bignum_error("CBigNum conversion from unsigned long : BN_set_word failed");
+bignum.h:        //   if built on ubuntu 9.04 or 9.10, probably depends on version of OpenSSL
+script.h:    // Pre-version-0.6, Bitcoin always counted CHECKMULTISIGs
+clientversion.h:// client versioning and copyright year
+clientversion.h:// These need to be macros, as version.cpp's and bitcoin-qt.rc's voodoo requires it
+main.h: *  (coinbase or not, height, transaction version)
+main.h:    int nVersion;         // if the outpoint was the last unspent: its version
+main.h:/** pruned version of CTransaction: only retains metadata and unspent transaction outputs
+main.h: *    version   code             vout[1]                  height
+main.h: *    - version = 1
+main.h: *  version  code  unspentness       vout[4]                                                     vout[16]           height
+main.h: *  - version = 1
+main.h:    // version of the CTransaction; accesses to this value should probably check for nHeight as well,
+main.h:    // as new tx version will probably only be introduced at certain heights
+main.h:        // version
+main.h:        // version
+main.h:        // version
+main.h:    BLOCK_VALID_HEADER       =    1, // parsed, version ok, hash satisfies claimed PoW, 1 <= vtx count <= max, timestamp not in future
+util.cpp:#include "version.h"
+util.cpp://           http://clang.debian.net/status.php?version=3.0&key=CANNOT_FIND_FUNCTION
+util.cpp:    // Windows-specific version
+util.cpp:    // OSX specific version
+util.cpp:    // Fallback version
+util.cpp:// Format the subversion field according to BIP 14 spec (https://en.bitcoin.it/wiki/BIP_0014)
+makefile.linux-mingw:    obj/version.o \
+makefile.linux-mingw:version.cpp: obj/build.h
+alert.cpp:    // TODO: rework for client-version-embedded-in-strSubVer ?
+alert.cpp:    // must never expire, must apply to all versions,
+alert.cpp:    // send an "everything is OK, don't panic" version that
+version.cpp:#include "version.h"
+version.cpp:// Name of client reported in the 'version' message. Report the same name
+version.cpp:// Client version number
+version.cpp:// * secondly, if this is an exported version of the code, GIT_ARCHIVE will
+serialize.h:#include "version.h"
+serialize.h:// If none of the specialized versions above matched, default to calling member function.
+test/script_P2SH_tests.cpp:    // Test SignSignature() (and therefore the version of Solver() that signs transactions)
+test/alert_tests.cpp:    alert.nMinVer       = 0;  // These versions are protocol versions
+test/script_tests.cpp:    // A couple of partially-signed versions:
+test/bignum_tests.cpp:// test a generic version of the function. This increases the chance
+test/rpc_tests.cpp:    BOOST_CHECK_EQUAL(find_value(r.get_obj(), "version").get_int(), 1);
+test/multisig_tests.cpp:    // Test SignSignature() (and therefore the version of Solver() that signs transactions)
+sph_types.h: * words, using either little-endian or big-endian conversion. The hash
+sph_types.h: * both. <code>sphlib</code> implements the corrected versions.
+sph_types.h: * a rotation. Recent versions of gcc recognize the expression above and
+db.h:        return Read(std::string("version"), nVersion);
+db.h:        return Write(std::string("version"), nVersion);
+alert.h:/** Alerts are for notifying old versions if they become too obsolete and
+alert.h: * not read the entire buffer if the alert is for a newer version, but older
+alert.h: * versions can still relay the original data.
+alert.h:    int nMinVer;            // lowest version inclusive
+alert.h:    int nMaxVer;            // highest version inclusive
+rpcmining.cpp:            "  \"version\" : block version\n"
+rpcmining.cpp:    result.push_back(Pair("version", pblock->nVersion));
+net.cpp:    printf("send version message: version %d, blocks=%d, us=%s, them=%s, peer=%s\n", PROTOCOL_VERSION, nBestHeight, addrMe.ToString().c_str(), addrYou.ToString().c_str(), addr.ToString().c_str());
+net.cpp:    PushMessage("version", PROTOCOL_VERSION, nLocalServices, nTime, addrYou, addrMe,
+net.cpp:        // Save original serialized message so newer versions are preserved
+rpcwallet.cpp:    obj.push_back(Pair("version",       (int)CLIENT_VERSION));
+rpcwallet.cpp:    obj.push_back(Pair("protocolversion",(int)PROTOCOL_VERSION));
+rpcwallet.cpp:        obj.push_back(Pair("walletversion", pwalletMain->GetVersion()));
+qt/aboutdialog.cpp:#include "clientversion.h"
+qt/aboutdialog.cpp:        ui->versionLabel->setText(model->formatFullVersion());
+qt/bitcoinunits.h:    //! Unit conversion and formatting
+qt/locale/bitcoin_sk.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="sk" version="2.0">
+qt/locale/bitcoin_sk.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_sk.ts:        <source>version</source>
+qt/locale/bitcoin_sk.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_sk.ts:        <source>Client version</source>
+qt/locale/bitcoin_sk.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_sk.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_sk.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_sk.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_sk.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_sk.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_sv.qm matches
+Binary file qt/locale/bitcoin_fi.qm matches
+Binary file qt/locale/bitcoin_fa_IR.qm matches
+qt/locale/bitcoin_ru.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.0">
+qt/locale/bitcoin_ru.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_ru.ts:        <source>version</source>
+qt/locale/bitcoin_ru.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_ru.ts:        <source>Client version</source>
+qt/locale/bitcoin_ru.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_ru.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_ru.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_ru.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_ru.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_ru.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_cs.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs" version="2.0">
+qt/locale/bitcoin_cs.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_cs.ts:        <source>version</source>
+qt/locale/bitcoin_cs.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_cs.ts:        <source>Client version</source>
+qt/locale/bitcoin_cs.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_cs.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_cs.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_cs.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_cs.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_cs.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_fa_IR.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="fa_IR" version="2.0">
+qt/locale/bitcoin_fa_IR.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_fa_IR.ts:        <translation>&lt;b&gt;Litecoin&lt;/b&gt; version</translation>
+qt/locale/bitcoin_fa_IR.ts:        <source>version</source>
+qt/locale/bitcoin_fa_IR.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_fa_IR.ts:        <source>Client version</source>
+qt/locale/bitcoin_fa_IR.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_fa_IR.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_fa_IR.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_fa_IR.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_fa_IR.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_fa_IR.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_pt_BR.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_BR" version="2.0">
+qt/locale/bitcoin_pt_BR.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_pt_BR.ts:        <source>version</source>
+qt/locale/bitcoin_pt_BR.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_pt_BR.ts:        <source>Client version</source>
+qt/locale/bitcoin_pt_BR.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_pt_BR.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_pt_BR.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_pt_BR.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_pt_BR.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_pt_BR.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_hi_IN.qm matches
+Binary file qt/locale/bitcoin_lv_LV.qm matches
+Binary file qt/locale/bitcoin_da.qm matches
+Binary file qt/locale/bitcoin_et.qm matches
+Binary file qt/locale/bitcoin_sk.qm matches
+Binary file qt/locale/bitcoin_tr.qm matches
+Binary file qt/locale/bitcoin_la.qm matches
+Binary file qt/locale/bitcoin_pt_BR.qm matches
+qt/locale/bitcoin_ca.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca" version="2.0">
+qt/locale/bitcoin_ca.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_ca.ts:        <source>version</source>
+qt/locale/bitcoin_ca.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_ca.ts:        <source>Client version</source>
+qt/locale/bitcoin_ca.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_ca.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_ca.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_ca.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_ca.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_ca.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_fa.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="fa" version="2.0">
+qt/locale/bitcoin_fa.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_fa.ts:        <source>version</source>
+qt/locale/bitcoin_fa.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_fa.ts:        <source>Client version</source>
+qt/locale/bitcoin_fa.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_fa.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_fa.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_fa.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_fa.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_fa.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_fr_CA.qm matches
+Binary file qt/locale/bitcoin_hr.qm matches
+Binary file qt/locale/bitcoin_cy.qm matches
+qt/locale/bitcoin_la.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="la" version="2.0">
+qt/locale/bitcoin_la.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_la.ts:        <source>version</source>
+qt/locale/bitcoin_la.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_la.ts:        <source>Client version</source>
+qt/locale/bitcoin_la.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_la.ts:        <translation>Utens OpenSSL versione</translation>
+qt/locale/bitcoin_la.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_la.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_la.ts:        <translation>Selige versionem socks vicarii utendam (4-5, praedefinitum: 5)</translation>
+qt/locale/bitcoin_la.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_la.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_la.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_zh_TW.qm matches
+qt/locale/bitcoin_pt_PT.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_PT" version="2.0">
+qt/locale/bitcoin_pt_PT.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_pt_PT.ts:        <source>version</source>
+qt/locale/bitcoin_pt_PT.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_pt_PT.ts:        <source>Client version</source>
+qt/locale/bitcoin_pt_PT.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_pt_PT.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_pt_PT.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_pt_PT.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_pt_PT.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_pt_PT.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_uk.qm matches
+Binary file qt/locale/bitcoin_af_ZA.qm matches
+Binary file qt/locale/bitcoin_ru.qm matches
+qt/locale/bitcoin_zh_CN.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.0">
+qt/locale/bitcoin_zh_CN.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_zh_CN.ts:        <source>version</source>
+qt/locale/bitcoin_zh_CN.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_zh_CN.ts:        <source>Client version</source>
+qt/locale/bitcoin_zh_CN.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_zh_CN.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_zh_CN.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_zh_CN.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_zh_CN.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_zh_CN.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_th_TH.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="th_TH" version="2.0">
+qt/locale/bitcoin_th_TH.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_th_TH.ts:        <source>version</source>
+qt/locale/bitcoin_th_TH.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_th_TH.ts:        <source>Client version</source>
+qt/locale/bitcoin_th_TH.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_th_TH.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_th_TH.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_th_TH.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_th_TH.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_th_TH.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_it.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="it" version="2.0">
+qt/locale/bitcoin_it.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_it.ts:        <source>version</source>
+qt/locale/bitcoin_it.ts:        <translation>versione</translation>
+qt/locale/bitcoin_it.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_it.ts:        <source>Client version</source>
+qt/locale/bitcoin_it.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_it.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_it.ts:        <translation>Questa versione è una compilazione pre-rilascio - usala a tuo rischio - non utilizzarla per la generazione o per applicazioni di commercio</translation>
+qt/locale/bitcoin_it.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_it.ts:        <translation>Selezionare la versione del proxy socks da usare (4-5, default: 5)</translation>
+qt/locale/bitcoin_it.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_it.ts:        <translation>Attenzione: questa versione è obsoleta, aggiornamento necessario!</translation>
+qt/locale/bitcoin_it.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_it.ts:        <translation>Errore caricamento wallet.dat: il wallet richiede una versione nuova di Litecoin</translation>
+qt/locale/bitcoin_it.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_it.qm matches
+qt/locale/bitcoin_sv.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="sv" version="2.0">
+qt/locale/bitcoin_sv.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_sv.ts:        <translation>&lt;b&gt;Litecoin&lt;/b&gt;-version</translation>
+qt/locale/bitcoin_sv.ts:        <source>version</source>
+qt/locale/bitcoin_sv.ts:        <translation>version</translation>
+qt/locale/bitcoin_sv.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_sv.ts:        <translation>SOCKS version av proxyn (t.ex. 5)</translation>
+qt/locale/bitcoin_sv.ts:        <source>Client version</source>
+qt/locale/bitcoin_sv.ts:        <translation>Klient-version</translation>
+qt/locale/bitcoin_sv.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_sv.ts:        <translation>Använder OpenSSL version</translation>
+qt/locale/bitcoin_sv.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_sv.ts:        <translation>Litecoin version</translation>
+qt/locale/bitcoin_sv.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_sv.ts:        <translation>Välj socks-proxy version att använda (4-5, förvalt: 5)</translation>
+qt/locale/bitcoin_sv.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_sv.ts:        <translation>Varning: denna version är föråldrad, uppgradering krävs!</translation>
+qt/locale/bitcoin_sv.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_sv.ts:        <translation>Fel vid inläsningen av wallet.dat: Plånboken kräver en senare version av Litecoin</translation>
+qt/locale/bitcoin_sv.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_sv.ts:        <translation>Okänd -socks proxy version begärd: %i</translation>
+qt/locale/bitcoin_sr.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr" version="2.0">
+qt/locale/bitcoin_sr.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_sr.ts:        <source>version</source>
+qt/locale/bitcoin_sr.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_sr.ts:        <source>Client version</source>
+qt/locale/bitcoin_sr.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_sr.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_sr.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_sr.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_sr.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_sr.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_pt_PT.qm matches
+qt/locale/bitcoin_uk.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="uk" version="2.0">
+qt/locale/bitcoin_uk.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_uk.ts:        <source>version</source>
+qt/locale/bitcoin_uk.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_uk.ts:        <source>Client version</source>
+qt/locale/bitcoin_uk.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_uk.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_uk.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_uk.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_uk.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_uk.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_he.qm matches
+Binary file qt/locale/bitcoin_fr.qm matches
+Binary file qt/locale/bitcoin_fa.qm matches
+qt/locale/bitcoin_hi_IN.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="hi_IN" version="2.0">
+qt/locale/bitcoin_hi_IN.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_hi_IN.ts:        <source>version</source>
+qt/locale/bitcoin_hi_IN.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_hi_IN.ts:        <source>Client version</source>
+qt/locale/bitcoin_hi_IN.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_hi_IN.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_hi_IN.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_hi_IN.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_hi_IN.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_hi_IN.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_ja.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja" version="2.0">
+qt/locale/bitcoin_ja.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_ja.ts:        <source>version</source>
+qt/locale/bitcoin_ja.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_ja.ts:        <source>Client version</source>
+qt/locale/bitcoin_ja.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_ja.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_ja.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_ja.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_ja.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_ja.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_eu_ES.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="eu_ES" version="2.0">
+qt/locale/bitcoin_eu_ES.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_eu_ES.ts:        <source>version</source>
+qt/locale/bitcoin_eu_ES.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_eu_ES.ts:        <source>Client version</source>
+qt/locale/bitcoin_eu_ES.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_eu_ES.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_eu_ES.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_eu_ES.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_eu_ES.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_eu_ES.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_fi.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.0">
+qt/locale/bitcoin_fi.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_fi.ts:        <source>version</source>
+qt/locale/bitcoin_fi.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_fi.ts:        <source>Client version</source>
+qt/locale/bitcoin_fi.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_fi.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_fi.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_fi.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_fi.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_fi.ts:        <translation>Virhe ladattaessa wallet.dat-tiedostoa: Tarvitset uudemman version Litecoinista</translation>
+qt/locale/bitcoin_fi.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_bg.qm matches
+Binary file qt/locale/bitcoin_eu_ES.qm matches
+Binary file qt/locale/bitcoin_es.qm matches
+qt/locale/bitcoin_ro_RO.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="ro_RO" version="2.0">
+qt/locale/bitcoin_ro_RO.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_ro_RO.ts:        <source>version</source>
+qt/locale/bitcoin_ro_RO.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_ro_RO.ts:        <source>Client version</source>
+qt/locale/bitcoin_ro_RO.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_ro_RO.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_ro_RO.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_ro_RO.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_ro_RO.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_ro_RO.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_ro_RO.ts:        <translation>Necunoscut -socks proxy version requested: %i</translation>
+qt/locale/bitcoin_ar.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="ar" version="2.0">
+qt/locale/bitcoin_ar.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_ar.ts:        <source>version</source>
+qt/locale/bitcoin_ar.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_ar.ts:        <source>Client version</source>
+qt/locale/bitcoin_ar.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_ar.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_ar.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_ar.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_ar.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_ar.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_en.ts:<?xml version="1.0" encoding="utf-8"?>
+qt/locale/bitcoin_en.ts:<TS version="2.0" language="en">
+qt/locale/bitcoin_en.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_en.ts:        <translation>&lt;b&gt;Litecoin&lt;/b&gt; version</translation>
+qt/locale/bitcoin_en.ts:        <source>version</source>
+qt/locale/bitcoin_en.ts:        <translation>version</translation>
+qt/locale/bitcoin_en.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_en.ts:        <translation>SOCKS version of the proxy (e.g. 5)</translation>
+qt/locale/bitcoin_en.ts:        <source>Client version</source>
+qt/locale/bitcoin_en.ts:        <translation>Client version</translation>
+qt/locale/bitcoin_en.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_en.ts:        <translation>Using OpenSSL version</translation>
+qt/locale/bitcoin_en.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_en.ts:        <translation>Litecoin version</translation>
+qt/locale/bitcoin_en.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_en.ts:        <translation>Select the version of socks proxy to use (4-5, default: 5)</translation>
+qt/locale/bitcoin_en.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_en.ts:        <translation>Warning: This version is obsolete, upgrade required!</translation>
+qt/locale/bitcoin_en.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_en.ts:        <translation>Error loading wallet.dat: Wallet requires newer version of Litecoin</translation>
+qt/locale/bitcoin_en.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_en.ts:        <translation>Unknown -socks proxy version requested: %i</translation>
+qt/locale/bitcoin_bg.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="bg" version="2.0">
+qt/locale/bitcoin_bg.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_bg.ts:        <source>version</source>
+qt/locale/bitcoin_bg.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_bg.ts:        <source>Client version</source>
+qt/locale/bitcoin_bg.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_bg.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_bg.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_bg.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_bg.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_bg.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_da.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="da" version="2.0">
+qt/locale/bitcoin_da.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_da.ts:        <translation>&lt;b&gt;Litecoin&lt;/b&gt; version</translation>
+qt/locale/bitcoin_da.ts:        <source>version</source>
+qt/locale/bitcoin_da.ts:        <translation>version</translation>
+qt/locale/bitcoin_da.ts:        <translation>SOCKS-version</translation>
+qt/locale/bitcoin_da.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_da.ts:        <translation>SOCKS-version af proxyen (f.eks. 5)</translation>
+qt/locale/bitcoin_da.ts:        <source>Client version</source>
+qt/locale/bitcoin_da.ts:        <translation>Klientversion</translation>
+qt/locale/bitcoin_da.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_da.ts:        <translation>Anvendt OpenSSL-version</translation>
+qt/locale/bitcoin_da.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_da.ts:        <translation>Litecoin-version</translation>
+qt/locale/bitcoin_da.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_da.ts:        <translation>Angiv version af SOCKS-proxyen (4-5, standard: 5)</translation>
+qt/locale/bitcoin_da.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_da.ts:        <translation>Advarsel: Denne version er forældet, opgradering påkrævet!</translation>
+qt/locale/bitcoin_da.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_da.ts:        <translation>Fejl ved indlæsning af wallet.dat: Tegnebog kræver en nyere version af Litecoin</translation>
+qt/locale/bitcoin_da.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_da.ts:        <translation>Ukendt -socks proxy-version: %i</translation>
+qt/locale/bitcoin_bs.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="bs" version="2.0">
+qt/locale/bitcoin_bs.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_bs.ts:        <source>version</source>
+qt/locale/bitcoin_bs.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_bs.ts:        <source>Client version</source>
+qt/locale/bitcoin_bs.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_bs.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_bs.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_bs.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_bs.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_bs.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_hu.qm matches
+Binary file qt/locale/bitcoin_nb.qm matches
+qt/locale/bitcoin_hr.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="hr" version="2.0">
+qt/locale/bitcoin_hr.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_hr.ts:        <source>version</source>
+qt/locale/bitcoin_hr.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_hr.ts:        <source>Client version</source>
+qt/locale/bitcoin_hr.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_hr.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_hr.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_hr.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_hr.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_hr.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_lt.qm matches
+qt/locale/bitcoin_fr.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.0">
+qt/locale/bitcoin_fr.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_fr.ts:        <translation>&lt;b&gt;Litecoin&lt;/b&gt; version</translation>
+qt/locale/bitcoin_fr.ts:        <source>version</source>
+qt/locale/bitcoin_fr.ts:        <translation>version</translation>
+qt/locale/bitcoin_fr.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_fr.ts:        <source>Client version</source>
+qt/locale/bitcoin_fr.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_fr.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_fr.ts:        <translation>Ceci est une pré-version de test - utilisez à vos risques et périls - ne l&apos;utilisez pas pour miner ou pour des applications marchandes</translation>
+qt/locale/bitcoin_fr.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_fr.ts:        <translation>Sélectionner la version du proxy socks à utiliser (4-5, 5 étant la valeur par défaut)</translation>
+qt/locale/bitcoin_fr.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_fr.ts:        <translation>Avertissement : cette version est obsolète, une mise à jour est nécessaire !</translation>
+qt/locale/bitcoin_fr.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_fr.ts:        <translation>Erreur lors du chargement de wallet.dat : le porte-monnaie nécessite une version plus récente de Litecoin</translation>
+qt/locale/bitcoin_fr.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_fr.ts:        <translation>Impossible de revenir à une version antérieure du porte-monnaie</translation>
+Binary file qt/locale/bitcoin_pl.qm matches
+qt/locale/bitcoin_hu.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.0">
+qt/locale/bitcoin_hu.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_hu.ts:        <source>version</source>
+qt/locale/bitcoin_hu.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_hu.ts:        <source>Client version</source>
+qt/locale/bitcoin_hu.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_hu.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_hu.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_hu.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_hu.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_hu.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_ar.qm matches
+Binary file qt/locale/bitcoin_ca_ES.qm matches
+Binary file qt/locale/bitcoin_eo.qm matches
+Binary file qt/locale/bitcoin_el_GR.qm matches
+Binary file qt/locale/bitcoin_en.qm matches
+qt/locale/bitcoin_gu_IN.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="gu_IN" version="2.0">
+qt/locale/bitcoin_gu_IN.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_gu_IN.ts:        <source>version</source>
+qt/locale/bitcoin_gu_IN.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_gu_IN.ts:        <source>Client version</source>
+qt/locale/bitcoin_gu_IN.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_gu_IN.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_gu_IN.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_gu_IN.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_gu_IN.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_gu_IN.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_lt.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="lt" version="2.0">
+qt/locale/bitcoin_lt.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_lt.ts:        <source>version</source>
+qt/locale/bitcoin_lt.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_lt.ts:        <source>Client version</source>
+qt/locale/bitcoin_lt.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_lt.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_lt.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_lt.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_lt.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_lt.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_de.qm matches
+Binary file qt/locale/bitcoin_sr.qm matches
+qt/locale/bitcoin_et.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="et" version="2.0">
+qt/locale/bitcoin_et.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_et.ts:        <source>version</source>
+qt/locale/bitcoin_et.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_et.ts:        <source>Client version</source>
+qt/locale/bitcoin_et.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_et.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_et.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_et.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_et.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_et.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_nb.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="nb" version="2.0">
+qt/locale/bitcoin_nb.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_nb.ts:        <source>version</source>
+qt/locale/bitcoin_nb.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_nb.ts:        <source>Client version</source>
+qt/locale/bitcoin_nb.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_nb.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_nb.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_nb.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_nb.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_nb.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_lv_LV.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="lv_LV" version="2.0">
+qt/locale/bitcoin_lv_LV.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_lv_LV.ts:        <source>version</source>
+qt/locale/bitcoin_lv_LV.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_lv_LV.ts:        <source>Client version</source>
+qt/locale/bitcoin_lv_LV.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_lv_LV.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_lv_LV.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_lv_LV.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_lv_LV.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_lv_LV.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_es_CL.qm matches
+qt/locale/bitcoin_ca_ES.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca_ES" version="2.0">
+qt/locale/bitcoin_ca_ES.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_ca_ES.ts:        <source>version</source>
+qt/locale/bitcoin_ca_ES.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_ca_ES.ts:        <source>Client version</source>
+qt/locale/bitcoin_ca_ES.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_ca_ES.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_ca_ES.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_ca_ES.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_ca_ES.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_ca_ES.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_tr.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.0">
+qt/locale/bitcoin_tr.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_tr.ts:        <source>version</source>
+qt/locale/bitcoin_tr.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_tr.ts:        <source>Client version</source>
+qt/locale/bitcoin_tr.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_tr.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_tr.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_tr.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_tr.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_tr.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_zh_TW.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_TW" version="2.0">
+qt/locale/bitcoin_zh_TW.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_zh_TW.ts:        <source>version</source>
+qt/locale/bitcoin_zh_TW.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_zh_TW.ts:        <source>Client version</source>
+qt/locale/bitcoin_zh_TW.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_zh_TW.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_zh_TW.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_zh_TW.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_zh_TW.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_zh_TW.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_es.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.0">
+qt/locale/bitcoin_es.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_es.ts:        <source>version</source>
+qt/locale/bitcoin_es.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_es.ts:        <source>Client version</source>
+qt/locale/bitcoin_es.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_es.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_es.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_es.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_es.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_es.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_ro_RO.qm matches
+qt/locale/bitcoin_cy.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="cy" version="2.0">
+qt/locale/bitcoin_cy.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_cy.ts:        <source>version</source>
+qt/locale/bitcoin_cy.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_cy.ts:        <source>Client version</source>
+qt/locale/bitcoin_cy.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_cy.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_cy.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_cy.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_cy.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_cy.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_th_TH.qm matches
+qt/locale/bitcoin_es_CL.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="es_CL" version="2.0">
+qt/locale/bitcoin_es_CL.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_es_CL.ts:        <source>version</source>
+qt/locale/bitcoin_es_CL.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_es_CL.ts:        <source>Client version</source>
+qt/locale/bitcoin_es_CL.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_es_CL.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_es_CL.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_es_CL.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_es_CL.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_es_CL.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_fr_CA.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr_CA" version="2.0">
+qt/locale/bitcoin_fr_CA.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_fr_CA.ts:        <translation>&lt;b&gt;Litecoin&lt;/b&gt; version</translation>
+qt/locale/bitcoin_fr_CA.ts:        <source>version</source>
+qt/locale/bitcoin_fr_CA.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_fr_CA.ts:        <source>Client version</source>
+qt/locale/bitcoin_fr_CA.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_fr_CA.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_fr_CA.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_fr_CA.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_fr_CA.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_fr_CA.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_de.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.0">
+qt/locale/bitcoin_de.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_de.ts:        <source>version</source>
+qt/locale/bitcoin_de.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_de.ts:        <source>Client version</source>
+qt/locale/bitcoin_de.ts:        <translation>Clientversion</translation>
+qt/locale/bitcoin_de.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_de.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_de.ts:        <translation>Dies ist eine Vorab-Testversion - Verwendung auf eigene Gefahr - nicht für Mining- oder Handelsanwendungen nutzen!</translation>
+qt/locale/bitcoin_de.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_de.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_de.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_de.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_de.ts:        <translation>Unbekannte Proxyversion in -socks angefordert: %i</translation>
+qt/locale/bitcoin_pl.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl" version="2.0">
+qt/locale/bitcoin_pl.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_pl.ts:        <source>version</source>
+qt/locale/bitcoin_pl.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_pl.ts:        <source>Client version</source>
+qt/locale/bitcoin_pl.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_pl.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_pl.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_pl.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_pl.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_pl.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_ja.qm matches
+qt/locale/bitcoin_eo.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="eo" version="2.0">
+qt/locale/bitcoin_eo.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_eo.ts:        <source>version</source>
+qt/locale/bitcoin_eo.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_eo.ts:        <source>Client version</source>
+qt/locale/bitcoin_eo.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_eo.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_eo.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_eo.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_eo.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_eo.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_el_GR.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="el_GR" version="2.0">
+qt/locale/bitcoin_el_GR.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_el_GR.ts:        <source>version</source>
+qt/locale/bitcoin_el_GR.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_el_GR.ts:        <source>Client version</source>
+qt/locale/bitcoin_el_GR.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_el_GR.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_el_GR.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_el_GR.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_el_GR.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_el_GR.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_zh_CN.qm matches
+qt/locale/bitcoin_he.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="he" version="2.0">
+qt/locale/bitcoin_he.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_he.ts:        <source>version</source>
+qt/locale/bitcoin_he.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_he.ts:        <source>Client version</source>
+qt/locale/bitcoin_he.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_he.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_he.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_he.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_he.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_he.ts:        <source>Unknown -socks proxy version requested: %i</source>
+Binary file qt/locale/bitcoin_nl.qm matches
+Binary file qt/locale/bitcoin_cs.qm matches
+Binary file qt/locale/bitcoin_bs.qm matches
+qt/locale/bitcoin_nl.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.0">
+qt/locale/bitcoin_nl.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_nl.ts:        <source>version</source>
+qt/locale/bitcoin_nl.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_nl.ts:        <source>Client version</source>
+qt/locale/bitcoin_nl.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_nl.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_nl.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_nl.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_nl.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_nl.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/locale/bitcoin_af_ZA.ts:<?xml version="1.0" ?><!DOCTYPE TS><TS language="af_ZA" version="2.0">
+qt/locale/bitcoin_af_ZA.ts:        <source>&lt;b&gt;Litecoin&lt;/b&gt; version</source>
+qt/locale/bitcoin_af_ZA.ts:        <source>version</source>
+qt/locale/bitcoin_af_ZA.ts:        <source>SOCKS version of the proxy (e.g. 5)</source>
+qt/locale/bitcoin_af_ZA.ts:        <source>Client version</source>
+qt/locale/bitcoin_af_ZA.ts:        <source>Using OpenSSL version</source>
+qt/locale/bitcoin_af_ZA.ts:        <source>Litecoin version</source>
+qt/locale/bitcoin_af_ZA.ts:        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
+qt/locale/bitcoin_af_ZA.ts:        <source>Warning: This version is obsolete, upgrade required!</source>
+qt/locale/bitcoin_af_ZA.ts:        <source>Error loading wallet.dat: Wallet requires newer version of Litecoin</source>
+qt/locale/bitcoin_af_ZA.ts:        <source>Unknown -socks proxy version requested: %i</source>
+qt/utilitydialog.cpp: #include "clientversion.h"
+qt/utilitydialog.cpp:    // Begin with a small bold monospace font for the textual version of the key and address.
+qt/utilitydialog.cpp:    // Create String versions of each
+qt/splashscreen.cpp:#include "clientversion.h"
+qt/splashscreen.cpp:    QString versionText     = QString("Version %1 ").arg(QString::fromStdString(FormatFullVersion()));
+qt/splashscreen.cpp:   // pixPaint.drawText(paddingLeftCol2,paddingTopCol2+line3,versionText);
+qt/rpcconsole.cpp:    // set OpenSSL version label
+qt/rpcconsole.cpp:    ui->openSSLVersion->setText(SSLeay_version(SSLEAY_VERSION));
+qt/bitcoin.cpp:    // Internal string conversion is all UTF-8
+qt/bitcoin.cpp:        // Regenerate startup link, to fix links to old versions
+qt/bitcoinstrings.cpp:QT_TRANSLATE_NOOP("bitcoin-core", "Woodcoin version"),
+qt/bitcoinstrings.cpp:QT_TRANSLATE_NOOP("bitcoin-core", "Error loading wallet.dat: Wallet requires newer version of Woodcoin"),
+qt/bitcoinstrings.cpp:QT_TRANSLATE_NOOP("bitcoin-core", "Select the version of socks proxy to use (4-5, default: 5)"),
+qt/bitcoinstrings.cpp:QT_TRANSLATE_NOOP("bitcoin-core", "Unknown -socks proxy version requested: %i"),
+qt/bitcoinstrings.cpp:QT_TRANSLATE_NOOP("bitcoin-core", "Warning: This version is obsolete, upgrade required!"),
+qt/forms/sendcoinsdialog.ui:<?xml version="1.0" encoding="UTF-8"?>
+qt/forms/sendcoinsdialog.ui:<ui version="4.0">
+qt/forms/editaddressdialog.ui:<?xml version="1.0" encoding="UTF-8"?>
+qt/forms/editaddressdialog.ui:<ui version="4.0">
+qt/forms/qrcodedialog.ui:<?xml version="1.0" encoding="UTF-8"?>
+qt/forms/qrcodedialog.ui:<ui version="4.0">
+qt/forms/sendcoinsentry.ui:<?xml version="1.0" encoding="UTF-8"?>
+qt/forms/sendcoinsentry.ui:<ui version="4.0">
+qt/forms/signverifymessagedialog.ui:<?xml version="1.0" encoding="UTF-8"?>
+qt/forms/signverifymessagedialog.ui:<ui version="4.0">
+qt/forms/overviewpage.ui:<?xml version="1.0" encoding="UTF-8"?>
+qt/forms/overviewpage.ui:<ui version="4.0">
+qt/forms/transactiondescdialog.ui:<?xml version="1.0" encoding="UTF-8"?>
+qt/forms/transactiondescdialog.ui:<ui version="4.0">
+qt/forms/optionsdialog.ui:<?xml version="1.0" encoding="UTF-8"?>
+qt/forms/optionsdialog.ui:<ui version="4.0">
+qt/forms/optionsdialog.ui:            <string>SOCKS version of the proxy (e.g. 5)</string>
+qt/forms/addressbookpage.ui:<?xml version="1.0" encoding="UTF-8"?>
+qt/forms/addressbookpage.ui:<ui version="4.0">
+qt/forms/aboutdialog.ui:<?xml version="1.0" encoding="UTF-8"?>
+qt/forms/aboutdialog.ui:<ui version="4.0">
+qt/forms/aboutdialog.ui:          <string>&lt;b&gt;Woodcoin&lt;/b&gt; version</string>
+qt/forms/aboutdialog.ui:        <widget class="QLabel" name="versionLabel">
+qt/forms/paperwalletdialog.ui:<?xml version="1.0" encoding="UTF-8"?>
+qt/forms/paperwalletdialog.ui:<ui version="4.0">
+qt/forms/rpcconsole.ui:<?xml version="1.0" encoding="UTF-8"?>
+qt/forms/rpcconsole.ui:<ui version="4.0">
+qt/forms/rpcconsole.ui:          <string>Client version</string>
+qt/forms/rpcconsole.ui:          <string>Using OpenSSL version</string>
+qt/forms/coincontroldialog.ui:<?xml version="1.0" encoding="UTF-8"?>
+qt/forms/coincontroldialog.ui:<ui version="4.0">
+qt/forms/askpassphrasedialog.ui:<?xml version="1.0" encoding="UTF-8"?>
+qt/forms/askpassphrasedialog.ui:<ui version="4.0">
+qt/guiutil.cpp:    header = tr("Woodcoin-Qt") + " " + tr("version") + " " +
+qt/overviewpage.cpp:        // Show warning if this is a prerelease version
+qt/res/src/clock_green.svg:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+qt/res/src/clock_green.svg:   version="1.1"
+qt/res/src/clock_green.svg:   inkscape:version="0.48.0 r9654"
+qt/res/src/questionmark.svg:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+qt/res/src/questionmark.svg:   version="1.1"
+qt/res/src/questionmark.svg:   inkscape:version="0.48.0 r9654"
+qt/res/src/clock5.svg:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+qt/res/src/clock5.svg:   version="1.1"
+qt/res/src/clock5.svg:   inkscape:version="0.48.0 r9654"
+qt/res/src/clock3.svg:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+qt/res/src/clock3.svg:   version="1.1"
+qt/res/src/clock3.svg:   inkscape:version="0.48.0 r9654"
+qt/res/src/clock2.svg:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+qt/res/src/clock2.svg:   version="1.1"
+qt/res/src/clock2.svg:   inkscape:version="0.48.0 r9654"
+qt/res/src/bitcoin.svg:<?xml version="1.0" encoding="utf-8"?>
+qt/res/src/bitcoin.svg:<svg version="1.1"
+qt/res/src/bitcoin.svg:	 id="svg2" sodipodi:docname="bitcoin-logo-noshadow.svg" inkscape:version="0.48.2 r9819" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+qt/res/src/clock4.svg:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+qt/res/src/clock4.svg:   version="1.1"
+qt/res/src/clock4.svg:   inkscape:version="0.48.0 r9654"
+qt/res/src/clock1.svg:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+qt/res/src/clock1.svg:   version="1.1"
+qt/res/src/clock1.svg:   inkscape:version="0.48.0 r9654"
+qt/res/src/inout.svg:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+qt/res/src/inout.svg:   version="1.1"
+qt/res/src/inout.svg:   inkscape:version="0.48.0 r9654"
+qt/res/bitcoin-qt.rc:#include "../../clientversion.h" // holds the needed client version information
+json/json_spirit_writer.cpp:// json spirit version 4.03
+json/json_spirit_writer_template.h:// json spirit version 4.03
+json/json_spirit_stream_reader.h:// json spirit version 4.03
+json/json_spirit_value.cpp:// json spirit version 2.00
+json/json_spirit_utils.h:// json spirit version 4.03
+json/json_spirit_reader.cpp:// json spirit version 4.03
+json/json_spirit_value.h:// json spirit version 4.03
+json/json_spirit_reader.h:// json spirit version 4.03
+json/json_spirit.h:// json spirit version 4.03
+json/json_spirit_reader_template.h:// json spirit version 4.03
+json/json_spirit_reader_template.h:#include <boost/version.hpp>
+json/json_spirit_writer.h:// json spirit version 4.03
+json/json_spirit_writer.h:    // the "formatted" versions add whitespace to format the output nicely
+json/json_spirit_error_position.h:// json spirit version 4.03
+base58.h:    // Expected size increase from base58 conversion is approximately 137%
+base58.h:    // the version byte
+base58.h: * Public-key-hash-addresses have version 0 (or 111 testnet).
+base58.h: * Script-hash-addresses have version 5 (or 196 testnet).
+makefile.mingw:# Boost libraries are given wacky names that include the particular version of
+makefile.mingw:    obj/version.o \
+wallet.cpp:    // Compressed public keys were introduced in version 0.6.0
+wallet.cpp:    // when doing an explicit upgrade, if we pass the max version permitted, upgrade all the way
+wallet.cpp:            // Versions prior to 0.4.0 did not support the "minversion" record.
+wallet.cpp:    // cannot downgrade below current version
+wallet.cpp:        // Encryption was introduced in version 0.4.0
+wallet.cpp:        // Important: versions of bitcoin before 0.8.6 had a bug that inserted
+db.cpp:            if (fCreate && !Exists(string("version")))
+db.cpp:                            if (strncmp(&ssKey[0], "\x07version", 8) == 0)
+db.cpp:                                // Update version:
+makefile.osx:CFLAGS = -mmacosx-version-min=10.5 -arch i386 -O3
+makefile.osx:    obj/version.o \
+makefile.osx:version.cpp: obj/build.h
+walletdb.h:        return Write(std::string("minversion"), nVersion);
+version.h:#include "clientversion.h"
+version.h:// client versioning
+version.h:// network protocol versioning
+version.h:// intial proto version, to be increased after version/verack negotiation
+version.h:// disconnect from peers older than this proto version
+version.h:// nTime field added to CAddress, starting with this version;
+version.h:// only request blocks from nodes outside this range of versions
+version.h:// BIP 0031, pong message, is enabled for all versions AFTER this one
+version.h:// "mempool" command, enhanced "getdata" behavior starts with this version:
+netbase.cpp:        // WSAEINVAL is here because some legacy version of winsock uses it
+netbase.cpp:    // of addr messages from versions before 0.2.9 checksum.
+key.cpp:        // New versions of OpenSSL will reject non-canonical DER signatures. de/re-serialize first.
+util.h:#include <boost/version.hpp>
+bitcoinrpc.cpp:// JSON-RPC protocol.  Bitcoin speaks version 1.0 for maximum compatibility,

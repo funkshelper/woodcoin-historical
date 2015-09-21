@@ -179,6 +179,10 @@ void PaperWalletDialog::on_getNewAddress_clicked()
     int pixelSizeStep = 1;
 
     int addressTextLength = ui->addressText->fontMetrics().boundingRect(ui->addressText->text()).width();
+    QFont f( "Courier", 12, QFont::Bold);
+    ui->addressText->setFont( f);
+    QFont d( "Courier", 7, QFont::Bold);
+    ui->privateKeyText->setFont( d);
     QFont font = ui->addressText->font();
     for(int i = 0; i < PAPER_WALLET_READJUST_LIMIT; i++) {
         if ( addressTextLength < minTextWidth) {

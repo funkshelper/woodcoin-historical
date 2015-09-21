@@ -16,9 +16,9 @@
   <widget class="QLabel" name="privateKeyQRCode">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>410</x>
      <y>20</y>
-     <width>101</width>
+     <width>121</width>
      <height>101</height>
     </rect>
    </property>
@@ -35,10 +35,10 @@
   <widget class="QLabel" name="addressQRCode">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>90</y>
-     <width>181</width>
-     <height>161</height>
+     <x>60</x>
+     <y>80</y>
+     <width>201</width>
+     <height>181</height>
     </rect>
    </property>
    <property name="text">
@@ -88,9 +88,9 @@
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>340</y>
+     <y>350</y>
      <width>401</width>
-     <height>31</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
@@ -103,7 +103,10 @@
     </font>
    </property>
    <property name="text">
-    <string/>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::RichText</enum>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -116,7 +119,7 @@
    <property name="geometry">
     <rect>
      <x>450</x>
-     <y>320</y>
+     <y>330</y>
      <width>231</width>
      <height>31</height>
     </rect>
@@ -317,7 +320,29 @@ p, li { white-space: pre-wrap; }
     </rect>
    </property>
    <property name="text">
-    <string>Do Not Share Your Private Key! (This Side)</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Do Not Share Your Private Key!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::RichText</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>290</y>
+     <width>231</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Private Key:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::RichText</enum>
    </property>
    <property name="wordWrap">
     <bool>true</bool>
@@ -336,6 +361,7 @@ p, li { white-space: pre-wrap; }
   <zorder>publicKey</zorder>
   <zorder>label_2</zorder>
   <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
  </widget>
  <resources>
   <include location="../bitcoin.qrc"/>

@@ -8,10 +8,10 @@
 // Name of client reported in the 'version' message. Report the same name
 // for both bitcoind and bitcoin-qt, to make it harder for attackers to
 // target servers or GUI users specifically.
-const std::string CLIENT_NAME("Satoshi");
+const std::string CLIENT_NAME("Funkenstein");
 
 // Client version number
-#define CLIENT_VERSION_SUFFIX   "-log"
+//#define CLIENT_VERSION_SUFFIX "-log"
 
 
 // The following part of the code determines the CLIENT_BUILD variable.
@@ -29,29 +29,40 @@ const std::string CLIENT_NAME("Satoshi");
 // finally CLIENT_VERSION_SUFFIX is added
 
 // First, include build.h if requested
-#ifdef HAVE_BUILD_INFO
-#    include "build.h"
-#endif
+//#ifdef HAVE_BUILD_INFO
+//#    include "build.h"
+//#endif
 
 // git will put "#define GIT_ARCHIVE 1" on the next line inside archives. $Format:%n#define GIT_ARCHIVE 1$
-#ifdef GIT_ARCHIVE
-#    define GIT_COMMIT_ID "$Format:%h$"
-#    define GIT_COMMIT_DATE "$Format:%cD$"
-#endif
+//#ifdef GIT_ARCHIVE
+//#    define GIT_COMMIT_ID "$Format:%h$"
+//#    define GIT_COMMIT_DATE "$Format:%cD$"
+//#endif
 
-#define BUILD_DESC_FROM_COMMIT(maj,min,rev,build,commit) \
-    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-g" commit
+//#define BUILD_DESC_FROM_COMMIT(maj,min,rev,build,commit) \
+//    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-g" commit
 
-#define BUILD_DESC_FROM_UNKNOWN(maj,min,rev,build) \
-    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-unk"
+//#define BUILD_DESC_FROM_UNKNOWN(maj,min,rev,build) \
+//    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-unk"
+
+//#ifndef BUILD_DESC
+//#    ifdef GIT_COMMIT_ID
+//#        define BUILD_DESC BUILD_DESC_FROM_COMMIT(CLIENT_VERSION_MAJOR, CLIENT_VERSION_MINOR, CLIENT_VERSION_REVISION, CLIENT_VERSION_BUILD, GIT_COMMIT_ID)
+//#    else
+//#        define BUILD_DESC BUILD_DESC_FROM_UNKNOWN(CLIENT_VERSION_MAJOR, CLIENT_VERSION_MINOR, CLIENT_VERSION_REVISION, CLIENT_VERSION_BUILD)
+//#    endif
+//#endif
+//
+// These version names are very confusing and frankly unnecessary. I could care less what BIP 13 or whatever said.
+// We can simply remember to update BUILD_DESC below, and if we ever are updating often enough to need it, we can uncomment the above lines
+// and go with the GIT version control.
 
 #ifndef BUILD_DESC
-#    ifdef GIT_COMMIT_ID
-#        define BUILD_DESC BUILD_DESC_FROM_COMMIT(CLIENT_VERSION_MAJOR, CLIENT_VERSION_MINOR, CLIENT_VERSION_REVISION, CLIENT_VERSION_BUILD, GIT_COMMIT_ID)
-#    else
-#        define BUILD_DESC BUILD_DESC_FROM_UNKNOWN(CLIENT_VERSION_MAJOR, CLIENT_VERSION_MINOR, CLIENT_VERSION_REVISION, CLIENT_VERSION_BUILD)
-#    endif
+#    define BUILD_DESC "1.2.0.10"
 #endif
+
+// However, this BUILD_DATE is handy.
+// -- phm@woodcoin.org 9/21/15
 
 #ifndef BUILD_DATE
 #    ifdef GIT_COMMIT_DATE
@@ -61,5 +72,5 @@ const std::string CLIENT_NAME("Satoshi");
 #    endif
 #endif
 
-const std::string CLIENT_BUILD(BUILD_DESC CLIENT_VERSION_SUFFIX);
+const std::string CLIENT_BUILD(CLIENT_NAME BUILD_DESC);
 const std::string CLIENT_DATE(BUILD_DATE);

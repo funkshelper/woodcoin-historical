@@ -2,5 +2,6 @@
 <!-- Komodo Project File - DO NOT EDIT -->
 <project id="97bcecce-c20c-4c2a-bb3a-80dd8745a52f" kpf_version="5" name="woodcoin.komodoproject">
 <preference-set idref="97bcecce-c20c-4c2a-bb3a-80dd8745a52f" id="project" preftype="project">
+  <long id="prefs_version">1</long>
 </preference-set>
 </project>
