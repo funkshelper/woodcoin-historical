@@ -40,8 +40,27 @@ Technical Details:
 
 =============================================
 
+## Binary Wallets
+
 Some binaries are stored in the /bins folder. We try to keep Woodcoin accessible to all. 
 
+=============================================
+
+## Note for Developers
+
+If you are on a low-bandwidth connection and only want to download the source files (not the /bins folder), 
+the easiest way to do so is to use svn instead of git to pull the repository. The below command will get everything
+but /bins, for instance: 
+
+```svn checkout https://github.com/funkshelper/woodcoin/trunk/contrib && 
+   svn checkout https://github.com/funkshelper/woodcoin/trunk/src && 
+   svn checkout https://github.com/funkshelper/woodcoin/trunk/doc && 
+   svn checkout https://github.com/funkshelper/woodcoin/trunk/qa && 
+   svn checkout https://github.com/funkshelper/woodcoin/trunk/share && 
+   wget https://github.com/funkshelper/woodcoin/woodcoin-qt.pro ```
+
+More information on this method is available here: 
+   ```http://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo```
 =============================================
 
 ## Mining
