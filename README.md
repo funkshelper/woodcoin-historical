@@ -60,7 +60,7 @@ but /bins, for instance:
    wget https://github.com/funkshelper/woodcoin/woodcoin-qt.pro ```
 
 More information on this method is available here: 
-   ```http://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo```
+   http://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo
 =============================================
 
 ## Mining
