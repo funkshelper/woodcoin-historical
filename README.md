@@ -42,13 +42,13 @@ Technical Details:
 
 ## Binary Wallets
 
-Some binaries are stored in the /bins folder. We try to keep Woodcoin accessible to all. 
+Some binaries are stored at http://github.com/paulmadore/woodcoin-dot-org/bins. We try to keep Woodcoin accessible to all. 
 
 =============================================
 
 ## Note for Developers
 
-If you are on a low-bandwidth connection and only want to download the source files (not the /bins folder), 
+If you are on a low-bandwidth connection and only want to download the source files,, 
 the easiest way to do so is to use svn instead of git to pull the repository. The below command will get everything
 but /bins, for instance: 
 
