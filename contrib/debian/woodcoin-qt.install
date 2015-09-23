@@ -1,0 +1,6 @@
+woodcoin-qt usr/bin
+share/pixmaps/woodcoin32.xpm usr/share/pixmaps
+share/pixmaps/woodcoin16.xpm usr/share/pixmaps
+share/pixmaps/woodcoin128.png usr/share/pixmaps
+debian/woodcoin-qt.desktop usr/share/applications
+debian/woodcoin-qt.protocol usr/share/kde4/services/

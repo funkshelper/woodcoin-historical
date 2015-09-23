@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Woodcoin
+Comment=Woodcoin Cryptocurrency
+Comment[fr]=Woodcoin
+Comment[tr]=Woodcoin
+Exec=/usr/bin/woodcoin-qt %u
+Terminal=false
+Type=Application
+Icon=/usr/share/pixmaps/woodcoin128.png
+MimeType=x-scheme-handler/woodcoin;
+Categories=Internet;
