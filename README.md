@@ -49,8 +49,7 @@ Some binaries are stored at http://github.com/paulmadore/woodcoin-dot-org/bins. 
 ## Note for Developers
 
 If you are on a low-bandwidth connection and only want to download the source files,, 
-the easiest way to do so is to use svn instead of git to pull the repository. The below command will get everything
-but /bins, for instance: 
+the easiest way to do so is to use svn instead of git to pull the repository. The below command will get everything, for instance: 
 
 ```svn checkout https://github.com/funkshelper/woodcoin/trunk/contrib && 
    svn checkout https://github.com/funkshelper/woodcoin/trunk/src && 
