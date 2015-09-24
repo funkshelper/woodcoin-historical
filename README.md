@@ -42,7 +42,7 @@ Technical Details:
 
 ## Binary Wallets
 
-Some binaries are stored at http://github.com/paulmadore/woodcoin-dot-org/bins. We try to keep Woodcoin accessible to all. 
+Some binaries are stored at https://github.com/paulmadore/woodcoin-dot-org/blob/master/bins. We try to keep Woodcoin accessible to all. 
 
 =============================================
 
