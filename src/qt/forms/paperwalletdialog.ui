@@ -118,9 +118,9 @@
   <widget class="QLabel" name="privateKeyText">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>420</x>
      <y>330</y>
-     <width>231</width>
+     <width>281</width>
      <height>31</height>
     </rect>
    </property>
