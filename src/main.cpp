@@ -4,7 +4,6 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "alert.h"
-#include "checkpoints.h"
 #include "db.h"
 #include "txdb.h"
 #include "net.h"
@@ -68,6 +67,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
+// addended to messages for signature
 const string strMessageMagic = "WoodCoin Signed Message:\n";
 
 double dHashesPerSec = 0.0;
@@ -159,9 +159,6 @@ void static ResendWalletTransactions()
     BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
         pwallet->ResendWalletTransactions();
 }
-
-
-
 
 
 
@@ -1209,13 +1206,13 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits)
 // Return maximum amount of blocks that other nodes claim to have
 int GetNumBlocksOfPeers()
 {
-    return std::max(cPeerBlockCounts.median(), Checkpoints::GetTotalBlocksEstimate());
+      return cPeerBlockCounts.median();
 }
 
 bool IsInitialBlockDownload()
 {
-    if (pindexBest == NULL || fImporting || fReindex || nBestHeight < Checkpoints::GetTotalBlocksEstimate())
-        return true;
+    if (pindexBest == NULL || fImporting || fReindex)   return true;
+       
     static int64 nLastUpdate;
     static CBlockIndex* pindexLastBest;
     if (pindexBest != pindexLastBest)
@@ -1463,9 +1460,6 @@ bool CTransaction::CheckInputs(CValidationState &state, CCoinsViewCache &inputs,
         // Only if ALL inputs pass do we perform expensive ECDSA signature checks.
         // Helps prevent CPU exhaustion attacks.
 
-        // Skip ECDSA signature verification when connecting blocks
-        // before the last block chain checkpoint. This is safe because block merkle hashes are
-        // still computed and checked, and any change will be caught at the next checkpoint.
         if (fScriptChecks) {
             for (unsigned int i = 0; i < vin.size(); i++) {
                 const COutPoint &prevout = vin[i].prevout;
@@ -1632,7 +1626,7 @@ bool CBlock::ConnectBlock(CValidationState &state, CBlockIndex* pindex, CCoinsVi
         return true;
     }
 
-    bool fScriptChecks = pindex->nHeight >= Checkpoints::GetTotalBlocksEstimate();
+    bool fScriptChecks = pindex->nHeight >= 0; 
 
     // Do not allow blocks that contain transactions which 'overwrite' older transactions,
     // unless those are already completely spent.
@@ -1815,10 +1809,8 @@ bool SetBestChain(CValidationState &state, CBlockIndex* pindexNew)
             printf("- Disconnect: %.2fms\n", (GetTimeMicros() - nStart) * 0.001);
 
         // Queue memory transactions to resurrect.
-        // We only do this for blocks after the last checkpoint (reorganisation before that
-        // point should only happen with -reindex/-loadblock, or a misbehaving peer.
         BOOST_FOREACH(const CTransaction& tx, block.vtx)
-            if (!tx.IsCoinBase() && pindex->nHeight > Checkpoints::GetTotalBlocksEstimate())
+            if (!tx.IsCoinBase() && pindex->nHeight > 0)
                 vResurrect.push_back(tx);
     }
 
@@ -1912,8 +1904,7 @@ bool SetBestChain(CValidationState &state, CBlockIndex* pindexNew)
     nTransactionsUpdated++;
     printf("SetBestChain: new best=%s  height=%d  log2_work=%.8g  tx=%lu  date=%s progress=%f\n",
       hashBestChain.ToString().c_str(), nBestHeight, log(nBestChainWork.getdouble())/log(2.0), (unsigned long)pindexNew->nChainTx,
-      DateTimeStrFormat("%Y-%m-%d %H:%M:%S", pindexBest->GetBlockTime()).c_str(),
-      Checkpoints::GuessVerificationProgress(pindexBest));
+      DateTimeStrFormat("%Y-%m-%d %H:%M:%S", pindexBest->GetBlockTime()).c_str(),0.0); 
 
     // Check the version of the last 100 blocks to see if we need to upgrade:
     if (!fIsInitialDownload)
@@ -2099,24 +2090,6 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
     if (vtx.empty() || vtx.size() > MAX_BLOCK_SIZE || ::GetSerializeSize(*this, SER_NETWORK, PROTOCOL_VERSION) > MAX_BLOCK_SIZE)
         return state.DoS(100, error("CheckBlock() : size limits failed"));
 
-    // Litecoin: Special short-term limits to avoid 10,000 BDB lock limit:
-    if (GetBlockTime() < 1376568000)  // stop enforcing 15 August 2013 00:00:00
-    {
-        // Rule is: #unique txids referenced <= 4,500
-        // ... to prevent 10,000 BDB lock exhaustion on old clients
-        set<uint256> setTxIn;
-        for (size_t i = 0; i < vtx.size(); i++)
-        {
-            setTxIn.insert(vtx[i].GetHash());
-            if (i == 0) continue; // skip coinbase txin
-            BOOST_FOREACH(const CTxIn& txin, vtx[i].vin)
-                setTxIn.insert(txin.prevout.hash);
-        }
-        size_t nTxids = setTxIn.size();
-        if (nTxids > 4500)
-            return error("CheckBlock() : 15 August maxlocks violation");
-    }
-
     // Check proof of work matches claimed amount
     if (fCheckPOW && !CheckProofOfWork(GetPoWHash(), nBits))
         return state.DoS(50, error("CheckBlock() : proof of work failed"));
@@ -2196,15 +2169,6 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
             if (!tx.IsFinal(nHeight, GetBlockTime()))
                 return state.DoS(10, error("AcceptBlock() : contains a non-final transaction"));
 
-        // Check that the block chain matches the known block chain up to a checkpoint
-        if (!Checkpoints::CheckBlock(nHeight, hash))
-            return state.DoS(100, error("AcceptBlock() : rejected by checkpoint lock-in at %d", nHeight));
-
-        // Don't accept any forks from the main chain prior to last checkpoint
-        CBlockIndex* pcheckpoint = Checkpoints::GetLastCheckpoint(mapBlockIndex);
-        if (pcheckpoint && nHeight < pcheckpoint->nHeight)
-            return state.DoS(100, error("AcceptBlock() : forked chain older than last checkpoint (height %d)", nHeight));
-
         // Reject block.nVersion=1 blocks (mainnet >= 710000, testnet >= 400000)
         if (nVersion < 2)
         {
@@ -2246,7 +2210,7 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
     }
 
     // Relay inventory, but don't relay old inventory during initial block download
-    int nBlockEstimate = Checkpoints::GetTotalBlocksEstimate();
+    int nBlockEstimate = 0; 
     if (hashBestChain == hash)
     {
         LOCK(cs_vNodes);
@@ -2282,26 +2246,6 @@ bool ProcessBlock(CValidationState &state, CNode* pfrom, CBlock* pblock, CDiskBl
     // Preliminary checks
     if (!pblock->CheckBlock(state))
         return error("ProcessBlock() : CheckBlock FAILED");
-
-    CBlockIndex* pcheckpoint = Checkpoints::GetLastCheckpoint(mapBlockIndex);
-    if (pcheckpoint && pblock->hashPrevBlock != hashBestChain)
-    {
-        // Extra checks to prevent "fill up memory by spamming with bogus blocks"
-        int64 deltaTime = pblock->GetBlockTime() - pcheckpoint->nTime;
-        if (deltaTime < 0)
-        {
-            return state.DoS(100, error("ProcessBlock() : block with timestamp before last checkpoint"));
-        }
-        CBigNum bnNewBlock;
-        bnNewBlock.SetCompact(pblock->nBits);
-        CBigNum bnRequired;
-        bnRequired.SetCompact(ComputeMinWork(pcheckpoint->nBits, deltaTime));
-        if (bnNewBlock > bnRequired)
-        {
-            return state.DoS(100, error("ProcessBlock() : block with too little proof-of-work"));
-        }
-    }
-
 
     // If we don't already have its previous block, shunt it off to holding area until we get it
     if (pblock->hashPrevBlock != 0 && !mapBlockIndex.count(pblock->hashPrevBlock))
@@ -3102,17 +3046,7 @@ void static ProcessGetData(CNode* pfrom)
                 pfrom->nBlocksRequested++;
                 if (mi != mapBlockIndex.end())
                 {
-                    // If the requested block is at a height below our last
-                    // checkpoint, only serve it if it's in the checkpointed chain
-                    int nHeight = ((*mi).second)->nHeight;
-                    CBlockIndex* pcheckpoint = Checkpoints::GetLastCheckpoint(mapBlockIndex);
-                    if (pcheckpoint && nHeight < pcheckpoint->nHeight) {
-                       if (!((*mi).second)->IsInMainChain())
-                       {
-                         printf("ProcessGetData(): ignoring request for old block that isn't in the main chain\n");
-                         send = false;
-                       }
-                    }
+                    int nHeight = ((*mi).second)->nHeight;   
                 } else {
                     send = false;
                 }
@@ -4120,7 +4054,7 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
 
 //////////////////////////////////////////////////////////////////////////////
 //
-// LitecoinMiner
+// WoodcoinMiner
 //
 
 int static FormatHashBlocks(void* pbuffer, unsigned int len)

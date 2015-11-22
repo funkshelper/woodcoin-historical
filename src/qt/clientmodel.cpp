@@ -11,7 +11,6 @@
 
 #include "alert.h"
 #include "main.h"
-#include "checkpoints.h"
 #include "ui_interface.h"
 
 #include <QDateTime>
@@ -66,7 +65,7 @@ QDateTime ClientModel::getLastBlockDate() const
 
 double ClientModel::getVerificationProgress() const
 {
-    return Checkpoints::GuessVerificationProgress(pindexBest);
+    return 0.3; 
 }
 
 void ClientModel::updateTimer()
