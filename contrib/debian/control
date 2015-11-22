@@ -1,8 +1,8 @@
 Source: woodcoin
 Section: utils
 Priority: optional
-Maintainer: Paul Madore <phm@woodcoin.org>
-Uploaders: Paul Madore <phm@woodcoin.org>
+Maintainer: P. H. Madore <moonpunter@gmail.com>
+Uploaders: P. H. Madore <moonpunter@gmail.com>
 Build-Depends: debhelper,
  devscripts,
  bash-completion,
