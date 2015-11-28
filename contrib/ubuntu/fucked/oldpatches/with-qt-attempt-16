@@ -1,0 +1,56 @@
+Description: <short summary of the patch>
+ TODO: Put a short summary on the line above and replace this paragraph
+ with a longer explanation of this change. Complete the meta-information
+ with other relevant fields (see below for details). To make it easier, the
+ information below has been extracted from the changelog. Adjust it or drop
+ it.
+ .
+ woodcoin (1.2-1) unstable; urgency=low
+ .
+   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+Author: P. H. Madore <moonpunter@gmail.com>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- woodcoin-1.2.orig/qt/walletmodel.h
++++ woodcoin-1.2/qt/walletmodel.h
+@@ -9,7 +9,7 @@
+ #include <vector>
+ #include <map>
+ 
+-#include "../allocators.h" /* for SecureString */
++#include "allocators.h" /* for SecureString */
+ 
+ class OptionsModel;
+ class AddressTableModel;
+--- woodcoin-1.2.orig/woodcoin-qt.pro
++++ woodcoin-1.2/woodcoin-qt.pro
+@@ -165,7 +165,7 @@ HEADERS += qt/bitcoingui.h \
+     db.h \
+     walletdb.h \
+     script.h \
+-    init.h \
++    ../init.h \
+     bloom.h \
+     mruset.h \
+     checkqueue.h \
+@@ -207,7 +207,7 @@ HEADERS += qt/bitcoingui.h \
+     protocol.h \
+     qt/notificator.h \
+     qt/paymentserver.h \
+-    allocators.h \
++    ../allocators.h \
+     ui_interface.h \
+     qt/rpcconsole.h \
+     version.h \

@@ -1,0 +1,3 @@
+?package(woodcoin):needs="X11" \
+	section="Applications/Office" \
+	title="Woodcoin" command="/usr/bin/woodcoin"

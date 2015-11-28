@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Sun, 22 Nov 2015 09:55:47 -0600
+Source: woodcoin
+Binary: woodcoin
+Architecture: source amd64
+Version: 1.2-1
+Distribution: unstable
+Urgency: low
+Maintainer: P. H. Madore <phm@woodcoin.org>
+Changed-By: P. H. Madore <moonpunter@gmail.com>
+Description:
+ woodcoin   - Logarithmic cryptocurrency made w/Skein.
+Changes:
+ woodcoin (1.2-1) unstable; urgency=low
+ .
+   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+Checksums-Sha1:
+ dd2fd7aaa2b72ffcde29c9e86e082a9063626936 1023 woodcoin_1.2-1.dsc
+ 60f5e6c2bfc0475ec0266670c315cf3a33304a60 9220092 woodcoin_1.2.orig.tar.xz
+ a7f819ed0413df4e56d9a1257500f94e0740c216 7175944 woodcoin_1.2-1.debian.tar.xz
+ 82995bb3e42c43dafeaeef825b2e25f660492d03 4442 woodcoin_1.2-1_amd64.deb
+Checksums-Sha256:
+ 287fad7abb55a7f63ecd8c149f9e46493110daf2b25df88fab0227b5e4593441 1023 woodcoin_1.2-1.dsc
+ b5adc8e274c562d365cf86c312973dcda5046bd1720db1d5b55c30c7fa137da9 9220092 woodcoin_1.2.orig.tar.xz
+ 0f2f602af0ee1eca4c6822b1140422bd3531003a27abb02d58b1ff49cdbc4e7f 7175944 woodcoin_1.2-1.debian.tar.xz
+ 1aaa0b1b075634b5130ffcf92d0a4da5fec67d9e72ae1399d881a02a1c8ea45f 4442 woodcoin_1.2-1_amd64.deb
+Files:
+ 99c69a26fb1eea926ab2fbcd2b656b15 1023 unknown optional woodcoin_1.2-1.dsc
+ abcef5b27a07ce9c15426d2dbe520737 9220092 unknown optional woodcoin_1.2.orig.tar.xz
+ 9a3782d5d2651d6840be121a16d12c1a 7175944 unknown optional woodcoin_1.2-1.debian.tar.xz
+ 1f43e88b9f1f623a9178d880feeb9f6c 4442 unknown optional woodcoin_1.2-1_amd64.deb

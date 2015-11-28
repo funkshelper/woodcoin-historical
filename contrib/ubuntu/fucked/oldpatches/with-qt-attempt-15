@@ -1,0 +1,3684 @@
+Description: <short summary of the patch>
+ TODO: Put a short summary on the line above and replace this paragraph
+ with a longer explanation of this change. Complete the meta-information
+ with other relevant fields (see below for details). To make it easier, the
+ information below has been extracted from the changelog. Adjust it or drop
+ it.
+ .
+ woodcoin (1.2-1) unstable; urgency=low
+ .
+   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+Author: P. H. Madore <moonpunter@gmail.com>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- /dev/null
++++ woodcoin-1.2/build/build.h
+@@ -0,0 +1,2 @@
++// No build information available
++#define BUILD_DATE "2015-11-21 19:37:35 -0600"
+--- /dev/null
++++ woodcoin-1.2/build/ui_aboutdialog.h
+@@ -0,0 +1,153 @@
++/********************************************************************************
++** Form generated from reading UI file 'aboutdialog.ui'
++**
++** Created by: Qt User Interface Compiler version 5.4.2
++**
++** WARNING! All changes made in this file will be lost when recompiling UI file!
++********************************************************************************/
++
++#ifndef UI_ABOUTDIALOG_H
++#define UI_ABOUTDIALOG_H
++
++#include <QtCore/QVariant>
++#include <QtWidgets/QAction>
++#include <QtWidgets/QApplication>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QDialog>
++#include <QtWidgets/QDialogButtonBox>
++#include <QtWidgets/QHBoxLayout>
++#include <QtWidgets/QHeaderView>
++#include <QtWidgets/QLabel>
++#include <QtWidgets/QSpacerItem>
++#include <QtWidgets/QVBoxLayout>
++
++QT_BEGIN_NAMESPACE
++
++class Ui_AboutDialog
++{
++public:
++    QHBoxLayout *horizontalLayout_2;
++    QLabel *label_4;
++    QVBoxLayout *verticalLayout_2;
++    QSpacerItem *verticalSpacer_2;
++    QHBoxLayout *horizontalLayout;
++    QLabel *label;
++    QLabel *versionLabel;
++    QSpacerItem *horizontalSpacer;
++    QLabel *copyrightLabel;
++    QLabel *label_2;
++    QSpacerItem *verticalSpacer;
++    QDialogButtonBox *buttonBox;
++
++    void setupUi(QDialog *AboutDialog)
++    {
++        if (AboutDialog->objectName().isEmpty())
++            AboutDialog->setObjectName(QStringLiteral("AboutDialog"));
++        AboutDialog->resize(593, 360);
++        horizontalLayout_2 = new QHBoxLayout(AboutDialog);
++        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
++        label_4 = new QLabel(AboutDialog);
++        label_4->setObjectName(QStringLiteral("label_4"));
++        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Ignored);
++        sizePolicy.setHorizontalStretch(0);
++        sizePolicy.setVerticalStretch(0);
++        sizePolicy.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
++        label_4->setSizePolicy(sizePolicy);
++        label_4->setPixmap(QPixmap(QString::fromUtf8(":/images/about")));
++
++        horizontalLayout_2->addWidget(label_4);
++
++        verticalLayout_2 = new QVBoxLayout();
++        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
++        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
++
++        verticalLayout_2->addItem(verticalSpacer_2);
++
++        horizontalLayout = new QHBoxLayout();
++        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
++        label = new QLabel(AboutDialog);
++        label->setObjectName(QStringLiteral("label"));
++        label->setCursor(QCursor(Qt::IBeamCursor));
++        label->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        horizontalLayout->addWidget(label);
++
++        versionLabel = new QLabel(AboutDialog);
++        versionLabel->setObjectName(QStringLiteral("versionLabel"));
++        versionLabel->setCursor(QCursor(Qt::IBeamCursor));
++        versionLabel->setText(QStringLiteral("0.3.666-beta"));
++        versionLabel->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        horizontalLayout->addWidget(versionLabel);
++
++        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayout->addItem(horizontalSpacer);
++
++
++        verticalLayout_2->addLayout(horizontalLayout);
++
++        copyrightLabel = new QLabel(AboutDialog);
++        copyrightLabel->setObjectName(QStringLiteral("copyrightLabel"));
++        copyrightLabel->setCursor(QCursor(Qt::IBeamCursor));
++        copyrightLabel->setText(QLatin1String("Copyright &copy; 2009-YYYY The Bitcoin developers\n"
++"Copyright &copy; 2011-YYYY The Litecoin developers\n"
++"Copyright &copy; 2013-YYYY The Quarkcoin developers\n"
++"Copyright &copy; 2014-YYYY The Woodcoin developers\n"
++""));
++        copyrightLabel->setTextFormat(Qt::RichText);
++        copyrightLabel->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        verticalLayout_2->addWidget(copyrightLabel);
++
++        label_2 = new QLabel(AboutDialog);
++        label_2->setObjectName(QStringLiteral("label_2"));
++        label_2->setCursor(QCursor(Qt::IBeamCursor));
++        label_2->setWordWrap(true);
++        label_2->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        verticalLayout_2->addWidget(label_2);
++
++        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
++
++        verticalLayout_2->addItem(verticalSpacer);
++
++        buttonBox = new QDialogButtonBox(AboutDialog);
++        buttonBox->setObjectName(QStringLiteral("buttonBox"));
++        buttonBox->setOrientation(Qt::Horizontal);
++        buttonBox->setStandardButtons(QDialogButtonBox::Ok);
++
++        verticalLayout_2->addWidget(buttonBox);
++
++
++        horizontalLayout_2->addLayout(verticalLayout_2);
++
++
++        retranslateUi(AboutDialog);
++        QObject::connect(buttonBox, SIGNAL(accepted()), AboutDialog, SLOT(accept()));
++        QObject::connect(buttonBox, SIGNAL(rejected()), AboutDialog, SLOT(reject()));
++
++        QMetaObject::connectSlotsByName(AboutDialog);
++    } // setupUi
++
++    void retranslateUi(QDialog *AboutDialog)
++    {
++        AboutDialog->setWindowTitle(QApplication::translate("AboutDialog", "About Woodcoin", 0));
++        label->setText(QApplication::translate("AboutDialog", "<b>Woodcoin</b> version", 0));
++        label_2->setText(QApplication::translate("AboutDialog", "\n"
++"This is public coin software.      \n"
++"\n"
++"Distributed under the MIT/X11 software license, and under natural law where applicable.  To start chopping use the console in the debug window and enter: \"setgenerate true\".    \n"
++"\n"
++"This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.", 0));
++    } // retranslateUi
++
++};
++
++namespace Ui {
++    class AboutDialog: public Ui_AboutDialog {};
++} // namespace Ui
++
++QT_END_NAMESPACE
++
++#endif // UI_ABOUTDIALOG_H
+--- /dev/null
++++ woodcoin-1.2/build/ui_addressbookpage.h
+@@ -0,0 +1,194 @@
++/********************************************************************************
++** Form generated from reading UI file 'addressbookpage.ui'
++**
++** Created by: Qt User Interface Compiler version 5.4.2
++**
++** WARNING! All changes made in this file will be lost when recompiling UI file!
++********************************************************************************/
++
++#ifndef UI_ADDRESSBOOKPAGE_H
++#define UI_ADDRESSBOOKPAGE_H
++
++#include <QtCore/QVariant>
++#include <QtWidgets/QAction>
++#include <QtWidgets/QApplication>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QDialogButtonBox>
++#include <QtWidgets/QHBoxLayout>
++#include <QtWidgets/QHeaderView>
++#include <QtWidgets/QLabel>
++#include <QtWidgets/QPushButton>
++#include <QtWidgets/QSpacerItem>
++#include <QtWidgets/QTableView>
++#include <QtWidgets/QVBoxLayout>
++#include <QtWidgets/QWidget>
++
++QT_BEGIN_NAMESPACE
++
++class Ui_AddressBookPage
++{
++public:
++    QVBoxLayout *verticalLayout;
++    QLabel *labelExplanation;
++    QTableView *tableView;
++    QHBoxLayout *horizontalLayout;
++    QPushButton *newAddress;
++    QPushButton *copyAddress;
++    QPushButton *showQRCode;
++    QPushButton *signMessage;
++    QPushButton *verifyMessage;
++    QPushButton *deleteAddress;
++    QSpacerItem *horizontalSpacer;
++    QPushButton *exportButton;
++    QDialogButtonBox *buttonBox;
++
++    void setupUi(QWidget *AddressBookPage)
++    {
++        if (AddressBookPage->objectName().isEmpty())
++            AddressBookPage->setObjectName(QStringLiteral("AddressBookPage"));
++        AddressBookPage->resize(760, 380);
++        verticalLayout = new QVBoxLayout(AddressBookPage);
++        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
++        labelExplanation = new QLabel(AddressBookPage);
++        labelExplanation->setObjectName(QStringLiteral("labelExplanation"));
++        labelExplanation->setTextFormat(Qt::PlainText);
++        labelExplanation->setWordWrap(true);
++
++        verticalLayout->addWidget(labelExplanation);
++
++        tableView = new QTableView(AddressBookPage);
++        tableView->setObjectName(QStringLiteral("tableView"));
++        tableView->setContextMenuPolicy(Qt::CustomContextMenu);
++        tableView->setTabKeyNavigation(false);
++        tableView->setAlternatingRowColors(true);
++        tableView->setSelectionMode(QAbstractItemView::SingleSelection);
++        tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
++        tableView->setSortingEnabled(true);
++        tableView->verticalHeader()->setVisible(false);
++
++        verticalLayout->addWidget(tableView);
++
++        horizontalLayout = new QHBoxLayout();
++        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
++        newAddress = new QPushButton(AddressBookPage);
++        newAddress->setObjectName(QStringLiteral("newAddress"));
++        QIcon icon;
++        icon.addFile(QStringLiteral(":/icons/add"), QSize(), QIcon::Normal, QIcon::Off);
++        newAddress->setIcon(icon);
++
++        horizontalLayout->addWidget(newAddress);
++
++        copyAddress = new QPushButton(AddressBookPage);
++        copyAddress->setObjectName(QStringLiteral("copyAddress"));
++        QIcon icon1;
++        icon1.addFile(QStringLiteral(":/icons/editcopy"), QSize(), QIcon::Normal, QIcon::Off);
++        copyAddress->setIcon(icon1);
++
++        horizontalLayout->addWidget(copyAddress);
++
++        showQRCode = new QPushButton(AddressBookPage);
++        showQRCode->setObjectName(QStringLiteral("showQRCode"));
++        QIcon icon2;
++        icon2.addFile(QStringLiteral(":/icons/qrcode"), QSize(), QIcon::Normal, QIcon::Off);
++        showQRCode->setIcon(icon2);
++
++        horizontalLayout->addWidget(showQRCode);
++
++        signMessage = new QPushButton(AddressBookPage);
++        signMessage->setObjectName(QStringLiteral("signMessage"));
++        QIcon icon3;
++        icon3.addFile(QStringLiteral(":/icons/edit"), QSize(), QIcon::Normal, QIcon::Off);
++        signMessage->setIcon(icon3);
++
++        horizontalLayout->addWidget(signMessage);
++
++        verifyMessage = new QPushButton(AddressBookPage);
++        verifyMessage->setObjectName(QStringLiteral("verifyMessage"));
++        QIcon icon4;
++        icon4.addFile(QStringLiteral(":/icons/transaction_0"), QSize(), QIcon::Normal, QIcon::Off);
++        verifyMessage->setIcon(icon4);
++
++        horizontalLayout->addWidget(verifyMessage);
++
++        deleteAddress = new QPushButton(AddressBookPage);
++        deleteAddress->setObjectName(QStringLiteral("deleteAddress"));
++        QIcon icon5;
++        icon5.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
++        deleteAddress->setIcon(icon5);
++
++        horizontalLayout->addWidget(deleteAddress);
++
++        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayout->addItem(horizontalSpacer);
++
++        exportButton = new QPushButton(AddressBookPage);
++        exportButton->setObjectName(QStringLiteral("exportButton"));
++        QIcon icon6;
++        icon6.addFile(QStringLiteral(":/icons/export"), QSize(), QIcon::Normal, QIcon::Off);
++        exportButton->setIcon(icon6);
++
++        horizontalLayout->addWidget(exportButton);
++
++        buttonBox = new QDialogButtonBox(AddressBookPage);
++        buttonBox->setObjectName(QStringLiteral("buttonBox"));
++        QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
++        sizePolicy.setHorizontalStretch(0);
++        sizePolicy.setVerticalStretch(0);
++        sizePolicy.setHeightForWidth(buttonBox->sizePolicy().hasHeightForWidth());
++        buttonBox->setSizePolicy(sizePolicy);
++        buttonBox->setStandardButtons(QDialogButtonBox::Ok);
++
++        horizontalLayout->addWidget(buttonBox);
++
++
++        verticalLayout->addLayout(horizontalLayout);
++
++
++        retranslateUi(AddressBookPage);
++
++        QMetaObject::connectSlotsByName(AddressBookPage);
++    } // setupUi
++
++    void retranslateUi(QWidget *AddressBookPage)
++    {
++        AddressBookPage->setWindowTitle(QApplication::translate("AddressBookPage", "Address Book", 0));
++#ifndef QT_NO_TOOLTIP
++        tableView->setToolTip(QApplication::translate("AddressBookPage", "Double-click to edit address or label", 0));
++#endif // QT_NO_TOOLTIP
++#ifndef QT_NO_TOOLTIP
++        newAddress->setToolTip(QApplication::translate("AddressBookPage", "Create a new address", 0));
++#endif // QT_NO_TOOLTIP
++        newAddress->setText(QApplication::translate("AddressBookPage", "&New Address", 0));
++#ifndef QT_NO_TOOLTIP
++        copyAddress->setToolTip(QApplication::translate("AddressBookPage", "Copy the currently selected address to the system clipboard", 0));
++#endif // QT_NO_TOOLTIP
++        copyAddress->setText(QApplication::translate("AddressBookPage", "&Copy Address", 0));
++        showQRCode->setText(QApplication::translate("AddressBookPage", "Show &QR Code", 0));
++#ifndef QT_NO_TOOLTIP
++        signMessage->setToolTip(QApplication::translate("AddressBookPage", "Sign a message to prove you own a Woodcoin address", 0));
++#endif // QT_NO_TOOLTIP
++        signMessage->setText(QApplication::translate("AddressBookPage", "Sign &Message", 0));
++#ifndef QT_NO_TOOLTIP
++        verifyMessage->setToolTip(QApplication::translate("AddressBookPage", "Verify a message to ensure it was signed with a specified Woodcoin address", 0));
++#endif // QT_NO_TOOLTIP
++        verifyMessage->setText(QApplication::translate("AddressBookPage", "&Verify Message", 0));
++#ifndef QT_NO_TOOLTIP
++        deleteAddress->setToolTip(QApplication::translate("AddressBookPage", "Delete the currently selected address from the list", 0));
++#endif // QT_NO_TOOLTIP
++        deleteAddress->setText(QApplication::translate("AddressBookPage", "&Delete", 0));
++#ifndef QT_NO_TOOLTIP
++        exportButton->setToolTip(QApplication::translate("AddressBookPage", "Export the data in the current tab to a file", 0));
++#endif // QT_NO_TOOLTIP
++        exportButton->setText(QApplication::translate("AddressBookPage", "&Export", 0));
++    } // retranslateUi
++
++};
++
++namespace Ui {
++    class AddressBookPage: public Ui_AddressBookPage {};
++} // namespace Ui
++
++QT_END_NAMESPACE
++
++#endif // UI_ADDRESSBOOKPAGE_H
+--- /dev/null
++++ woodcoin-1.2/build/ui_askpassphrasedialog.h
+@@ -0,0 +1,142 @@
++/********************************************************************************
++** Form generated from reading UI file 'askpassphrasedialog.ui'
++**
++** Created by: Qt User Interface Compiler version 5.4.2
++**
++** WARNING! All changes made in this file will be lost when recompiling UI file!
++********************************************************************************/
++
++#ifndef UI_ASKPASSPHRASEDIALOG_H
++#define UI_ASKPASSPHRASEDIALOG_H
++
++#include <QtCore/QVariant>
++#include <QtWidgets/QAction>
++#include <QtWidgets/QApplication>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QDialog>
++#include <QtWidgets/QDialogButtonBox>
++#include <QtWidgets/QFormLayout>
++#include <QtWidgets/QHeaderView>
++#include <QtWidgets/QLabel>
++#include <QtWidgets/QLineEdit>
++#include <QtWidgets/QVBoxLayout>
++
++QT_BEGIN_NAMESPACE
++
++class Ui_AskPassphraseDialog
++{
++public:
++    QVBoxLayout *verticalLayout;
++    QLabel *warningLabel;
++    QFormLayout *formLayout;
++    QLabel *passLabel1;
++    QLineEdit *passEdit1;
++    QLabel *passLabel2;
++    QLineEdit *passEdit2;
++    QLabel *passLabel3;
++    QLineEdit *passEdit3;
++    QLabel *capsLabel;
++    QDialogButtonBox *buttonBox;
++
++    void setupUi(QDialog *AskPassphraseDialog)
++    {
++        if (AskPassphraseDialog->objectName().isEmpty())
++            AskPassphraseDialog->setObjectName(QStringLiteral("AskPassphraseDialog"));
++        AskPassphraseDialog->resize(598, 198);
++        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
++        sizePolicy.setHorizontalStretch(0);
++        sizePolicy.setVerticalStretch(0);
++        sizePolicy.setHeightForWidth(AskPassphraseDialog->sizePolicy().hasHeightForWidth());
++        AskPassphraseDialog->setSizePolicy(sizePolicy);
++        AskPassphraseDialog->setMinimumSize(QSize(550, 0));
++        verticalLayout = new QVBoxLayout(AskPassphraseDialog);
++        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
++        warningLabel = new QLabel(AskPassphraseDialog);
++        warningLabel->setObjectName(QStringLiteral("warningLabel"));
++        warningLabel->setTextFormat(Qt::RichText);
++        warningLabel->setWordWrap(true);
++
++        verticalLayout->addWidget(warningLabel);
++
++        formLayout = new QFormLayout();
++        formLayout->setObjectName(QStringLiteral("formLayout"));
++        formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
++        passLabel1 = new QLabel(AskPassphraseDialog);
++        passLabel1->setObjectName(QStringLiteral("passLabel1"));
++
++        formLayout->setWidget(0, QFormLayout::LabelRole, passLabel1);
++
++        passEdit1 = new QLineEdit(AskPassphraseDialog);
++        passEdit1->setObjectName(QStringLiteral("passEdit1"));
++        passEdit1->setEchoMode(QLineEdit::Password);
++
++        formLayout->setWidget(0, QFormLayout::FieldRole, passEdit1);
++
++        passLabel2 = new QLabel(AskPassphraseDialog);
++        passLabel2->setObjectName(QStringLiteral("passLabel2"));
++
++        formLayout->setWidget(1, QFormLayout::LabelRole, passLabel2);
++
++        passEdit2 = new QLineEdit(AskPassphraseDialog);
++        passEdit2->setObjectName(QStringLiteral("passEdit2"));
++        passEdit2->setEchoMode(QLineEdit::Password);
++
++        formLayout->setWidget(1, QFormLayout::FieldRole, passEdit2);
++
++        passLabel3 = new QLabel(AskPassphraseDialog);
++        passLabel3->setObjectName(QStringLiteral("passLabel3"));
++
++        formLayout->setWidget(2, QFormLayout::LabelRole, passLabel3);
++
++        passEdit3 = new QLineEdit(AskPassphraseDialog);
++        passEdit3->setObjectName(QStringLiteral("passEdit3"));
++        passEdit3->setEchoMode(QLineEdit::Password);
++
++        formLayout->setWidget(2, QFormLayout::FieldRole, passEdit3);
++
++        capsLabel = new QLabel(AskPassphraseDialog);
++        capsLabel->setObjectName(QStringLiteral("capsLabel"));
++        QFont font;
++        font.setBold(true);
++        font.setWeight(75);
++        capsLabel->setFont(font);
++        capsLabel->setAlignment(Qt::AlignCenter);
++
++        formLayout->setWidget(3, QFormLayout::FieldRole, capsLabel);
++
++
++        verticalLayout->addLayout(formLayout);
++
++        buttonBox = new QDialogButtonBox(AskPassphraseDialog);
++        buttonBox->setObjectName(QStringLiteral("buttonBox"));
++        buttonBox->setOrientation(Qt::Horizontal);
++        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
++
++        verticalLayout->addWidget(buttonBox);
++
++
++        retranslateUi(AskPassphraseDialog);
++        QObject::connect(buttonBox, SIGNAL(accepted()), AskPassphraseDialog, SLOT(accept()));
++        QObject::connect(buttonBox, SIGNAL(rejected()), AskPassphraseDialog, SLOT(reject()));
++
++        QMetaObject::connectSlotsByName(AskPassphraseDialog);
++    } // setupUi
++
++    void retranslateUi(QDialog *AskPassphraseDialog)
++    {
++        AskPassphraseDialog->setWindowTitle(QApplication::translate("AskPassphraseDialog", "Passphrase Dialog", 0));
++        passLabel1->setText(QApplication::translate("AskPassphraseDialog", "Enter passphrase", 0));
++        passLabel2->setText(QApplication::translate("AskPassphraseDialog", "New passphrase", 0));
++        passLabel3->setText(QApplication::translate("AskPassphraseDialog", "Repeat new passphrase", 0));
++        capsLabel->setText(QString());
++    } // retranslateUi
++
++};
++
++namespace Ui {
++    class AskPassphraseDialog: public Ui_AskPassphraseDialog {};
++} // namespace Ui
++
++QT_END_NAMESPACE
++
++#endif // UI_ASKPASSPHRASEDIALOG_H
+--- /dev/null
++++ woodcoin-1.2/build/ui_coincontroldialog.h
+@@ -0,0 +1,364 @@
++/********************************************************************************
++** Form generated from reading UI file 'coincontroldialog.ui'
++**
++** Created by: Qt User Interface Compiler version 5.4.2
++**
++** WARNING! All changes made in this file will be lost when recompiling UI file!
++********************************************************************************/
++
++#ifndef UI_COINCONTROLDIALOG_H
++#define UI_COINCONTROLDIALOG_H
++
++#include <QtCore/QVariant>
++#include <QtWidgets/QAction>
++#include <QtWidgets/QApplication>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QDialog>
++#include <QtWidgets/QDialogButtonBox>
++#include <QtWidgets/QFormLayout>
++#include <QtWidgets/QFrame>
++#include <QtWidgets/QHBoxLayout>
++#include <QtWidgets/QHeaderView>
++#include <QtWidgets/QLabel>
++#include <QtWidgets/QPushButton>
++#include <QtWidgets/QRadioButton>
++#include <QtWidgets/QSpacerItem>
++#include <QtWidgets/QVBoxLayout>
++#include <QtWidgets/QWidget>
++#include "coincontroltreewidget.h"
++
++QT_BEGIN_NAMESPACE
++
++class Ui_CoinControlDialog
++{
++public:
++    QVBoxLayout *verticalLayout;
++    QHBoxLayout *horizontalLayoutTop;
++    QFormLayout *formLayoutCoinControl1;
++    QLabel *labelCoinControlQuantityText;
++    QLabel *labelCoinControlQuantity;
++    QLabel *labelCoinControlBytesText;
++    QLabel *labelCoinControlBytes;
++    QFormLayout *formLayoutCoinControl2;
++    QLabel *labelCoinControlAmountText;
++    QLabel *labelCoinControlAmount;
++    QLabel *labelCoinControlPriorityText;
++    QLabel *labelCoinControlPriority;
++    QFormLayout *formLayoutCoinControl3;
++    QLabel *labelCoinControlFeeText;
++    QLabel *labelCoinControlFee;
++    QLabel *labelCoinControlLowOutputText;
++    QLabel *labelCoinControlLowOutput;
++    QFormLayout *formLayoutCoinControl4;
++    QLabel *labelCoinControlAfterFeeText;
++    QLabel *labelCoinControlAfterFee;
++    QLabel *labelCoinControlChangeText;
++    QLabel *labelCoinControlChange;
++    QFrame *frame;
++    QWidget *horizontalLayoutWidget;
++    QHBoxLayout *horizontalLayoutPanel;
++    QPushButton *pushButtonSelectAll;
++    QRadioButton *radioTreeMode;
++    QRadioButton *radioListMode;
++    QLabel *labelLocked;
++    QSpacerItem *horizontalSpacer;
++    CoinControlTreeWidget *treeWidget;
++    QDialogButtonBox *buttonBox;
++
++    void setupUi(QDialog *CoinControlDialog)
++    {
++        if (CoinControlDialog->objectName().isEmpty())
++            CoinControlDialog->setObjectName(QStringLiteral("CoinControlDialog"));
++        CoinControlDialog->resize(1000, 500);
++        verticalLayout = new QVBoxLayout(CoinControlDialog);
++        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
++        horizontalLayoutTop = new QHBoxLayout();
++        horizontalLayoutTop->setObjectName(QStringLiteral("horizontalLayoutTop"));
++        horizontalLayoutTop->setContentsMargins(-1, 0, -1, 10);
++        formLayoutCoinControl1 = new QFormLayout();
++        formLayoutCoinControl1->setObjectName(QStringLiteral("formLayoutCoinControl1"));
++        formLayoutCoinControl1->setHorizontalSpacing(10);
++        formLayoutCoinControl1->setVerticalSpacing(10);
++        formLayoutCoinControl1->setContentsMargins(6, -1, 6, -1);
++        labelCoinControlQuantityText = new QLabel(CoinControlDialog);
++        labelCoinControlQuantityText->setObjectName(QStringLiteral("labelCoinControlQuantityText"));
++        labelCoinControlQuantityText->setStyleSheet(QStringLiteral("font-weight:bold;"));
++
++        formLayoutCoinControl1->setWidget(0, QFormLayout::LabelRole, labelCoinControlQuantityText);
++
++        labelCoinControlQuantity = new QLabel(CoinControlDialog);
++        labelCoinControlQuantity->setObjectName(QStringLiteral("labelCoinControlQuantity"));
++        QFont font;
++        font.setFamily(QStringLiteral("Monospace"));
++        font.setPointSize(10);
++        labelCoinControlQuantity->setFont(font);
++        labelCoinControlQuantity->setCursor(QCursor(Qt::IBeamCursor));
++        labelCoinControlQuantity->setContextMenuPolicy(Qt::ActionsContextMenu);
++        labelCoinControlQuantity->setText(QStringLiteral("0"));
++        labelCoinControlQuantity->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayoutCoinControl1->setWidget(0, QFormLayout::FieldRole, labelCoinControlQuantity);
++
++        labelCoinControlBytesText = new QLabel(CoinControlDialog);
++        labelCoinControlBytesText->setObjectName(QStringLiteral("labelCoinControlBytesText"));
++        labelCoinControlBytesText->setStyleSheet(QStringLiteral("font-weight:bold;"));
++
++        formLayoutCoinControl1->setWidget(1, QFormLayout::LabelRole, labelCoinControlBytesText);
++
++        labelCoinControlBytes = new QLabel(CoinControlDialog);
++        labelCoinControlBytes->setObjectName(QStringLiteral("labelCoinControlBytes"));
++        labelCoinControlBytes->setFont(font);
++        labelCoinControlBytes->setCursor(QCursor(Qt::IBeamCursor));
++        labelCoinControlBytes->setContextMenuPolicy(Qt::ActionsContextMenu);
++        labelCoinControlBytes->setText(QStringLiteral("0"));
++        labelCoinControlBytes->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayoutCoinControl1->setWidget(1, QFormLayout::FieldRole, labelCoinControlBytes);
++
++
++        horizontalLayoutTop->addLayout(formLayoutCoinControl1);
++
++        formLayoutCoinControl2 = new QFormLayout();
++        formLayoutCoinControl2->setObjectName(QStringLiteral("formLayoutCoinControl2"));
++        formLayoutCoinControl2->setHorizontalSpacing(10);
++        formLayoutCoinControl2->setVerticalSpacing(10);
++        formLayoutCoinControl2->setContentsMargins(6, -1, 6, -1);
++        labelCoinControlAmountText = new QLabel(CoinControlDialog);
++        labelCoinControlAmountText->setObjectName(QStringLiteral("labelCoinControlAmountText"));
++        labelCoinControlAmountText->setStyleSheet(QStringLiteral("font-weight:bold;"));
++
++        formLayoutCoinControl2->setWidget(0, QFormLayout::LabelRole, labelCoinControlAmountText);
++
++        labelCoinControlAmount = new QLabel(CoinControlDialog);
++        labelCoinControlAmount->setObjectName(QStringLiteral("labelCoinControlAmount"));
++        labelCoinControlAmount->setFont(font);
++        labelCoinControlAmount->setCursor(QCursor(Qt::IBeamCursor));
++        labelCoinControlAmount->setContextMenuPolicy(Qt::ActionsContextMenu);
++        labelCoinControlAmount->setText(QStringLiteral("0.00 BTC"));
++        labelCoinControlAmount->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayoutCoinControl2->setWidget(0, QFormLayout::FieldRole, labelCoinControlAmount);
++
++        labelCoinControlPriorityText = new QLabel(CoinControlDialog);
++        labelCoinControlPriorityText->setObjectName(QStringLiteral("labelCoinControlPriorityText"));
++        labelCoinControlPriorityText->setStyleSheet(QStringLiteral("font-weight:bold;"));
++
++        formLayoutCoinControl2->setWidget(1, QFormLayout::LabelRole, labelCoinControlPriorityText);
++
++        labelCoinControlPriority = new QLabel(CoinControlDialog);
++        labelCoinControlPriority->setObjectName(QStringLiteral("labelCoinControlPriority"));
++        labelCoinControlPriority->setFont(font);
++        labelCoinControlPriority->setCursor(QCursor(Qt::IBeamCursor));
++        labelCoinControlPriority->setContextMenuPolicy(Qt::ActionsContextMenu);
++        labelCoinControlPriority->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayoutCoinControl2->setWidget(1, QFormLayout::FieldRole, labelCoinControlPriority);
++
++
++        horizontalLayoutTop->addLayout(formLayoutCoinControl2);
++
++        formLayoutCoinControl3 = new QFormLayout();
++        formLayoutCoinControl3->setObjectName(QStringLiteral("formLayoutCoinControl3"));
++        formLayoutCoinControl3->setHorizontalSpacing(10);
++        formLayoutCoinControl3->setVerticalSpacing(10);
++        formLayoutCoinControl3->setContentsMargins(6, -1, 6, -1);
++        labelCoinControlFeeText = new QLabel(CoinControlDialog);
++        labelCoinControlFeeText->setObjectName(QStringLiteral("labelCoinControlFeeText"));
++        labelCoinControlFeeText->setStyleSheet(QStringLiteral("font-weight:bold;"));
++
++        formLayoutCoinControl3->setWidget(0, QFormLayout::LabelRole, labelCoinControlFeeText);
++
++        labelCoinControlFee = new QLabel(CoinControlDialog);
++        labelCoinControlFee->setObjectName(QStringLiteral("labelCoinControlFee"));
++        labelCoinControlFee->setFont(font);
++        labelCoinControlFee->setCursor(QCursor(Qt::IBeamCursor));
++        labelCoinControlFee->setContextMenuPolicy(Qt::ActionsContextMenu);
++        labelCoinControlFee->setText(QStringLiteral("0.00 BTC"));
++        labelCoinControlFee->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayoutCoinControl3->setWidget(0, QFormLayout::FieldRole, labelCoinControlFee);
++
++        labelCoinControlLowOutputText = new QLabel(CoinControlDialog);
++        labelCoinControlLowOutputText->setObjectName(QStringLiteral("labelCoinControlLowOutputText"));
++        labelCoinControlLowOutputText->setEnabled(false);
++        labelCoinControlLowOutputText->setStyleSheet(QStringLiteral("font-weight:bold;"));
++
++        formLayoutCoinControl3->setWidget(1, QFormLayout::LabelRole, labelCoinControlLowOutputText);
++
++        labelCoinControlLowOutput = new QLabel(CoinControlDialog);
++        labelCoinControlLowOutput->setObjectName(QStringLiteral("labelCoinControlLowOutput"));
++        labelCoinControlLowOutput->setEnabled(false);
++        labelCoinControlLowOutput->setFont(font);
++        labelCoinControlLowOutput->setCursor(QCursor(Qt::IBeamCursor));
++        labelCoinControlLowOutput->setContextMenuPolicy(Qt::ActionsContextMenu);
++        labelCoinControlLowOutput->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayoutCoinControl3->setWidget(1, QFormLayout::FieldRole, labelCoinControlLowOutput);
++
++
++        horizontalLayoutTop->addLayout(formLayoutCoinControl3);
++
++        formLayoutCoinControl4 = new QFormLayout();
++        formLayoutCoinControl4->setObjectName(QStringLiteral("formLayoutCoinControl4"));
++        formLayoutCoinControl4->setHorizontalSpacing(10);
++        formLayoutCoinControl4->setVerticalSpacing(10);
++        formLayoutCoinControl4->setContentsMargins(6, -1, 6, -1);
++        labelCoinControlAfterFeeText = new QLabel(CoinControlDialog);
++        labelCoinControlAfterFeeText->setObjectName(QStringLiteral("labelCoinControlAfterFeeText"));
++        labelCoinControlAfterFeeText->setStyleSheet(QStringLiteral("font-weight:bold;"));
++
++        formLayoutCoinControl4->setWidget(0, QFormLayout::LabelRole, labelCoinControlAfterFeeText);
++
++        labelCoinControlAfterFee = new QLabel(CoinControlDialog);
++        labelCoinControlAfterFee->setObjectName(QStringLiteral("labelCoinControlAfterFee"));
++        labelCoinControlAfterFee->setFont(font);
++        labelCoinControlAfterFee->setCursor(QCursor(Qt::IBeamCursor));
++        labelCoinControlAfterFee->setContextMenuPolicy(Qt::ActionsContextMenu);
++        labelCoinControlAfterFee->setText(QStringLiteral("0.00 BTC"));
++        labelCoinControlAfterFee->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayoutCoinControl4->setWidget(0, QFormLayout::FieldRole, labelCoinControlAfterFee);
++
++        labelCoinControlChangeText = new QLabel(CoinControlDialog);
++        labelCoinControlChangeText->setObjectName(QStringLiteral("labelCoinControlChangeText"));
++        labelCoinControlChangeText->setEnabled(false);
++        labelCoinControlChangeText->setStyleSheet(QStringLiteral("font-weight:bold;"));
++
++        formLayoutCoinControl4->setWidget(1, QFormLayout::LabelRole, labelCoinControlChangeText);
++
++        labelCoinControlChange = new QLabel(CoinControlDialog);
++        labelCoinControlChange->setObjectName(QStringLiteral("labelCoinControlChange"));
++        labelCoinControlChange->setEnabled(false);
++        labelCoinControlChange->setFont(font);
++        labelCoinControlChange->setCursor(QCursor(Qt::IBeamCursor));
++        labelCoinControlChange->setContextMenuPolicy(Qt::ActionsContextMenu);
++        labelCoinControlChange->setText(QStringLiteral("0.00 BTC"));
++        labelCoinControlChange->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayoutCoinControl4->setWidget(1, QFormLayout::FieldRole, labelCoinControlChange);
++
++
++        horizontalLayoutTop->addLayout(formLayoutCoinControl4);
++
++
++        verticalLayout->addLayout(horizontalLayoutTop);
++
++        frame = new QFrame(CoinControlDialog);
++        frame->setObjectName(QStringLiteral("frame"));
++        frame->setMinimumSize(QSize(0, 40));
++        frame->setFrameShape(QFrame::StyledPanel);
++        frame->setFrameShadow(QFrame::Sunken);
++        horizontalLayoutWidget = new QWidget(frame);
++        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
++        horizontalLayoutWidget->setGeometry(QRect(10, 0, 781, 41));
++        horizontalLayoutPanel = new QHBoxLayout(horizontalLayoutWidget);
++        horizontalLayoutPanel->setSpacing(14);
++        horizontalLayoutPanel->setObjectName(QStringLiteral("horizontalLayoutPanel"));
++        horizontalLayoutPanel->setContentsMargins(0, 0, 0, 0);
++        pushButtonSelectAll = new QPushButton(horizontalLayoutWidget);
++        pushButtonSelectAll->setObjectName(QStringLiteral("pushButtonSelectAll"));
++        QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
++        sizePolicy.setHorizontalStretch(0);
++        sizePolicy.setVerticalStretch(0);
++        sizePolicy.setHeightForWidth(pushButtonSelectAll->sizePolicy().hasHeightForWidth());
++        pushButtonSelectAll->setSizePolicy(sizePolicy);
++
++        horizontalLayoutPanel->addWidget(pushButtonSelectAll);
++
++        radioTreeMode = new QRadioButton(horizontalLayoutWidget);
++        radioTreeMode->setObjectName(QStringLiteral("radioTreeMode"));
++        sizePolicy.setHeightForWidth(radioTreeMode->sizePolicy().hasHeightForWidth());
++        radioTreeMode->setSizePolicy(sizePolicy);
++        radioTreeMode->setChecked(true);
++
++        horizontalLayoutPanel->addWidget(radioTreeMode);
++
++        radioListMode = new QRadioButton(horizontalLayoutWidget);
++        radioListMode->setObjectName(QStringLiteral("radioListMode"));
++        sizePolicy.setHeightForWidth(radioListMode->sizePolicy().hasHeightForWidth());
++        radioListMode->setSizePolicy(sizePolicy);
++
++        horizontalLayoutPanel->addWidget(radioListMode);
++
++        labelLocked = new QLabel(horizontalLayoutWidget);
++        labelLocked->setObjectName(QStringLiteral("labelLocked"));
++
++        horizontalLayoutPanel->addWidget(labelLocked);
++
++        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayoutPanel->addItem(horizontalSpacer);
++
++
++        verticalLayout->addWidget(frame);
++
++        treeWidget = new CoinControlTreeWidget(CoinControlDialog);
++        treeWidget->headerItem()->setText(0, QString());
++        treeWidget->headerItem()->setText(7, QString());
++        treeWidget->headerItem()->setText(8, QString());
++        treeWidget->headerItem()->setText(9, QString());
++        treeWidget->headerItem()->setText(10, QString());
++        QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
++        __qtreewidgetitem->setText(2, QStringLiteral("Label"));
++        treeWidget->setHeaderItem(__qtreewidgetitem);
++        treeWidget->setObjectName(QStringLiteral("treeWidget"));
++        treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
++        treeWidget->setSortingEnabled(false);
++        treeWidget->setColumnCount(11);
++        treeWidget->header()->setProperty("showSortIndicator", QVariant(true));
++        treeWidget->header()->setStretchLastSection(false);
++
++        verticalLayout->addWidget(treeWidget);
++
++        buttonBox = new QDialogButtonBox(CoinControlDialog);
++        buttonBox->setObjectName(QStringLiteral("buttonBox"));
++        sizePolicy.setHeightForWidth(buttonBox->sizePolicy().hasHeightForWidth());
++        buttonBox->setSizePolicy(sizePolicy);
++        buttonBox->setOrientation(Qt::Horizontal);
++        buttonBox->setStandardButtons(QDialogButtonBox::Ok);
++
++        verticalLayout->addWidget(buttonBox);
++
++
++        retranslateUi(CoinControlDialog);
++
++        QMetaObject::connectSlotsByName(CoinControlDialog);
++    } // setupUi
++
++    void retranslateUi(QDialog *CoinControlDialog)
++    {
++        CoinControlDialog->setWindowTitle(QApplication::translate("CoinControlDialog", "Coin Control", 0));
++        labelCoinControlQuantityText->setText(QApplication::translate("CoinControlDialog", "Quantity:", 0));
++        labelCoinControlBytesText->setText(QApplication::translate("CoinControlDialog", "Bytes:", 0));
++        labelCoinControlAmountText->setText(QApplication::translate("CoinControlDialog", "Amount:", 0));
++        labelCoinControlPriorityText->setText(QApplication::translate("CoinControlDialog", "Priority:", 0));
++        labelCoinControlPriority->setText(QString());
++        labelCoinControlFeeText->setText(QApplication::translate("CoinControlDialog", "Fee:", 0));
++        labelCoinControlLowOutputText->setText(QApplication::translate("CoinControlDialog", "Low Output:", 0));
++        labelCoinControlLowOutput->setText(QApplication::translate("CoinControlDialog", "no", 0));
++        labelCoinControlAfterFeeText->setText(QApplication::translate("CoinControlDialog", "After Fee:", 0));
++        labelCoinControlChangeText->setText(QApplication::translate("CoinControlDialog", "Change:", 0));
++        pushButtonSelectAll->setText(QApplication::translate("CoinControlDialog", "(un)select all", 0));
++        radioTreeMode->setText(QApplication::translate("CoinControlDialog", "Tree mode", 0));
++        radioListMode->setText(QApplication::translate("CoinControlDialog", "List mode", 0));
++        labelLocked->setText(QApplication::translate("CoinControlDialog", "(1 locked)", 0));
++        QTreeWidgetItem *___qtreewidgetitem = treeWidget->headerItem();
++        ___qtreewidgetitem->setText(6, QApplication::translate("CoinControlDialog", "Priority", 0));
++        ___qtreewidgetitem->setText(5, QApplication::translate("CoinControlDialog", "Confirmations", 0));
++        ___qtreewidgetitem->setText(4, QApplication::translate("CoinControlDialog", "Date", 0));
++        ___qtreewidgetitem->setText(3, QApplication::translate("CoinControlDialog", "Address", 0));
++        ___qtreewidgetitem->setText(1, QApplication::translate("CoinControlDialog", "Amount", 0));
++#ifndef QT_NO_TOOLTIP
++        ___qtreewidgetitem->setToolTip(5, QApplication::translate("CoinControlDialog", "Confirmed", 0));
++#endif // QT_NO_TOOLTIP
++    } // retranslateUi
++
++};
++
++namespace Ui {
++    class CoinControlDialog: public Ui_CoinControlDialog {};
++} // namespace Ui
++
++QT_END_NAMESPACE
++
++#endif // UI_COINCONTROLDIALOG_H
+--- /dev/null
++++ woodcoin-1.2/build/ui_editaddressdialog.h
+@@ -0,0 +1,110 @@
++/********************************************************************************
++** Form generated from reading UI file 'editaddressdialog.ui'
++**
++** Created by: Qt User Interface Compiler version 5.4.2
++**
++** WARNING! All changes made in this file will be lost when recompiling UI file!
++********************************************************************************/
++
++#ifndef UI_EDITADDRESSDIALOG_H
++#define UI_EDITADDRESSDIALOG_H
++
++#include <QtCore/QVariant>
++#include <QtWidgets/QAction>
++#include <QtWidgets/QApplication>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QDialog>
++#include <QtWidgets/QDialogButtonBox>
++#include <QtWidgets/QFormLayout>
++#include <QtWidgets/QHeaderView>
++#include <QtWidgets/QLabel>
++#include <QtWidgets/QLineEdit>
++#include <QtWidgets/QVBoxLayout>
++
++QT_BEGIN_NAMESPACE
++
++class Ui_EditAddressDialog
++{
++public:
++    QVBoxLayout *verticalLayout;
++    QFormLayout *formLayout;
++    QLabel *label;
++    QLineEdit *labelEdit;
++    QLabel *label_2;
++    QLineEdit *addressEdit;
++    QDialogButtonBox *buttonBox;
++
++    void setupUi(QDialog *EditAddressDialog)
++    {
++        if (EditAddressDialog->objectName().isEmpty())
++            EditAddressDialog->setObjectName(QStringLiteral("EditAddressDialog"));
++        EditAddressDialog->resize(457, 126);
++        verticalLayout = new QVBoxLayout(EditAddressDialog);
++        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
++        formLayout = new QFormLayout();
++        formLayout->setObjectName(QStringLiteral("formLayout"));
++        formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
++        label = new QLabel(EditAddressDialog);
++        label->setObjectName(QStringLiteral("label"));
++
++        formLayout->setWidget(0, QFormLayout::LabelRole, label);
++
++        labelEdit = new QLineEdit(EditAddressDialog);
++        labelEdit->setObjectName(QStringLiteral("labelEdit"));
++
++        formLayout->setWidget(0, QFormLayout::FieldRole, labelEdit);
++
++        label_2 = new QLabel(EditAddressDialog);
++        label_2->setObjectName(QStringLiteral("label_2"));
++
++        formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
++
++        addressEdit = new QLineEdit(EditAddressDialog);
++        addressEdit->setObjectName(QStringLiteral("addressEdit"));
++
++        formLayout->setWidget(1, QFormLayout::FieldRole, addressEdit);
++
++
++        verticalLayout->addLayout(formLayout);
++
++        buttonBox = new QDialogButtonBox(EditAddressDialog);
++        buttonBox->setObjectName(QStringLiteral("buttonBox"));
++        buttonBox->setOrientation(Qt::Horizontal);
++        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
++
++        verticalLayout->addWidget(buttonBox);
++
++#ifndef QT_NO_SHORTCUT
++        label->setBuddy(labelEdit);
++        label_2->setBuddy(addressEdit);
++#endif // QT_NO_SHORTCUT
++
++        retranslateUi(EditAddressDialog);
++        QObject::connect(buttonBox, SIGNAL(accepted()), EditAddressDialog, SLOT(accept()));
++        QObject::connect(buttonBox, SIGNAL(rejected()), EditAddressDialog, SLOT(reject()));
++
++        QMetaObject::connectSlotsByName(EditAddressDialog);
++    } // setupUi
++
++    void retranslateUi(QDialog *EditAddressDialog)
++    {
++        EditAddressDialog->setWindowTitle(QApplication::translate("EditAddressDialog", "Edit Address", 0));
++        label->setText(QApplication::translate("EditAddressDialog", "&Label", 0));
++#ifndef QT_NO_TOOLTIP
++        labelEdit->setToolTip(QApplication::translate("EditAddressDialog", "The label associated with this address book entry", 0));
++#endif // QT_NO_TOOLTIP
++        label_2->setText(QApplication::translate("EditAddressDialog", "&Address", 0));
++#ifndef QT_NO_TOOLTIP
++        addressEdit->setToolTip(QApplication::translate("EditAddressDialog", "The address associated with this address book entry. This can only be modified for sending addresses.", 0));
++#endif // QT_NO_TOOLTIP
++    } // retranslateUi
++
++};
++
++namespace Ui {
++    class EditAddressDialog: public Ui_EditAddressDialog {};
++} // namespace Ui
++
++QT_END_NAMESPACE
++
++#endif // UI_EDITADDRESSDIALOG_H
+--- /dev/null
++++ woodcoin-1.2/build/ui_optionsdialog.h
+@@ -0,0 +1,451 @@
++/********************************************************************************
++** Form generated from reading UI file 'optionsdialog.ui'
++**
++** Created by: Qt User Interface Compiler version 5.4.2
++**
++** WARNING! All changes made in this file will be lost when recompiling UI file!
++********************************************************************************/
++
++#ifndef UI_OPTIONSDIALOG_H
++#define UI_OPTIONSDIALOG_H
++
++#include <QtCore/QVariant>
++#include <QtWidgets/QAction>
++#include <QtWidgets/QApplication>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QCheckBox>
++#include <QtWidgets/QDialog>
++#include <QtWidgets/QHBoxLayout>
++#include <QtWidgets/QHeaderView>
++#include <QtWidgets/QLabel>
++#include <QtWidgets/QLineEdit>
++#include <QtWidgets/QPushButton>
++#include <QtWidgets/QSpacerItem>
++#include <QtWidgets/QTabWidget>
++#include <QtWidgets/QVBoxLayout>
++#include <QtWidgets/QWidget>
++#include "bitcoinamountfield.h"
++#include "qvalidatedlineedit.h"
++#include "qvaluecombobox.h"
++
++QT_BEGIN_NAMESPACE
++
++class Ui_OptionsDialog
++{
++public:
++    QVBoxLayout *verticalLayout;
++    QTabWidget *tabWidget;
++    QWidget *tabMain;
++    QVBoxLayout *verticalLayout_Main;
++    QCheckBox *bitcoinAtStartup;
++    QSpacerItem *verticalSpacer_Main;
++    QHBoxLayout *horizontalLayout_2_Main;
++    QSpacerItem *horizontalSpacer_2_Main;
++    QPushButton *resetButton;
++    QWidget *tabWallet;
++    QVBoxLayout *verticalLayout_Network;
++    QLabel *transactionFeeInfoLabel;
++    QHBoxLayout *horizontalLayout_1_Main;
++    QLabel *transactionFeeLabel;
++    BitcoinAmountField *transactionFee;
++    QSpacerItem *horizontalSpacer_1_Main;
++    QLabel *label;
++    QCheckBox *spendZeroConfChange;
++    QSpacerItem *verticalSpacer;
++    QWidget *tabNetwork;
++    QVBoxLayout *verticalLayout_Network1;
++    QCheckBox *mapPortUpnp;
++    QCheckBox *connectSocks;
++    QHBoxLayout *horizontalLayout_Network;
++    QLabel *proxyIpLabel;
++    QValidatedLineEdit *proxyIp;
++    QLabel *proxyPortLabel;
++    QLineEdit *proxyPort;
++    QLabel *socksVersionLabel;
++    QValueComboBox *socksVersion;
++    QSpacerItem *horizontalSpacer_Network;
++    QSpacerItem *verticalSpacer_Network;
++    QWidget *tabWindow;
++    QVBoxLayout *verticalLayout_Window;
++    QCheckBox *minimizeToTray;
++    QCheckBox *minimizeOnClose;
++    QSpacerItem *verticalSpacer_Window;
++    QWidget *tabDisplay;
++    QVBoxLayout *verticalLayout_Display;
++    QHBoxLayout *horizontalLayout_1_Display;
++    QLabel *langLabel;
++    QValueComboBox *lang;
++    QHBoxLayout *horizontalLayout_2_Display;
++    QLabel *unitLabel;
++    QValueComboBox *unit;
++    QCheckBox *displayAddresses;
++    QCheckBox *coinControlFeatures;
++    QSpacerItem *verticalSpacer_Display;
++    QHBoxLayout *horizontalLayout_Buttons;
++    QSpacerItem *horizontalSpacer_1;
++    QLabel *statusLabel;
++    QSpacerItem *horizontalSpacer_2;
++    QPushButton *okButton;
++    QPushButton *cancelButton;
++    QPushButton *applyButton;
++
++    void setupUi(QDialog *OptionsDialog)
++    {
++        if (OptionsDialog->objectName().isEmpty())
++            OptionsDialog->setObjectName(QStringLiteral("OptionsDialog"));
++        OptionsDialog->resize(540, 380);
++        OptionsDialog->setModal(true);
++        verticalLayout = new QVBoxLayout(OptionsDialog);
++        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
++        tabWidget = new QTabWidget(OptionsDialog);
++        tabWidget->setObjectName(QStringLiteral("tabWidget"));
++        tabWidget->setTabPosition(QTabWidget::North);
++        tabMain = new QWidget();
++        tabMain->setObjectName(QStringLiteral("tabMain"));
++        verticalLayout_Main = new QVBoxLayout(tabMain);
++        verticalLayout_Main->setObjectName(QStringLiteral("verticalLayout_Main"));
++        bitcoinAtStartup = new QCheckBox(tabMain);
++        bitcoinAtStartup->setObjectName(QStringLiteral("bitcoinAtStartup"));
++
++        verticalLayout_Main->addWidget(bitcoinAtStartup);
++
++        verticalSpacer_Main = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
++
++        verticalLayout_Main->addItem(verticalSpacer_Main);
++
++        horizontalLayout_2_Main = new QHBoxLayout();
++        horizontalLayout_2_Main->setObjectName(QStringLiteral("horizontalLayout_2_Main"));
++        horizontalSpacer_2_Main = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayout_2_Main->addItem(horizontalSpacer_2_Main);
++
++        resetButton = new QPushButton(tabMain);
++        resetButton->setObjectName(QStringLiteral("resetButton"));
++        resetButton->setAutoDefault(false);
++
++        horizontalLayout_2_Main->addWidget(resetButton);
++
++
++        verticalLayout_Main->addLayout(horizontalLayout_2_Main);
++
++        tabWidget->addTab(tabMain, QString());
++        tabWallet = new QWidget();
++        tabWallet->setObjectName(QStringLiteral("tabWallet"));
++        verticalLayout_Network = new QVBoxLayout(tabWallet);
++        verticalLayout_Network->setObjectName(QStringLiteral("verticalLayout_Network"));
++        transactionFeeInfoLabel = new QLabel(tabWallet);
++        transactionFeeInfoLabel->setObjectName(QStringLiteral("transactionFeeInfoLabel"));
++        transactionFeeInfoLabel->setTextFormat(Qt::PlainText);
++        transactionFeeInfoLabel->setWordWrap(true);
++
++        verticalLayout_Network->addWidget(transactionFeeInfoLabel);
++
++        horizontalLayout_1_Main = new QHBoxLayout();
++        horizontalLayout_1_Main->setObjectName(QStringLiteral("horizontalLayout_1_Main"));
++        transactionFeeLabel = new QLabel(tabWallet);
++        transactionFeeLabel->setObjectName(QStringLiteral("transactionFeeLabel"));
++        transactionFeeLabel->setTextFormat(Qt::PlainText);
++
++        horizontalLayout_1_Main->addWidget(transactionFeeLabel);
++
++        transactionFee = new BitcoinAmountField(tabWallet);
++        transactionFee->setObjectName(QStringLiteral("transactionFee"));
++
++        horizontalLayout_1_Main->addWidget(transactionFee);
++
++        horizontalSpacer_1_Main = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayout_1_Main->addItem(horizontalSpacer_1_Main);
++
++
++        verticalLayout_Network->addLayout(horizontalLayout_1_Main);
++
++        label = new QLabel(tabWallet);
++        label->setObjectName(QStringLiteral("label"));
++        label->setWordWrap(true);
++
++        verticalLayout_Network->addWidget(label);
++
++        spendZeroConfChange = new QCheckBox(tabWallet);
++        spendZeroConfChange->setObjectName(QStringLiteral("spendZeroConfChange"));
++
++        verticalLayout_Network->addWidget(spendZeroConfChange);
++
++        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
++
++        verticalLayout_Network->addItem(verticalSpacer);
++
++        tabWidget->addTab(tabWallet, QString());
++        tabNetwork = new QWidget();
++        tabNetwork->setObjectName(QStringLiteral("tabNetwork"));
++        verticalLayout_Network1 = new QVBoxLayout(tabNetwork);
++        verticalLayout_Network1->setObjectName(QStringLiteral("verticalLayout_Network1"));
++        mapPortUpnp = new QCheckBox(tabNetwork);
++        mapPortUpnp->setObjectName(QStringLiteral("mapPortUpnp"));
++
++        verticalLayout_Network1->addWidget(mapPortUpnp);
++
++        connectSocks = new QCheckBox(tabNetwork);
++        connectSocks->setObjectName(QStringLiteral("connectSocks"));
++
++        verticalLayout_Network1->addWidget(connectSocks);
++
++        horizontalLayout_Network = new QHBoxLayout();
++        horizontalLayout_Network->setObjectName(QStringLiteral("horizontalLayout_Network"));
++        proxyIpLabel = new QLabel(tabNetwork);
++        proxyIpLabel->setObjectName(QStringLiteral("proxyIpLabel"));
++        proxyIpLabel->setTextFormat(Qt::PlainText);
++
++        horizontalLayout_Network->addWidget(proxyIpLabel);
++
++        proxyIp = new QValidatedLineEdit(tabNetwork);
++        proxyIp->setObjectName(QStringLiteral("proxyIp"));
++        proxyIp->setMaximumSize(QSize(140, 16777215));
++
++        horizontalLayout_Network->addWidget(proxyIp);
++
++        proxyPortLabel = new QLabel(tabNetwork);
++        proxyPortLabel->setObjectName(QStringLiteral("proxyPortLabel"));
++        proxyPortLabel->setTextFormat(Qt::PlainText);
++
++        horizontalLayout_Network->addWidget(proxyPortLabel);
++
++        proxyPort = new QLineEdit(tabNetwork);
++        proxyPort->setObjectName(QStringLiteral("proxyPort"));
++        proxyPort->setMaximumSize(QSize(55, 16777215));
++
++        horizontalLayout_Network->addWidget(proxyPort);
++
++        socksVersionLabel = new QLabel(tabNetwork);
++        socksVersionLabel->setObjectName(QStringLiteral("socksVersionLabel"));
++        socksVersionLabel->setTextFormat(Qt::PlainText);
++
++        horizontalLayout_Network->addWidget(socksVersionLabel);
++
++        socksVersion = new QValueComboBox(tabNetwork);
++        socksVersion->setObjectName(QStringLiteral("socksVersion"));
++
++        horizontalLayout_Network->addWidget(socksVersion);
++
++        horizontalSpacer_Network = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayout_Network->addItem(horizontalSpacer_Network);
++
++
++        verticalLayout_Network1->addLayout(horizontalLayout_Network);
++
++        verticalSpacer_Network = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
++
++        verticalLayout_Network1->addItem(verticalSpacer_Network);
++
++        tabWidget->addTab(tabNetwork, QString());
++        tabWindow = new QWidget();
++        tabWindow->setObjectName(QStringLiteral("tabWindow"));
++        verticalLayout_Window = new QVBoxLayout(tabWindow);
++        verticalLayout_Window->setObjectName(QStringLiteral("verticalLayout_Window"));
++        minimizeToTray = new QCheckBox(tabWindow);
++        minimizeToTray->setObjectName(QStringLiteral("minimizeToTray"));
++
++        verticalLayout_Window->addWidget(minimizeToTray);
++
++        minimizeOnClose = new QCheckBox(tabWindow);
++        minimizeOnClose->setObjectName(QStringLiteral("minimizeOnClose"));
++
++        verticalLayout_Window->addWidget(minimizeOnClose);
++
++        verticalSpacer_Window = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
++
++        verticalLayout_Window->addItem(verticalSpacer_Window);
++
++        tabWidget->addTab(tabWindow, QString());
++        tabDisplay = new QWidget();
++        tabDisplay->setObjectName(QStringLiteral("tabDisplay"));
++        verticalLayout_Display = new QVBoxLayout(tabDisplay);
++        verticalLayout_Display->setObjectName(QStringLiteral("verticalLayout_Display"));
++        horizontalLayout_1_Display = new QHBoxLayout();
++        horizontalLayout_1_Display->setObjectName(QStringLiteral("horizontalLayout_1_Display"));
++        langLabel = new QLabel(tabDisplay);
++        langLabel->setObjectName(QStringLiteral("langLabel"));
++        langLabel->setTextFormat(Qt::PlainText);
++
++        horizontalLayout_1_Display->addWidget(langLabel);
++
++        lang = new QValueComboBox(tabDisplay);
++        lang->setObjectName(QStringLiteral("lang"));
++
++        horizontalLayout_1_Display->addWidget(lang);
++
++
++        verticalLayout_Display->addLayout(horizontalLayout_1_Display);
++
++        horizontalLayout_2_Display = new QHBoxLayout();
++        horizontalLayout_2_Display->setObjectName(QStringLiteral("horizontalLayout_2_Display"));
++        unitLabel = new QLabel(tabDisplay);
++        unitLabel->setObjectName(QStringLiteral("unitLabel"));
++        unitLabel->setTextFormat(Qt::PlainText);
++
++        horizontalLayout_2_Display->addWidget(unitLabel);
++
++        unit = new QValueComboBox(tabDisplay);
++        unit->setObjectName(QStringLiteral("unit"));
++
++        horizontalLayout_2_Display->addWidget(unit);
++
++
++        verticalLayout_Display->addLayout(horizontalLayout_2_Display);
++
++        displayAddresses = new QCheckBox(tabDisplay);
++        displayAddresses->setObjectName(QStringLiteral("displayAddresses"));
++
++        verticalLayout_Display->addWidget(displayAddresses);
++
++        coinControlFeatures = new QCheckBox(tabDisplay);
++        coinControlFeatures->setObjectName(QStringLiteral("coinControlFeatures"));
++
++        verticalLayout_Display->addWidget(coinControlFeatures);
++
++        verticalSpacer_Display = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
++
++        verticalLayout_Display->addItem(verticalSpacer_Display);
++
++        tabWidget->addTab(tabDisplay, QString());
++
++        verticalLayout->addWidget(tabWidget);
++
++        horizontalLayout_Buttons = new QHBoxLayout();
++        horizontalLayout_Buttons->setObjectName(QStringLiteral("horizontalLayout_Buttons"));
++        horizontalSpacer_1 = new QSpacerItem(40, 48, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayout_Buttons->addItem(horizontalSpacer_1);
++
++        statusLabel = new QLabel(OptionsDialog);
++        statusLabel->setObjectName(QStringLiteral("statusLabel"));
++        QFont font;
++        font.setBold(true);
++        font.setWeight(75);
++        statusLabel->setFont(font);
++        statusLabel->setTextFormat(Qt::PlainText);
++        statusLabel->setWordWrap(true);
++
++        horizontalLayout_Buttons->addWidget(statusLabel);
++
++        horizontalSpacer_2 = new QSpacerItem(40, 48, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayout_Buttons->addItem(horizontalSpacer_2);
++
++        okButton = new QPushButton(OptionsDialog);
++        okButton->setObjectName(QStringLiteral("okButton"));
++
++        horizontalLayout_Buttons->addWidget(okButton);
++
++        cancelButton = new QPushButton(OptionsDialog);
++        cancelButton->setObjectName(QStringLiteral("cancelButton"));
++        cancelButton->setAutoDefault(false);
++
++        horizontalLayout_Buttons->addWidget(cancelButton);
++
++        applyButton = new QPushButton(OptionsDialog);
++        applyButton->setObjectName(QStringLiteral("applyButton"));
++        applyButton->setAutoDefault(false);
++
++        horizontalLayout_Buttons->addWidget(applyButton);
++
++
++        verticalLayout->addLayout(horizontalLayout_Buttons);
++
++#ifndef QT_NO_SHORTCUT
++        transactionFeeLabel->setBuddy(transactionFee);
++        proxyIpLabel->setBuddy(proxyIp);
++        proxyPortLabel->setBuddy(proxyPort);
++        socksVersionLabel->setBuddy(socksVersion);
++        langLabel->setBuddy(lang);
++        unitLabel->setBuddy(unit);
++#endif // QT_NO_SHORTCUT
++
++        retranslateUi(OptionsDialog);
++
++        tabWidget->setCurrentIndex(0);
++
++
++        QMetaObject::connectSlotsByName(OptionsDialog);
++    } // setupUi
++
++    void retranslateUi(QDialog *OptionsDialog)
++    {
++        OptionsDialog->setWindowTitle(QApplication::translate("OptionsDialog", "Options", 0));
++#ifndef QT_NO_TOOLTIP
++        bitcoinAtStartup->setToolTip(QApplication::translate("OptionsDialog", "Automatically start Woodcoin after logging in to the system.", 0));
++#endif // QT_NO_TOOLTIP
++        bitcoinAtStartup->setText(QApplication::translate("OptionsDialog", "&Start Woodcoin on system login", 0));
++#ifndef QT_NO_TOOLTIP
++        resetButton->setToolTip(QApplication::translate("OptionsDialog", "Reset all client options to default.", 0));
++#endif // QT_NO_TOOLTIP
++        resetButton->setText(QApplication::translate("OptionsDialog", "&Reset Options", 0));
++        tabWidget->setTabText(tabWidget->indexOf(tabMain), QApplication::translate("OptionsDialog", "&Main", 0));
++        transactionFeeInfoLabel->setText(QApplication::translate("OptionsDialog", "Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB.", 0));
++        transactionFeeLabel->setText(QApplication::translate("OptionsDialog", "Pay transaction &fee", 0));
++        label->setText(QApplication::translate("OptionsDialog", "If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.", 0));
++        spendZeroConfChange->setText(QApplication::translate("OptionsDialog", "Spend unconfirmed change  (experts only)", 0));
++        tabWidget->setTabText(tabWidget->indexOf(tabWallet), QApplication::translate("OptionsDialog", "W&allet", 0));
++#ifndef QT_NO_TOOLTIP
++        mapPortUpnp->setToolTip(QApplication::translate("OptionsDialog", "Automatically open the Woodcoin client port on the router. This only works when your router supports UPnP and it is enabled.", 0));
++#endif // QT_NO_TOOLTIP
++        mapPortUpnp->setText(QApplication::translate("OptionsDialog", "Map port using &UPnP", 0));
++#ifndef QT_NO_TOOLTIP
++        connectSocks->setToolTip(QApplication::translate("OptionsDialog", "Connect to the Woodcoin network through a SOCKS proxy (e.g. when connecting through Tor).", 0));
++#endif // QT_NO_TOOLTIP
++        connectSocks->setText(QApplication::translate("OptionsDialog", "&Connect through SOCKS proxy:", 0));
++        proxyIpLabel->setText(QApplication::translate("OptionsDialog", "Proxy &IP:", 0));
++#ifndef QT_NO_TOOLTIP
++        proxyIp->setToolTip(QApplication::translate("OptionsDialog", "IP address of the proxy (e.g. 127.0.0.1)", 0));
++#endif // QT_NO_TOOLTIP
++        proxyPortLabel->setText(QApplication::translate("OptionsDialog", "&Port:", 0));
++#ifndef QT_NO_TOOLTIP
++        proxyPort->setToolTip(QApplication::translate("OptionsDialog", "Port of the proxy (e.g. 9050)", 0));
++#endif // QT_NO_TOOLTIP
++        socksVersionLabel->setText(QApplication::translate("OptionsDialog", "SOCKS &Version:", 0));
++#ifndef QT_NO_TOOLTIP
++        socksVersion->setToolTip(QApplication::translate("OptionsDialog", "SOCKS version of the proxy (e.g. 5)", 0));
++#endif // QT_NO_TOOLTIP
++        tabWidget->setTabText(tabWidget->indexOf(tabNetwork), QApplication::translate("OptionsDialog", "&Network", 0));
++#ifndef QT_NO_TOOLTIP
++        minimizeToTray->setToolTip(QApplication::translate("OptionsDialog", "Show only a tray icon after minimizing the window.", 0));
++#endif // QT_NO_TOOLTIP
++        minimizeToTray->setText(QApplication::translate("OptionsDialog", "&Minimize to the tray instead of the taskbar", 0));
++#ifndef QT_NO_TOOLTIP
++        minimizeOnClose->setToolTip(QApplication::translate("OptionsDialog", "Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.", 0));
++#endif // QT_NO_TOOLTIP
++        minimizeOnClose->setText(QApplication::translate("OptionsDialog", "M&inimize on close", 0));
++        tabWidget->setTabText(tabWidget->indexOf(tabWindow), QApplication::translate("OptionsDialog", "&Window", 0));
++        langLabel->setText(QApplication::translate("OptionsDialog", "User Interface &language:", 0));
++#ifndef QT_NO_TOOLTIP
++        lang->setToolTip(QApplication::translate("OptionsDialog", "The user interface language can be set here. This setting will take effect after restarting Woodcoin.", 0));
++#endif // QT_NO_TOOLTIP
++        unitLabel->setText(QApplication::translate("OptionsDialog", "&Unit to show amounts in:", 0));
++#ifndef QT_NO_TOOLTIP
++        unit->setToolTip(QApplication::translate("OptionsDialog", "Choose the default subdivision unit to show in the interface and when sending coins.", 0));
++#endif // QT_NO_TOOLTIP
++#ifndef QT_NO_TOOLTIP
++        displayAddresses->setToolTip(QApplication::translate("OptionsDialog", "Whether to show Woodcoin addresses in the transaction list or not.", 0));
++#endif // QT_NO_TOOLTIP
++        displayAddresses->setText(QApplication::translate("OptionsDialog", "&Display addresses in transaction list", 0));
++#ifndef QT_NO_TOOLTIP
++        coinControlFeatures->setToolTip(QApplication::translate("OptionsDialog", "Whether to show coin control features or not.", 0));
++#endif // QT_NO_TOOLTIP
++        coinControlFeatures->setText(QApplication::translate("OptionsDialog", "Display coin &control features (experts only!)", 0));
++        tabWidget->setTabText(tabWidget->indexOf(tabDisplay), QApplication::translate("OptionsDialog", "&Display", 0));
++        statusLabel->setText(QString());
++        okButton->setText(QApplication::translate("OptionsDialog", "&OK", 0));
++        cancelButton->setText(QApplication::translate("OptionsDialog", "&Cancel", 0));
++        applyButton->setText(QApplication::translate("OptionsDialog", "&Apply", 0));
++    } // retranslateUi
++
++};
++
++namespace Ui {
++    class OptionsDialog: public Ui_OptionsDialog {};
++} // namespace Ui
++
++QT_END_NAMESPACE
++
++#endif // UI_OPTIONSDIALOG_H
+--- /dev/null
++++ woodcoin-1.2/build/ui_overviewpage.h
+@@ -0,0 +1,278 @@
++/********************************************************************************
++** Form generated from reading UI file 'overviewpage.ui'
++**
++** Created by: Qt User Interface Compiler version 5.4.2
++**
++** WARNING! All changes made in this file will be lost when recompiling UI file!
++********************************************************************************/
++
++#ifndef UI_OVERVIEWPAGE_H
++#define UI_OVERVIEWPAGE_H
++
++#include <QtCore/QVariant>
++#include <QtWidgets/QAction>
++#include <QtWidgets/QApplication>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QFormLayout>
++#include <QtWidgets/QFrame>
++#include <QtWidgets/QHBoxLayout>
++#include <QtWidgets/QHeaderView>
++#include <QtWidgets/QLabel>
++#include <QtWidgets/QListView>
++#include <QtWidgets/QSpacerItem>
++#include <QtWidgets/QVBoxLayout>
++#include <QtWidgets/QWidget>
++
++QT_BEGIN_NAMESPACE
++
++class Ui_OverviewPage
++{
++public:
++    QVBoxLayout *topLayout;
++    QLabel *labelAlerts;
++    QHBoxLayout *horizontalLayout;
++    QVBoxLayout *verticalLayout_2;
++    QFrame *frame;
++    QVBoxLayout *verticalLayout_4;
++    QHBoxLayout *horizontalLayout_4;
++    QLabel *label_5;
++    QLabel *labelWalletStatus;
++    QSpacerItem *horizontalSpacer_2;
++    QSpacerItem *verticalSpacer_3;
++    QFormLayout *formLayout_2;
++    QLabel *label;
++    QLabel *labelBalance;
++    QLabel *label_3;
++    QLabel *labelUnconfirmed;
++    QLabel *labelImmatureText;
++    QLabel *labelImmature;
++    QLabel *logo;
++    QVBoxLayout *verticalLayout_3;
++    QFrame *frame_2;
++    QVBoxLayout *verticalLayout;
++    QHBoxLayout *horizontalLayout_2;
++    QLabel *label_4;
++    QLabel *labelTransactionsStatus;
++    QSpacerItem *horizontalSpacer;
++    QListView *listTransactions;
++    QSpacerItem *verticalSpacer_2;
++
++    void setupUi(QWidget *OverviewPage)
++    {
++        if (OverviewPage->objectName().isEmpty())
++            OverviewPage->setObjectName(QStringLiteral("OverviewPage"));
++        OverviewPage->resize(573, 342);
++        topLayout = new QVBoxLayout(OverviewPage);
++        topLayout->setObjectName(QStringLiteral("topLayout"));
++        labelAlerts = new QLabel(OverviewPage);
++        labelAlerts->setObjectName(QStringLiteral("labelAlerts"));
++        labelAlerts->setVisible(false);
++        labelAlerts->setStyleSheet(QStringLiteral("background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop:0 #F0D0A0, stop:1 #F8D488); color:#000000;"));
++        labelAlerts->setWordWrap(true);
++        labelAlerts->setMargin(3);
++
++        topLayout->addWidget(labelAlerts);
++
++        horizontalLayout = new QHBoxLayout();
++        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
++        verticalLayout_2 = new QVBoxLayout();
++        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
++        frame = new QFrame(OverviewPage);
++        frame->setObjectName(QStringLiteral("frame"));
++        frame->setFrameShape(QFrame::StyledPanel);
++        frame->setFrameShadow(QFrame::Raised);
++        verticalLayout_4 = new QVBoxLayout(frame);
++        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
++        horizontalLayout_4 = new QHBoxLayout();
++        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
++        label_5 = new QLabel(frame);
++        label_5->setObjectName(QStringLiteral("label_5"));
++        QFont font;
++        font.setBold(true);
++        font.setWeight(75);
++        label_5->setFont(font);
++
++        horizontalLayout_4->addWidget(label_5);
++
++        labelWalletStatus = new QLabel(frame);
++        labelWalletStatus->setObjectName(QStringLiteral("labelWalletStatus"));
++        labelWalletStatus->setStyleSheet(QStringLiteral("QLabel { color: red; }"));
++        labelWalletStatus->setText(QStringLiteral("(out of sync)"));
++        labelWalletStatus->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
++
++        horizontalLayout_4->addWidget(labelWalletStatus);
++
++        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayout_4->addItem(horizontalSpacer_2);
++
++
++        verticalLayout_4->addLayout(horizontalLayout_4);
++
++        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
++
++        verticalLayout_4->addItem(verticalSpacer_3);
++
++        formLayout_2 = new QFormLayout();
++        formLayout_2->setObjectName(QStringLiteral("formLayout_2"));
++        formLayout_2->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
++        formLayout_2->setHorizontalSpacing(12);
++        formLayout_2->setVerticalSpacing(12);
++        label = new QLabel(frame);
++        label->setObjectName(QStringLiteral("label"));
++
++        formLayout_2->setWidget(0, QFormLayout::LabelRole, label);
++
++        labelBalance = new QLabel(frame);
++        labelBalance->setObjectName(QStringLiteral("labelBalance"));
++        labelBalance->setFont(font);
++        labelBalance->setCursor(QCursor(Qt::IBeamCursor));
++        labelBalance->setText(QStringLiteral("0 LTC"));
++        labelBalance->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayout_2->setWidget(0, QFormLayout::FieldRole, labelBalance);
++
++        label_3 = new QLabel(frame);
++        label_3->setObjectName(QStringLiteral("label_3"));
++
++        formLayout_2->setWidget(1, QFormLayout::LabelRole, label_3);
++
++        labelUnconfirmed = new QLabel(frame);
++        labelUnconfirmed->setObjectName(QStringLiteral("labelUnconfirmed"));
++        labelUnconfirmed->setFont(font);
++        labelUnconfirmed->setCursor(QCursor(Qt::IBeamCursor));
++        labelUnconfirmed->setText(QStringLiteral("0 LTC"));
++        labelUnconfirmed->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayout_2->setWidget(1, QFormLayout::FieldRole, labelUnconfirmed);
++
++        labelImmatureText = new QLabel(frame);
++        labelImmatureText->setObjectName(QStringLiteral("labelImmatureText"));
++
++        formLayout_2->setWidget(2, QFormLayout::LabelRole, labelImmatureText);
++
++        labelImmature = new QLabel(frame);
++        labelImmature->setObjectName(QStringLiteral("labelImmature"));
++        labelImmature->setFont(font);
++        labelImmature->setText(QStringLiteral("0 LTC"));
++        labelImmature->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayout_2->setWidget(2, QFormLayout::FieldRole, labelImmature);
++
++
++        verticalLayout_4->addLayout(formLayout_2);
++
++        logo = new QLabel(frame);
++        logo->setObjectName(QStringLiteral("logo"));
++        QSizePolicy sizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
++        sizePolicy.setHorizontalStretch(0);
++        sizePolicy.setVerticalStretch(0);
++        sizePolicy.setHeightForWidth(logo->sizePolicy().hasHeightForWidth());
++        logo->setSizePolicy(sizePolicy);
++        logo->setPixmap(QPixmap(QString::fromUtf8(":/woodcoinlogo.png")));
++        logo->setScaledContents(true);
++
++        verticalLayout_4->addWidget(logo);
++
++
++        verticalLayout_2->addWidget(frame);
++
++
++        horizontalLayout->addLayout(verticalLayout_2);
++
++        verticalLayout_3 = new QVBoxLayout();
++        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
++        frame_2 = new QFrame(OverviewPage);
++        frame_2->setObjectName(QStringLiteral("frame_2"));
++        frame_2->setFrameShape(QFrame::StyledPanel);
++        frame_2->setFrameShadow(QFrame::Raised);
++        verticalLayout = new QVBoxLayout(frame_2);
++        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
++        horizontalLayout_2 = new QHBoxLayout();
++        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
++        label_4 = new QLabel(frame_2);
++        label_4->setObjectName(QStringLiteral("label_4"));
++
++        horizontalLayout_2->addWidget(label_4);
++
++        labelTransactionsStatus = new QLabel(frame_2);
++        labelTransactionsStatus->setObjectName(QStringLiteral("labelTransactionsStatus"));
++        labelTransactionsStatus->setStyleSheet(QStringLiteral("QLabel { color: red; }"));
++        labelTransactionsStatus->setText(QStringLiteral("(out of sync)"));
++        labelTransactionsStatus->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
++
++        horizontalLayout_2->addWidget(labelTransactionsStatus);
++
++        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayout_2->addItem(horizontalSpacer);
++
++
++        verticalLayout->addLayout(horizontalLayout_2);
++
++        listTransactions = new QListView(frame_2);
++        listTransactions->setObjectName(QStringLiteral("listTransactions"));
++        listTransactions->setStyleSheet(QStringLiteral("QListView { background: transparent; }"));
++        listTransactions->setFrameShape(QFrame::NoFrame);
++        listTransactions->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
++        listTransactions->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
++        listTransactions->setSelectionMode(QAbstractItemView::NoSelection);
++
++        verticalLayout->addWidget(listTransactions);
++
++
++        verticalLayout_3->addWidget(frame_2);
++
++        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
++
++        verticalLayout_3->addItem(verticalSpacer_2);
++
++
++        horizontalLayout->addLayout(verticalLayout_3);
++
++        horizontalLayout->setStretch(0, 1);
++        horizontalLayout->setStretch(1, 1);
++
++        topLayout->addLayout(horizontalLayout);
++
++
++        retranslateUi(OverviewPage);
++
++        QMetaObject::connectSlotsByName(OverviewPage);
++    } // setupUi
++
++    void retranslateUi(QWidget *OverviewPage)
++    {
++        OverviewPage->setWindowTitle(QApplication::translate("OverviewPage", "Form", 0));
++        label_5->setText(QApplication::translate("OverviewPage", "Wallet", 0));
++#ifndef QT_NO_TOOLTIP
++        labelWalletStatus->setToolTip(QApplication::translate("OverviewPage", "The displayed information may be out of date. Your wallet automatically synchronizes with the Woodcoin network after a connection is established, but this process has not completed yet.", 0));
++#endif // QT_NO_TOOLTIP
++        label->setText(QApplication::translate("OverviewPage", "Balance:", 0));
++#ifndef QT_NO_TOOLTIP
++        labelBalance->setToolTip(QApplication::translate("OverviewPage", "Your current balance", 0));
++#endif // QT_NO_TOOLTIP
++        label_3->setText(QApplication::translate("OverviewPage", "Unconfirmed:", 0));
++#ifndef QT_NO_TOOLTIP
++        labelUnconfirmed->setToolTip(QApplication::translate("OverviewPage", "Total of transactions that have yet to be confirmed, and do not yet count toward the current balance", 0));
++#endif // QT_NO_TOOLTIP
++        labelImmatureText->setText(QApplication::translate("OverviewPage", "Immature:", 0));
++#ifndef QT_NO_TOOLTIP
++        labelImmature->setToolTip(QApplication::translate("OverviewPage", "Chopped balance that has not yet matured", 0));
++#endif // QT_NO_TOOLTIP
++        logo->setText(QString());
++        label_4->setText(QApplication::translate("OverviewPage", "<b>Recent transactions</b>", 0));
++#ifndef QT_NO_TOOLTIP
++        labelTransactionsStatus->setToolTip(QApplication::translate("OverviewPage", "The displayed information may be out of date. Your wallet automatically synchronizes with the Woodcoin network after a connection is established, but this process has not completed yet.", 0));
++#endif // QT_NO_TOOLTIP
++    } // retranslateUi
++
++};
++
++namespace Ui {
++    class OverviewPage: public Ui_OverviewPage {};
++} // namespace Ui
++
++QT_END_NAMESPACE
++
++#endif // UI_OVERVIEWPAGE_H
+--- /dev/null
++++ woodcoin-1.2/build/ui_paperwalletdialog.h
+@@ -0,0 +1,199 @@
++/********************************************************************************
++** Form generated from reading UI file 'paperwalletdialog.ui'
++**
++** Created by: Qt User Interface Compiler version 5.4.2
++**
++** WARNING! All changes made in this file will be lost when recompiling UI file!
++********************************************************************************/
++
++#ifndef UI_PAPERWALLETDIALOG_H
++#define UI_PAPERWALLETDIALOG_H
++
++#include <QtCore/QVariant>
++#include <QtWidgets/QAction>
++#include <QtWidgets/QApplication>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QComboBox>
++#include <QtWidgets/QDialog>
++#include <QtWidgets/QDialogButtonBox>
++#include <QtWidgets/QHeaderView>
++#include <QtWidgets/QLabel>
++#include <QtWidgets/QPushButton>
++#include <QtWidgets/QTextEdit>
++
++QT_BEGIN_NAMESPACE
++
++class Ui_PaperWalletDialog
++{
++public:
++    QLabel *privateKeyQRCode;
++    QLabel *addressQRCode;
++    QPushButton *getNewAddress;
++    QLabel *paperTemplate;
++    QLabel *addressText;
++    QLabel *privateKeyText;
++    QPushButton *printButton;
++    QDialogButtonBox *buttonBox;
++    QLabel *label;
++    QComboBox *walletCount;
++    QTextEdit *publicKey;
++    QLabel *label_2;
++    QLabel *label_3;
++    QLabel *label_4;
++
++    void setupUi(QDialog *PaperWalletDialog)
++    {
++        if (PaperWalletDialog->objectName().isEmpty())
++            PaperWalletDialog->setObjectName(QStringLiteral("PaperWalletDialog"));
++        PaperWalletDialog->resize(716, 450);
++        privateKeyQRCode = new QLabel(PaperWalletDialog);
++        privateKeyQRCode->setObjectName(QStringLiteral("privateKeyQRCode"));
++        privateKeyQRCode->setGeometry(QRect(410, 20, 121, 101));
++        privateKeyQRCode->setPixmap(QPixmap(QString::fromUtf8(":/icons/qrcode")));
++        privateKeyQRCode->setScaledContents(true);
++        addressQRCode = new QLabel(PaperWalletDialog);
++        addressQRCode->setObjectName(QStringLiteral("addressQRCode"));
++        addressQRCode->setGeometry(QRect(60, 80, 201, 181));
++        addressQRCode->setPixmap(QPixmap(QString::fromUtf8(":/icons/qrcode")));
++        addressQRCode->setScaledContents(true);
++        getNewAddress = new QPushButton(PaperWalletDialog);
++        getNewAddress->setObjectName(QStringLiteral("getNewAddress"));
++        getNewAddress->setGeometry(QRect(20, 415, 151, 26));
++        QIcon icon;
++        icon.addFile(QStringLiteral(":/icons/add"), QSize(), QIcon::Normal, QIcon::Off);
++        getNewAddress->setIcon(icon);
++        paperTemplate = new QLabel(PaperWalletDialog);
++        paperTemplate->setObjectName(QStringLiteral("paperTemplate"));
++        paperTemplate->setGeometry(QRect(20, 10, 675, 362));
++        paperTemplate->setText(QStringLiteral(""));
++        paperTemplate->setPixmap(QPixmap(QString::fromUtf8(":/images/res/images/paper-wallet1v2.png")));
++        addressText = new QLabel(PaperWalletDialog);
++        addressText->setObjectName(QStringLiteral("addressText"));
++        addressText->setGeometry(QRect(50, 350, 401, 21));
++        QFont font;
++        font.setFamily(QStringLiteral("Monospace"));
++        font.setPointSize(12);
++        font.setBold(true);
++        font.setItalic(false);
++        font.setWeight(75);
++        addressText->setFont(font);
++        addressText->setTextFormat(Qt::RichText);
++        addressText->setAlignment(Qt::AlignCenter);
++        addressText->setTextInteractionFlags(Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++        privateKeyText = new QLabel(PaperWalletDialog);
++        privateKeyText->setObjectName(QStringLiteral("privateKeyText"));
++        privateKeyText->setGeometry(QRect(420, 330, 281, 31));
++        QFont font1;
++        font1.setFamily(QStringLiteral("Monospace"));
++        font1.setPointSize(8);
++        font1.setBold(false);
++        font1.setItalic(false);
++        font1.setWeight(50);
++        privateKeyText->setFont(font1);
++        privateKeyText->setScaledContents(true);
++        privateKeyText->setAlignment(Qt::AlignCenter);
++        privateKeyText->setWordWrap(true);
++        privateKeyText->setTextInteractionFlags(Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++        printButton = new QPushButton(PaperWalletDialog);
++        printButton->setObjectName(QStringLiteral("printButton"));
++        printButton->setGeometry(QRect(420, 415, 111, 26));
++        QIcon icon1;
++        icon1.addFile(QStringLiteral(":/icons/receiving_addresses"), QSize(), QIcon::Normal, QIcon::Off);
++        printButton->setIcon(icon1);
++        buttonBox = new QDialogButtonBox(PaperWalletDialog);
++        buttonBox->setObjectName(QStringLiteral("buttonBox"));
++        buttonBox->setGeometry(QRect(610, 415, 81, 26));
++        buttonBox->setStandardButtons(QDialogButtonBox::NoButton);
++        buttonBox->setCenterButtons(true);
++        label = new QLabel(PaperWalletDialog);
++        label->setObjectName(QStringLiteral("label"));
++        label->setGeometry(QRect(190, 415, 91, 26));
++        label->setWordWrap(true);
++        walletCount = new QComboBox(PaperWalletDialog);
++        walletCount->setObjectName(QStringLiteral("walletCount"));
++        walletCount->setGeometry(QRect(290, 415, 74, 26));
++        walletCount->setEditable(false);
++        publicKey = new QTextEdit(PaperWalletDialog);
++        publicKey->setObjectName(QStringLiteral("publicKey"));
++        publicKey->setGeometry(QRect(100, 378, 600, 30));
++        publicKey->setUndoRedoEnabled(false);
++        publicKey->setReadOnly(true);
++        publicKey->setAcceptRichText(false);
++        label_2 = new QLabel(PaperWalletDialog);
++        label_2->setObjectName(QStringLiteral("label_2"));
++        label_2->setGeometry(QRect(20, 380, 91, 26));
++        label_3 = new QLabel(PaperWalletDialog);
++        label_3->setObjectName(QStringLiteral("label_3"));
++        label_3->setGeometry(QRect(450, 190, 71, 101));
++        label_3->setTextFormat(Qt::RichText);
++        label_3->setWordWrap(true);
++        label_4 = new QLabel(PaperWalletDialog);
++        label_4->setObjectName(QStringLiteral("label_4"));
++        label_4->setGeometry(QRect(380, 290, 231, 61));
++        label_4->setTextFormat(Qt::RichText);
++        label_4->setWordWrap(true);
++        getNewAddress->raise();
++        paperTemplate->raise();
++        addressQRCode->raise();
++        privateKeyQRCode->raise();
++        addressText->raise();
++        privateKeyText->raise();
++        printButton->raise();
++        buttonBox->raise();
++        label->raise();
++        walletCount->raise();
++        publicKey->raise();
++        label_2->raise();
++        label_3->raise();
++        label_4->raise();
++
++        retranslateUi(PaperWalletDialog);
++        QObject::connect(buttonBox, SIGNAL(rejected()), PaperWalletDialog, SLOT(close()));
++
++        QMetaObject::connectSlotsByName(PaperWalletDialog);
++    } // setupUi
++
++    void retranslateUi(QDialog *PaperWalletDialog)
++    {
++        PaperWalletDialog->setWindowTitle(QApplication::translate("PaperWalletDialog", "Print Your Paper Wallets", 0));
++        privateKeyQRCode->setText(QString());
++        addressQRCode->setText(QString());
++        getNewAddress->setText(QApplication::translate("PaperWalletDialog", "New Address", 0));
++        addressText->setText(QApplication::translate("PaperWalletDialog", "<html><head/><body><p><br/></p></body></html>", 0));
++        privateKeyText->setText(QString());
++        printButton->setText(QApplication::translate("PaperWalletDialog", "Print Now", 0));
++        label->setText(QApplication::translate("PaperWalletDialog", "How many wallets?", 0));
++        walletCount->clear();
++        walletCount->insertItems(0, QStringList()
++         << QApplication::translate("PaperWalletDialog", "1", 0)
++         << QApplication::translate("PaperWalletDialog", "2", 0)
++         << QApplication::translate("PaperWalletDialog", "3", 0)
++         << QApplication::translate("PaperWalletDialog", "4", 0)
++         << QApplication::translate("PaperWalletDialog", "5", 0)
++         << QApplication::translate("PaperWalletDialog", "6", 0)
++         << QApplication::translate("PaperWalletDialog", "7", 0)
++         << QApplication::translate("PaperWalletDialog", "8", 0)
++         << QApplication::translate("PaperWalletDialog", "9", 0)
++         << QApplication::translate("PaperWalletDialog", "10", 0)
++         << QApplication::translate("PaperWalletDialog", "11", 0)
++         << QApplication::translate("PaperWalletDialog", "12", 0)
++        );
++        publicKey->setHtml(QApplication::translate("PaperWalletDialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
++"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
++"p, li { white-space: pre-wrap; }\n"
++"</style></head><body style=\" font-family:'Liberation Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
++"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"><br /></p></body></html>", 0));
++        label_2->setText(QApplication::translate("PaperWalletDialog", "Public Key:", 0));
++        label_3->setText(QApplication::translate("PaperWalletDialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Do Not Share Your Private Key!</span></p></body></html>", 0));
++        label_4->setText(QApplication::translate("PaperWalletDialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Private Key:</span></p></body></html>", 0));
++    } // retranslateUi
++
++};
++
++namespace Ui {
++    class PaperWalletDialog: public Ui_PaperWalletDialog {};
++} // namespace Ui
++
++QT_END_NAMESPACE
++
++#endif // UI_PAPERWALLETDIALOG_H
+--- /dev/null
++++ woodcoin-1.2/build/ui_qrcodedialog.h
+@@ -0,0 +1,192 @@
++/********************************************************************************
++** Form generated from reading UI file 'qrcodedialog.ui'
++**
++** Created by: Qt User Interface Compiler version 5.4.2
++**
++** WARNING! All changes made in this file will be lost when recompiling UI file!
++********************************************************************************/
++
++#ifndef UI_QRCODEDIALOG_H
++#define UI_QRCODEDIALOG_H
++
++#include <QtCore/QVariant>
++#include <QtWidgets/QAction>
++#include <QtWidgets/QApplication>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QCheckBox>
++#include <QtWidgets/QDialog>
++#include <QtWidgets/QFormLayout>
++#include <QtWidgets/QHBoxLayout>
++#include <QtWidgets/QHeaderView>
++#include <QtWidgets/QLabel>
++#include <QtWidgets/QLineEdit>
++#include <QtWidgets/QPlainTextEdit>
++#include <QtWidgets/QPushButton>
++#include <QtWidgets/QSpacerItem>
++#include <QtWidgets/QVBoxLayout>
++#include <QtWidgets/QWidget>
++#include "bitcoinamountfield.h"
++
++QT_BEGIN_NAMESPACE
++
++class Ui_QRCodeDialog
++{
++public:
++    QVBoxLayout *verticalLayout_3;
++    QLabel *lblQRCode;
++    QPlainTextEdit *outUri;
++    QWidget *widget;
++    QVBoxLayout *verticalLayout_2;
++    QCheckBox *chkReqPayment;
++    QFormLayout *formLayout;
++    QLabel *lblLabel;
++    QLineEdit *lnLabel;
++    QLabel *lblMessage;
++    QLineEdit *lnMessage;
++    QLabel *lblAmount;
++    BitcoinAmountField *lnReqAmount;
++    QHBoxLayout *horizontalLayout;
++    QSpacerItem *horizontalSpacer;
++    QPushButton *btnSaveAs;
++
++    void setupUi(QDialog *QRCodeDialog)
++    {
++        if (QRCodeDialog->objectName().isEmpty())
++            QRCodeDialog->setObjectName(QStringLiteral("QRCodeDialog"));
++        QRCodeDialog->resize(340, 530);
++        verticalLayout_3 = new QVBoxLayout(QRCodeDialog);
++        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
++        lblQRCode = new QLabel(QRCodeDialog);
++        lblQRCode->setObjectName(QStringLiteral("lblQRCode"));
++        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
++        sizePolicy.setHorizontalStretch(0);
++        sizePolicy.setVerticalStretch(0);
++        sizePolicy.setHeightForWidth(lblQRCode->sizePolicy().hasHeightForWidth());
++        lblQRCode->setSizePolicy(sizePolicy);
++        lblQRCode->setMinimumSize(QSize(300, 300));
++        lblQRCode->setTextFormat(Qt::PlainText);
++        lblQRCode->setAlignment(Qt::AlignCenter);
++        lblQRCode->setWordWrap(true);
++
++        verticalLayout_3->addWidget(lblQRCode);
++
++        outUri = new QPlainTextEdit(QRCodeDialog);
++        outUri->setObjectName(QStringLiteral("outUri"));
++        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Minimum);
++        sizePolicy1.setHorizontalStretch(0);
++        sizePolicy1.setVerticalStretch(0);
++        sizePolicy1.setHeightForWidth(outUri->sizePolicy().hasHeightForWidth());
++        outUri->setSizePolicy(sizePolicy1);
++        outUri->setMinimumSize(QSize(0, 50));
++        outUri->setTabChangesFocus(true);
++        outUri->setTextInteractionFlags(Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        verticalLayout_3->addWidget(outUri);
++
++        widget = new QWidget(QRCodeDialog);
++        widget->setObjectName(QStringLiteral("widget"));
++        verticalLayout_2 = new QVBoxLayout(widget);
++        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
++        chkReqPayment = new QCheckBox(widget);
++        chkReqPayment->setObjectName(QStringLiteral("chkReqPayment"));
++        chkReqPayment->setEnabled(true);
++
++        verticalLayout_2->addWidget(chkReqPayment);
++
++        formLayout = new QFormLayout();
++        formLayout->setObjectName(QStringLiteral("formLayout"));
++        formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
++        lblLabel = new QLabel(widget);
++        lblLabel->setObjectName(QStringLiteral("lblLabel"));
++        lblLabel->setTextFormat(Qt::PlainText);
++        lblLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
++
++        formLayout->setWidget(1, QFormLayout::LabelRole, lblLabel);
++
++        lnLabel = new QLineEdit(widget);
++        lnLabel->setObjectName(QStringLiteral("lnLabel"));
++
++        formLayout->setWidget(1, QFormLayout::FieldRole, lnLabel);
++
++        lblMessage = new QLabel(widget);
++        lblMessage->setObjectName(QStringLiteral("lblMessage"));
++        lblMessage->setTextFormat(Qt::PlainText);
++        lblMessage->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
++
++        formLayout->setWidget(2, QFormLayout::LabelRole, lblMessage);
++
++        lnMessage = new QLineEdit(widget);
++        lnMessage->setObjectName(QStringLiteral("lnMessage"));
++
++        formLayout->setWidget(2, QFormLayout::FieldRole, lnMessage);
++
++        lblAmount = new QLabel(widget);
++        lblAmount->setObjectName(QStringLiteral("lblAmount"));
++        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Maximum);
++        sizePolicy2.setHorizontalStretch(0);
++        sizePolicy2.setVerticalStretch(0);
++        sizePolicy2.setHeightForWidth(lblAmount->sizePolicy().hasHeightForWidth());
++        lblAmount->setSizePolicy(sizePolicy2);
++        lblAmount->setTextFormat(Qt::PlainText);
++        lblAmount->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
++
++        formLayout->setWidget(0, QFormLayout::LabelRole, lblAmount);
++
++        lnReqAmount = new BitcoinAmountField(widget);
++        lnReqAmount->setObjectName(QStringLiteral("lnReqAmount"));
++        lnReqAmount->setEnabled(false);
++        lnReqAmount->setMinimumSize(QSize(80, 0));
++
++        formLayout->setWidget(0, QFormLayout::FieldRole, lnReqAmount);
++
++
++        verticalLayout_2->addLayout(formLayout);
++
++        horizontalLayout = new QHBoxLayout();
++        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
++        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayout->addItem(horizontalSpacer);
++
++        btnSaveAs = new QPushButton(widget);
++        btnSaveAs->setObjectName(QStringLiteral("btnSaveAs"));
++
++        horizontalLayout->addWidget(btnSaveAs);
++
++
++        verticalLayout_2->addLayout(horizontalLayout);
++
++
++        verticalLayout_3->addWidget(widget);
++
++#ifndef QT_NO_SHORTCUT
++        lblLabel->setBuddy(lnLabel);
++        lblMessage->setBuddy(lnMessage);
++        lblAmount->setBuddy(lnReqAmount);
++#endif // QT_NO_SHORTCUT
++
++        retranslateUi(QRCodeDialog);
++        QObject::connect(chkReqPayment, SIGNAL(clicked(bool)), lnReqAmount, SLOT(setEnabled(bool)));
++
++        QMetaObject::connectSlotsByName(QRCodeDialog);
++    } // setupUi
++
++    void retranslateUi(QDialog *QRCodeDialog)
++    {
++        QRCodeDialog->setWindowTitle(QApplication::translate("QRCodeDialog", "QR Code Dialog", 0));
++        chkReqPayment->setText(QApplication::translate("QRCodeDialog", "Request Payment", 0));
++        lblLabel->setText(QApplication::translate("QRCodeDialog", "Label:", 0));
++        lblMessage->setText(QApplication::translate("QRCodeDialog", "Message:", 0));
++        lblAmount->setText(QApplication::translate("QRCodeDialog", "Amount:", 0));
++        btnSaveAs->setText(QApplication::translate("QRCodeDialog", "&Save As...", 0));
++    } // retranslateUi
++
++};
++
++namespace Ui {
++    class QRCodeDialog: public Ui_QRCodeDialog {};
++} // namespace Ui
++
++QT_END_NAMESPACE
++
++#endif // UI_QRCODEDIALOG_H
+--- /dev/null
++++ woodcoin-1.2/build/ui_rpcconsole.h
+@@ -0,0 +1,381 @@
++/********************************************************************************
++** Form generated from reading UI file 'rpcconsole.ui'
++**
++** Created by: Qt User Interface Compiler version 5.4.2
++**
++** WARNING! All changes made in this file will be lost when recompiling UI file!
++********************************************************************************/
++
++#ifndef UI_RPCCONSOLE_H
++#define UI_RPCCONSOLE_H
++
++#include <QtCore/QVariant>
++#include <QtWidgets/QAction>
++#include <QtWidgets/QApplication>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QCheckBox>
++#include <QtWidgets/QDialog>
++#include <QtWidgets/QGridLayout>
++#include <QtWidgets/QHBoxLayout>
++#include <QtWidgets/QHeaderView>
++#include <QtWidgets/QLabel>
++#include <QtWidgets/QLineEdit>
++#include <QtWidgets/QPushButton>
++#include <QtWidgets/QSpacerItem>
++#include <QtWidgets/QTabWidget>
++#include <QtWidgets/QTextEdit>
++#include <QtWidgets/QVBoxLayout>
++#include <QtWidgets/QWidget>
++
++QT_BEGIN_NAMESPACE
++
++class Ui_RPCConsole
++{
++public:
++    QVBoxLayout *verticalLayout_2;
++    QTabWidget *tabWidget;
++    QWidget *tab_info;
++    QGridLayout *gridLayout;
++    QLabel *label_9;
++    QLabel *label_5;
++    QLabel *clientName;
++    QLabel *label_6;
++    QLabel *clientVersion;
++    QLabel *label_14;
++    QLabel *openSSLVersion;
++    QLabel *label_12;
++    QLabel *buildDate;
++    QLabel *label_13;
++    QLabel *startupTime;
++    QLabel *label_11;
++    QLabel *label_7;
++    QLabel *numberOfConnections;
++    QLabel *label_8;
++    QCheckBox *isTestNet;
++    QLabel *label_10;
++    QLabel *label_3;
++    QLabel *numberOfBlocks;
++    QLabel *label_4;
++    QLabel *totalBlocks;
++    QLabel *label_2;
++    QLabel *lastBlockTime;
++    QSpacerItem *verticalSpacer_2;
++    QLabel *labelDebugLogfile;
++    QPushButton *openDebugLogfileButton;
++    QLabel *labelCLOptions;
++    QPushButton *showCLOptionsButton;
++    QSpacerItem *verticalSpacer;
++    QWidget *tab_console;
++    QVBoxLayout *verticalLayout_3;
++    QTextEdit *messagesWidget;
++    QHBoxLayout *horizontalLayout;
++    QLabel *label;
++    QLineEdit *lineEdit;
++    QPushButton *clearButton;
++
++    void setupUi(QDialog *RPCConsole)
++    {
++        if (RPCConsole->objectName().isEmpty())
++            RPCConsole->setObjectName(QStringLiteral("RPCConsole"));
++        RPCConsole->resize(740, 450);
++        verticalLayout_2 = new QVBoxLayout(RPCConsole);
++        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
++        tabWidget = new QTabWidget(RPCConsole);
++        tabWidget->setObjectName(QStringLiteral("tabWidget"));
++        tab_info = new QWidget();
++        tab_info->setObjectName(QStringLiteral("tab_info"));
++        gridLayout = new QGridLayout(tab_info);
++        gridLayout->setObjectName(QStringLiteral("gridLayout"));
++        gridLayout->setHorizontalSpacing(12);
++        label_9 = new QLabel(tab_info);
++        label_9->setObjectName(QStringLiteral("label_9"));
++        QFont font;
++        font.setBold(true);
++        font.setWeight(75);
++        label_9->setFont(font);
++
++        gridLayout->addWidget(label_9, 0, 0, 1, 1);
++
++        label_5 = new QLabel(tab_info);
++        label_5->setObjectName(QStringLiteral("label_5"));
++
++        gridLayout->addWidget(label_5, 1, 0, 1, 1);
++
++        clientName = new QLabel(tab_info);
++        clientName->setObjectName(QStringLiteral("clientName"));
++        clientName->setCursor(QCursor(Qt::IBeamCursor));
++        clientName->setTextFormat(Qt::PlainText);
++        clientName->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        gridLayout->addWidget(clientName, 1, 1, 1, 1);
++
++        label_6 = new QLabel(tab_info);
++        label_6->setObjectName(QStringLiteral("label_6"));
++
++        gridLayout->addWidget(label_6, 2, 0, 1, 1);
++
++        clientVersion = new QLabel(tab_info);
++        clientVersion->setObjectName(QStringLiteral("clientVersion"));
++        clientVersion->setCursor(QCursor(Qt::IBeamCursor));
++        clientVersion->setTextFormat(Qt::PlainText);
++        clientVersion->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        gridLayout->addWidget(clientVersion, 2, 1, 1, 1);
++
++        label_14 = new QLabel(tab_info);
++        label_14->setObjectName(QStringLiteral("label_14"));
++        label_14->setIndent(10);
++
++        gridLayout->addWidget(label_14, 3, 0, 1, 1);
++
++        openSSLVersion = new QLabel(tab_info);
++        openSSLVersion->setObjectName(QStringLiteral("openSSLVersion"));
++        openSSLVersion->setCursor(QCursor(Qt::IBeamCursor));
++        openSSLVersion->setTextFormat(Qt::PlainText);
++        openSSLVersion->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        gridLayout->addWidget(openSSLVersion, 3, 1, 1, 1);
++
++        label_12 = new QLabel(tab_info);
++        label_12->setObjectName(QStringLiteral("label_12"));
++
++        gridLayout->addWidget(label_12, 4, 0, 1, 1);
++
++        buildDate = new QLabel(tab_info);
++        buildDate->setObjectName(QStringLiteral("buildDate"));
++        buildDate->setCursor(QCursor(Qt::IBeamCursor));
++        buildDate->setTextFormat(Qt::PlainText);
++        buildDate->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        gridLayout->addWidget(buildDate, 4, 1, 1, 1);
++
++        label_13 = new QLabel(tab_info);
++        label_13->setObjectName(QStringLiteral("label_13"));
++
++        gridLayout->addWidget(label_13, 5, 0, 1, 1);
++
++        startupTime = new QLabel(tab_info);
++        startupTime->setObjectName(QStringLiteral("startupTime"));
++        startupTime->setCursor(QCursor(Qt::IBeamCursor));
++        startupTime->setTextFormat(Qt::PlainText);
++        startupTime->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        gridLayout->addWidget(startupTime, 5, 1, 1, 1);
++
++        label_11 = new QLabel(tab_info);
++        label_11->setObjectName(QStringLiteral("label_11"));
++        label_11->setFont(font);
++
++        gridLayout->addWidget(label_11, 6, 0, 1, 1);
++
++        label_7 = new QLabel(tab_info);
++        label_7->setObjectName(QStringLiteral("label_7"));
++
++        gridLayout->addWidget(label_7, 7, 0, 1, 1);
++
++        numberOfConnections = new QLabel(tab_info);
++        numberOfConnections->setObjectName(QStringLiteral("numberOfConnections"));
++        numberOfConnections->setCursor(QCursor(Qt::IBeamCursor));
++        numberOfConnections->setTextFormat(Qt::PlainText);
++        numberOfConnections->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        gridLayout->addWidget(numberOfConnections, 7, 1, 1, 1);
++
++        label_8 = new QLabel(tab_info);
++        label_8->setObjectName(QStringLiteral("label_8"));
++
++        gridLayout->addWidget(label_8, 8, 0, 1, 1);
++
++        isTestNet = new QCheckBox(tab_info);
++        isTestNet->setObjectName(QStringLiteral("isTestNet"));
++        isTestNet->setEnabled(false);
++
++        gridLayout->addWidget(isTestNet, 8, 1, 1, 1);
++
++        label_10 = new QLabel(tab_info);
++        label_10->setObjectName(QStringLiteral("label_10"));
++        label_10->setFont(font);
++
++        gridLayout->addWidget(label_10, 9, 0, 1, 1);
++
++        label_3 = new QLabel(tab_info);
++        label_3->setObjectName(QStringLiteral("label_3"));
++
++        gridLayout->addWidget(label_3, 10, 0, 1, 1);
++
++        numberOfBlocks = new QLabel(tab_info);
++        numberOfBlocks->setObjectName(QStringLiteral("numberOfBlocks"));
++        numberOfBlocks->setCursor(QCursor(Qt::IBeamCursor));
++        numberOfBlocks->setTextFormat(Qt::PlainText);
++        numberOfBlocks->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        gridLayout->addWidget(numberOfBlocks, 10, 1, 1, 1);
++
++        label_4 = new QLabel(tab_info);
++        label_4->setObjectName(QStringLiteral("label_4"));
++
++        gridLayout->addWidget(label_4, 11, 0, 1, 1);
++
++        totalBlocks = new QLabel(tab_info);
++        totalBlocks->setObjectName(QStringLiteral("totalBlocks"));
++        totalBlocks->setCursor(QCursor(Qt::IBeamCursor));
++        totalBlocks->setTextFormat(Qt::PlainText);
++        totalBlocks->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        gridLayout->addWidget(totalBlocks, 11, 1, 1, 1);
++
++        label_2 = new QLabel(tab_info);
++        label_2->setObjectName(QStringLiteral("label_2"));
++
++        gridLayout->addWidget(label_2, 12, 0, 1, 1);
++
++        lastBlockTime = new QLabel(tab_info);
++        lastBlockTime->setObjectName(QStringLiteral("lastBlockTime"));
++        lastBlockTime->setCursor(QCursor(Qt::IBeamCursor));
++        lastBlockTime->setTextFormat(Qt::PlainText);
++        lastBlockTime->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        gridLayout->addWidget(lastBlockTime, 12, 1, 1, 1);
++
++        verticalSpacer_2 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
++
++        gridLayout->addItem(verticalSpacer_2, 13, 0, 1, 1);
++
++        labelDebugLogfile = new QLabel(tab_info);
++        labelDebugLogfile->setObjectName(QStringLiteral("labelDebugLogfile"));
++        labelDebugLogfile->setFont(font);
++
++        gridLayout->addWidget(labelDebugLogfile, 14, 0, 1, 1);
++
++        openDebugLogfileButton = new QPushButton(tab_info);
++        openDebugLogfileButton->setObjectName(QStringLiteral("openDebugLogfileButton"));
++        openDebugLogfileButton->setAutoDefault(false);
++
++        gridLayout->addWidget(openDebugLogfileButton, 15, 0, 1, 1);
++
++        labelCLOptions = new QLabel(tab_info);
++        labelCLOptions->setObjectName(QStringLiteral("labelCLOptions"));
++        labelCLOptions->setFont(font);
++
++        gridLayout->addWidget(labelCLOptions, 16, 0, 1, 1);
++
++        showCLOptionsButton = new QPushButton(tab_info);
++        showCLOptionsButton->setObjectName(QStringLiteral("showCLOptionsButton"));
++        showCLOptionsButton->setAutoDefault(false);
++
++        gridLayout->addWidget(showCLOptionsButton, 17, 0, 1, 1);
++
++        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
++
++        gridLayout->addItem(verticalSpacer, 18, 0, 1, 1);
++
++        gridLayout->setColumnStretch(1, 1);
++        tabWidget->addTab(tab_info, QString());
++        tab_console = new QWidget();
++        tab_console->setObjectName(QStringLiteral("tab_console"));
++        verticalLayout_3 = new QVBoxLayout(tab_console);
++        verticalLayout_3->setSpacing(3);
++        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
++        messagesWidget = new QTextEdit(tab_console);
++        messagesWidget->setObjectName(QStringLiteral("messagesWidget"));
++        messagesWidget->setMinimumSize(QSize(0, 100));
++        messagesWidget->setReadOnly(true);
++        messagesWidget->setProperty("tabKeyNavigation", QVariant(false));
++        messagesWidget->setProperty("columnCount", QVariant(2));
++
++        verticalLayout_3->addWidget(messagesWidget);
++
++        horizontalLayout = new QHBoxLayout();
++        horizontalLayout->setSpacing(3);
++        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
++        label = new QLabel(tab_console);
++        label->setObjectName(QStringLiteral("label"));
++        label->setText(QStringLiteral(">"));
++
++        horizontalLayout->addWidget(label);
++
++        lineEdit = new QLineEdit(tab_console);
++        lineEdit->setObjectName(QStringLiteral("lineEdit"));
++
++        horizontalLayout->addWidget(lineEdit);
++
++        clearButton = new QPushButton(tab_console);
++        clearButton->setObjectName(QStringLiteral("clearButton"));
++        clearButton->setMaximumSize(QSize(24, 24));
++        QIcon icon;
++        icon.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
++        clearButton->setIcon(icon);
++        clearButton->setShortcut(QStringLiteral("Ctrl+L"));
++        clearButton->setAutoDefault(false);
++
++        horizontalLayout->addWidget(clearButton);
++
++
++        verticalLayout_3->addLayout(horizontalLayout);
++
++        tabWidget->addTab(tab_console, QString());
++
++        verticalLayout_2->addWidget(tabWidget);
++
++
++        retranslateUi(RPCConsole);
++
++        tabWidget->setCurrentIndex(0);
++
++
++        QMetaObject::connectSlotsByName(RPCConsole);
++    } // setupUi
++
++    void retranslateUi(QDialog *RPCConsole)
++    {
++        RPCConsole->setWindowTitle(QApplication::translate("RPCConsole", "Woodcoin - Debug window", 0));
++        label_9->setText(QApplication::translate("RPCConsole", "Woodcoin Core", 0));
++        label_5->setText(QApplication::translate("RPCConsole", "Client name", 0));
++        clientName->setText(QApplication::translate("RPCConsole", "N/A", 0));
++        label_6->setText(QApplication::translate("RPCConsole", "Client version", 0));
++        clientVersion->setText(QApplication::translate("RPCConsole", "N/A", 0));
++        label_14->setText(QApplication::translate("RPCConsole", "Using OpenSSL version", 0));
++        openSSLVersion->setText(QApplication::translate("RPCConsole", "N/A", 0));
++        label_12->setText(QApplication::translate("RPCConsole", "Build date", 0));
++        buildDate->setText(QApplication::translate("RPCConsole", "N/A", 0));
++        label_13->setText(QApplication::translate("RPCConsole", "Startup time", 0));
++        startupTime->setText(QApplication::translate("RPCConsole", "N/A", 0));
++        label_11->setText(QApplication::translate("RPCConsole", "Network", 0));
++        label_7->setText(QApplication::translate("RPCConsole", "Number of connections", 0));
++        numberOfConnections->setText(QApplication::translate("RPCConsole", "N/A", 0));
++        label_8->setText(QApplication::translate("RPCConsole", "On testnet", 0));
++        isTestNet->setText(QString());
++        label_10->setText(QApplication::translate("RPCConsole", "Block chain", 0));
++        label_3->setText(QApplication::translate("RPCConsole", "Current number of blocks", 0));
++        numberOfBlocks->setText(QApplication::translate("RPCConsole", "N/A", 0));
++        label_4->setText(QApplication::translate("RPCConsole", "Estimated total blocks", 0));
++        totalBlocks->setText(QApplication::translate("RPCConsole", "N/A", 0));
++        label_2->setText(QApplication::translate("RPCConsole", "Last block time", 0));
++        lastBlockTime->setText(QApplication::translate("RPCConsole", "N/A", 0));
++        labelDebugLogfile->setText(QApplication::translate("RPCConsole", "Debug log file", 0));
++#ifndef QT_NO_TOOLTIP
++        openDebugLogfileButton->setToolTip(QApplication::translate("RPCConsole", "Open the Woodcoin debug log file from the current data directory. This can take a few seconds for large log files.", 0));
++#endif // QT_NO_TOOLTIP
++        openDebugLogfileButton->setText(QApplication::translate("RPCConsole", "&Open", 0));
++        labelCLOptions->setText(QApplication::translate("RPCConsole", "Command-line options", 0));
++#ifndef QT_NO_TOOLTIP
++        showCLOptionsButton->setToolTip(QApplication::translate("RPCConsole", "Show the Woodcoin-Qt help message to get a list with possible Woodcoin command-line options.", 0));
++#endif // QT_NO_TOOLTIP
++        showCLOptionsButton->setText(QApplication::translate("RPCConsole", "&Show", 0));
++        tabWidget->setTabText(tabWidget->indexOf(tab_info), QApplication::translate("RPCConsole", "&Information", 0));
++#ifndef QT_NO_TOOLTIP
++        clearButton->setToolTip(QApplication::translate("RPCConsole", "Clear console", 0));
++#endif // QT_NO_TOOLTIP
++        clearButton->setText(QString());
++        tabWidget->setTabText(tabWidget->indexOf(tab_console), QApplication::translate("RPCConsole", "&Console", 0));
++    } // retranslateUi
++
++};
++
++namespace Ui {
++    class RPCConsole: public Ui_RPCConsole {};
++} // namespace Ui
++
++QT_END_NAMESPACE
++
++#endif // UI_RPCCONSOLE_H
+--- /dev/null
++++ woodcoin-1.2/build/ui_sendcoinsdialog.h
+@@ -0,0 +1,538 @@
++/********************************************************************************
++** Form generated from reading UI file 'sendcoinsdialog.ui'
++**
++** Created by: Qt User Interface Compiler version 5.4.2
++**
++** WARNING! All changes made in this file will be lost when recompiling UI file!
++********************************************************************************/
++
++#ifndef UI_SENDCOINSDIALOG_H
++#define UI_SENDCOINSDIALOG_H
++
++#include <QtCore/QVariant>
++#include <QtWidgets/QAction>
++#include <QtWidgets/QApplication>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QCheckBox>
++#include <QtWidgets/QDialog>
++#include <QtWidgets/QFormLayout>
++#include <QtWidgets/QFrame>
++#include <QtWidgets/QHBoxLayout>
++#include <QtWidgets/QHeaderView>
++#include <QtWidgets/QLabel>
++#include <QtWidgets/QLineEdit>
++#include <QtWidgets/QPushButton>
++#include <QtWidgets/QScrollArea>
++#include <QtWidgets/QSpacerItem>
++#include <QtWidgets/QVBoxLayout>
++#include <QtWidgets/QWidget>
++
++QT_BEGIN_NAMESPACE
++
++class Ui_SendCoinsDialog
++{
++public:
++    QVBoxLayout *verticalLayout;
++    QFrame *frameCoinControl;
++    QVBoxLayout *verticalLayoutCoinControl2;
++    QVBoxLayout *verticalLayoutCoinControl;
++    QHBoxLayout *horizontalLayoutCoinControl1;
++    QLabel *labelCoinControlFeatures;
++    QHBoxLayout *horizontalLayoutCoinControl2;
++    QPushButton *pushButtonCoinControl;
++    QLabel *labelCoinControlAutomaticallySelected;
++    QLabel *labelCoinControlInsuffFunds;
++    QSpacerItem *horizontalSpacerCoinControl;
++    QWidget *widgetCoinControl;
++    QHBoxLayout *horizontalLayoutCoinControl5;
++    QHBoxLayout *horizontalLayoutCoinControl3;
++    QFormLayout *formLayoutCoinControl1;
++    QLabel *labelCoinControlQuantityText;
++    QLabel *labelCoinControlQuantity;
++    QLabel *labelCoinControlBytesText;
++    QLabel *labelCoinControlBytes;
++    QFormLayout *formLayoutCoinControl2;
++    QLabel *labelCoinControlAmountText;
++    QLabel *labelCoinControlAmount;
++    QLabel *labelCoinControlPriorityText;
++    QLabel *labelCoinControlPriority;
++    QFormLayout *formLayoutCoinControl3;
++    QLabel *labelCoinControlFeeText;
++    QLabel *labelCoinControlFee;
++    QLabel *labelCoinControlLowOutputText;
++    QLabel *labelCoinControlLowOutput;
++    QFormLayout *formLayoutCoinControl4;
++    QLabel *labelCoinControlAfterFeeText;
++    QLabel *labelCoinControlAfterFee;
++    QLabel *labelCoinControlChangeText;
++    QLabel *labelCoinControlChange;
++    QHBoxLayout *horizontalLayoutCoinControl4;
++    QCheckBox *checkBoxCoinControlChange;
++    QLineEdit *lineEditCoinControlChange;
++    QLabel *labelCoinControlChangeLabel;
++    QSpacerItem *verticalSpacerCoinControl;
++    QScrollArea *scrollArea;
++    QWidget *scrollAreaWidgetContents;
++    QVBoxLayout *verticalLayout_2;
++    QVBoxLayout *entries;
++    QSpacerItem *verticalSpacer;
++    QHBoxLayout *horizontalLayout;
++    QPushButton *addButton;
++    QPushButton *clearButton;
++    QHBoxLayout *horizontalLayout_2;
++    QLabel *label;
++    QLabel *labelBalance;
++    QSpacerItem *horizontalSpacer;
++    QPushButton *sendButton;
++
++    void setupUi(QDialog *SendCoinsDialog)
++    {
++        if (SendCoinsDialog->objectName().isEmpty())
++            SendCoinsDialog->setObjectName(QStringLiteral("SendCoinsDialog"));
++        SendCoinsDialog->resize(850, 400);
++        verticalLayout = new QVBoxLayout(SendCoinsDialog);
++        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
++        verticalLayout->setContentsMargins(-1, -1, -1, 8);
++        frameCoinControl = new QFrame(SendCoinsDialog);
++        frameCoinControl->setObjectName(QStringLiteral("frameCoinControl"));
++        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
++        sizePolicy.setHorizontalStretch(0);
++        sizePolicy.setVerticalStretch(0);
++        sizePolicy.setHeightForWidth(frameCoinControl->sizePolicy().hasHeightForWidth());
++        frameCoinControl->setSizePolicy(sizePolicy);
++        frameCoinControl->setMaximumSize(QSize(16777215, 16777215));
++        frameCoinControl->setFrameShape(QFrame::StyledPanel);
++        frameCoinControl->setFrameShadow(QFrame::Sunken);
++        verticalLayoutCoinControl2 = new QVBoxLayout(frameCoinControl);
++#ifndef Q_OS_MAC
++        verticalLayoutCoinControl2->setSpacing(-1);
++#endif
++        verticalLayoutCoinControl2->setObjectName(QStringLiteral("verticalLayoutCoinControl2"));
++        verticalLayoutCoinControl2->setContentsMargins(0, 0, 0, 6);
++        verticalLayoutCoinControl = new QVBoxLayout();
++        verticalLayoutCoinControl->setSpacing(0);
++        verticalLayoutCoinControl->setObjectName(QStringLiteral("verticalLayoutCoinControl"));
++        verticalLayoutCoinControl->setContentsMargins(10, 10, -1, -1);
++        horizontalLayoutCoinControl1 = new QHBoxLayout();
++        horizontalLayoutCoinControl1->setObjectName(QStringLiteral("horizontalLayoutCoinControl1"));
++        horizontalLayoutCoinControl1->setContentsMargins(-1, -1, -1, 15);
++        labelCoinControlFeatures = new QLabel(frameCoinControl);
++        labelCoinControlFeatures->setObjectName(QStringLiteral("labelCoinControlFeatures"));
++        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Maximum);
++        sizePolicy1.setHorizontalStretch(0);
++        sizePolicy1.setVerticalStretch(0);
++        sizePolicy1.setHeightForWidth(labelCoinControlFeatures->sizePolicy().hasHeightForWidth());
++        labelCoinControlFeatures->setSizePolicy(sizePolicy1);
++        QFont font;
++        font.setBold(true);
++        font.setWeight(75);
++        labelCoinControlFeatures->setFont(font);
++        labelCoinControlFeatures->setStyleSheet(QStringLiteral("font-weight:bold;"));
++
++        horizontalLayoutCoinControl1->addWidget(labelCoinControlFeatures);
++
++
++        verticalLayoutCoinControl->addLayout(horizontalLayoutCoinControl1);
++
++        horizontalLayoutCoinControl2 = new QHBoxLayout();
++        horizontalLayoutCoinControl2->setSpacing(8);
++        horizontalLayoutCoinControl2->setObjectName(QStringLiteral("horizontalLayoutCoinControl2"));
++        horizontalLayoutCoinControl2->setContentsMargins(-1, -1, -1, 10);
++        pushButtonCoinControl = new QPushButton(frameCoinControl);
++        pushButtonCoinControl->setObjectName(QStringLiteral("pushButtonCoinControl"));
++        pushButtonCoinControl->setStyleSheet(QStringLiteral(""));
++
++        horizontalLayoutCoinControl2->addWidget(pushButtonCoinControl);
++
++        labelCoinControlAutomaticallySelected = new QLabel(frameCoinControl);
++        labelCoinControlAutomaticallySelected->setObjectName(QStringLiteral("labelCoinControlAutomaticallySelected"));
++        labelCoinControlAutomaticallySelected->setMargin(5);
++
++        horizontalLayoutCoinControl2->addWidget(labelCoinControlAutomaticallySelected);
++
++        labelCoinControlInsuffFunds = new QLabel(frameCoinControl);
++        labelCoinControlInsuffFunds->setObjectName(QStringLiteral("labelCoinControlInsuffFunds"));
++        labelCoinControlInsuffFunds->setFont(font);
++        labelCoinControlInsuffFunds->setStyleSheet(QStringLiteral("color:red;font-weight:bold;"));
++        labelCoinControlInsuffFunds->setMargin(5);
++
++        horizontalLayoutCoinControl2->addWidget(labelCoinControlInsuffFunds);
++
++        horizontalSpacerCoinControl = new QSpacerItem(40, 1, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayoutCoinControl2->addItem(horizontalSpacerCoinControl);
++
++
++        verticalLayoutCoinControl->addLayout(horizontalLayoutCoinControl2);
++
++        widgetCoinControl = new QWidget(frameCoinControl);
++        widgetCoinControl->setObjectName(QStringLiteral("widgetCoinControl"));
++        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Preferred);
++        sizePolicy2.setHorizontalStretch(0);
++        sizePolicy2.setVerticalStretch(0);
++        sizePolicy2.setHeightForWidth(widgetCoinControl->sizePolicy().hasHeightForWidth());
++        widgetCoinControl->setSizePolicy(sizePolicy2);
++        widgetCoinControl->setMinimumSize(QSize(0, 0));
++        widgetCoinControl->setStyleSheet(QStringLiteral(""));
++        horizontalLayoutCoinControl5 = new QHBoxLayout(widgetCoinControl);
++        horizontalLayoutCoinControl5->setContentsMargins(0, 0, 0, 0);
++        horizontalLayoutCoinControl5->setObjectName(QStringLiteral("horizontalLayoutCoinControl5"));
++        horizontalLayoutCoinControl3 = new QHBoxLayout();
++        horizontalLayoutCoinControl3->setSpacing(20);
++        horizontalLayoutCoinControl3->setObjectName(QStringLiteral("horizontalLayoutCoinControl3"));
++        horizontalLayoutCoinControl3->setContentsMargins(-1, 0, -1, 10);
++        formLayoutCoinControl1 = new QFormLayout();
++        formLayoutCoinControl1->setObjectName(QStringLiteral("formLayoutCoinControl1"));
++        formLayoutCoinControl1->setHorizontalSpacing(10);
++        formLayoutCoinControl1->setVerticalSpacing(14);
++        formLayoutCoinControl1->setContentsMargins(10, 4, 6, -1);
++        labelCoinControlQuantityText = new QLabel(widgetCoinControl);
++        labelCoinControlQuantityText->setObjectName(QStringLiteral("labelCoinControlQuantityText"));
++        labelCoinControlQuantityText->setStyleSheet(QStringLiteral("font-weight:bold;"));
++        labelCoinControlQuantityText->setMargin(0);
++
++        formLayoutCoinControl1->setWidget(0, QFormLayout::LabelRole, labelCoinControlQuantityText);
++
++        labelCoinControlQuantity = new QLabel(widgetCoinControl);
++        labelCoinControlQuantity->setObjectName(QStringLiteral("labelCoinControlQuantity"));
++        QFont font1;
++        font1.setFamily(QStringLiteral("Monospace"));
++        font1.setPointSize(10);
++        labelCoinControlQuantity->setFont(font1);
++        labelCoinControlQuantity->setCursor(QCursor(Qt::IBeamCursor));
++        labelCoinControlQuantity->setContextMenuPolicy(Qt::ActionsContextMenu);
++        labelCoinControlQuantity->setText(QStringLiteral("0"));
++        labelCoinControlQuantity->setMargin(0);
++        labelCoinControlQuantity->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayoutCoinControl1->setWidget(0, QFormLayout::FieldRole, labelCoinControlQuantity);
++
++        labelCoinControlBytesText = new QLabel(widgetCoinControl);
++        labelCoinControlBytesText->setObjectName(QStringLiteral("labelCoinControlBytesText"));
++        labelCoinControlBytesText->setStyleSheet(QStringLiteral("font-weight:bold;"));
++
++        formLayoutCoinControl1->setWidget(1, QFormLayout::LabelRole, labelCoinControlBytesText);
++
++        labelCoinControlBytes = new QLabel(widgetCoinControl);
++        labelCoinControlBytes->setObjectName(QStringLiteral("labelCoinControlBytes"));
++        labelCoinControlBytes->setFont(font1);
++        labelCoinControlBytes->setCursor(QCursor(Qt::IBeamCursor));
++        labelCoinControlBytes->setContextMenuPolicy(Qt::ActionsContextMenu);
++        labelCoinControlBytes->setText(QStringLiteral("0"));
++        labelCoinControlBytes->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayoutCoinControl1->setWidget(1, QFormLayout::FieldRole, labelCoinControlBytes);
++
++
++        horizontalLayoutCoinControl3->addLayout(formLayoutCoinControl1);
++
++        formLayoutCoinControl2 = new QFormLayout();
++        formLayoutCoinControl2->setObjectName(QStringLiteral("formLayoutCoinControl2"));
++        formLayoutCoinControl2->setHorizontalSpacing(10);
++        formLayoutCoinControl2->setVerticalSpacing(14);
++        formLayoutCoinControl2->setContentsMargins(6, 4, 6, -1);
++        labelCoinControlAmountText = new QLabel(widgetCoinControl);
++        labelCoinControlAmountText->setObjectName(QStringLiteral("labelCoinControlAmountText"));
++        labelCoinControlAmountText->setStyleSheet(QStringLiteral("font-weight:bold;"));
++        labelCoinControlAmountText->setMargin(0);
++
++        formLayoutCoinControl2->setWidget(0, QFormLayout::LabelRole, labelCoinControlAmountText);
++
++        labelCoinControlAmount = new QLabel(widgetCoinControl);
++        labelCoinControlAmount->setObjectName(QStringLiteral("labelCoinControlAmount"));
++        labelCoinControlAmount->setFont(font1);
++        labelCoinControlAmount->setCursor(QCursor(Qt::IBeamCursor));
++        labelCoinControlAmount->setContextMenuPolicy(Qt::ActionsContextMenu);
++        labelCoinControlAmount->setText(QStringLiteral("0.00 BTC"));
++        labelCoinControlAmount->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayoutCoinControl2->setWidget(0, QFormLayout::FieldRole, labelCoinControlAmount);
++
++        labelCoinControlPriorityText = new QLabel(widgetCoinControl);
++        labelCoinControlPriorityText->setObjectName(QStringLiteral("labelCoinControlPriorityText"));
++        labelCoinControlPriorityText->setStyleSheet(QStringLiteral("font-weight:bold;"));
++
++        formLayoutCoinControl2->setWidget(1, QFormLayout::LabelRole, labelCoinControlPriorityText);
++
++        labelCoinControlPriority = new QLabel(widgetCoinControl);
++        labelCoinControlPriority->setObjectName(QStringLiteral("labelCoinControlPriority"));
++        labelCoinControlPriority->setFont(font1);
++        labelCoinControlPriority->setCursor(QCursor(Qt::IBeamCursor));
++        labelCoinControlPriority->setContextMenuPolicy(Qt::ActionsContextMenu);
++        labelCoinControlPriority->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayoutCoinControl2->setWidget(1, QFormLayout::FieldRole, labelCoinControlPriority);
++
++
++        horizontalLayoutCoinControl3->addLayout(formLayoutCoinControl2);
++
++        formLayoutCoinControl3 = new QFormLayout();
++        formLayoutCoinControl3->setObjectName(QStringLiteral("formLayoutCoinControl3"));
++        formLayoutCoinControl3->setHorizontalSpacing(10);
++        formLayoutCoinControl3->setVerticalSpacing(14);
++        formLayoutCoinControl3->setContentsMargins(6, 4, 6, -1);
++        labelCoinControlFeeText = new QLabel(widgetCoinControl);
++        labelCoinControlFeeText->setObjectName(QStringLiteral("labelCoinControlFeeText"));
++        labelCoinControlFeeText->setStyleSheet(QStringLiteral("font-weight:bold;"));
++        labelCoinControlFeeText->setMargin(0);
++
++        formLayoutCoinControl3->setWidget(0, QFormLayout::LabelRole, labelCoinControlFeeText);
++
++        labelCoinControlFee = new QLabel(widgetCoinControl);
++        labelCoinControlFee->setObjectName(QStringLiteral("labelCoinControlFee"));
++        labelCoinControlFee->setFont(font1);
++        labelCoinControlFee->setCursor(QCursor(Qt::IBeamCursor));
++        labelCoinControlFee->setContextMenuPolicy(Qt::ActionsContextMenu);
++        labelCoinControlFee->setText(QStringLiteral("0.00 BTC"));
++        labelCoinControlFee->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayoutCoinControl3->setWidget(0, QFormLayout::FieldRole, labelCoinControlFee);
++
++        labelCoinControlLowOutputText = new QLabel(widgetCoinControl);
++        labelCoinControlLowOutputText->setObjectName(QStringLiteral("labelCoinControlLowOutputText"));
++        labelCoinControlLowOutputText->setStyleSheet(QStringLiteral("font-weight:bold;"));
++
++        formLayoutCoinControl3->setWidget(1, QFormLayout::LabelRole, labelCoinControlLowOutputText);
++
++        labelCoinControlLowOutput = new QLabel(widgetCoinControl);
++        labelCoinControlLowOutput->setObjectName(QStringLiteral("labelCoinControlLowOutput"));
++        labelCoinControlLowOutput->setFont(font1);
++        labelCoinControlLowOutput->setCursor(QCursor(Qt::IBeamCursor));
++        labelCoinControlLowOutput->setContextMenuPolicy(Qt::ActionsContextMenu);
++        labelCoinControlLowOutput->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayoutCoinControl3->setWidget(1, QFormLayout::FieldRole, labelCoinControlLowOutput);
++
++
++        horizontalLayoutCoinControl3->addLayout(formLayoutCoinControl3);
++
++        formLayoutCoinControl4 = new QFormLayout();
++        formLayoutCoinControl4->setObjectName(QStringLiteral("formLayoutCoinControl4"));
++        formLayoutCoinControl4->setHorizontalSpacing(10);
++        formLayoutCoinControl4->setVerticalSpacing(14);
++        formLayoutCoinControl4->setContentsMargins(6, 4, 6, -1);
++        labelCoinControlAfterFeeText = new QLabel(widgetCoinControl);
++        labelCoinControlAfterFeeText->setObjectName(QStringLiteral("labelCoinControlAfterFeeText"));
++        labelCoinControlAfterFeeText->setStyleSheet(QStringLiteral("font-weight:bold;"));
++        labelCoinControlAfterFeeText->setMargin(0);
++
++        formLayoutCoinControl4->setWidget(0, QFormLayout::LabelRole, labelCoinControlAfterFeeText);
++
++        labelCoinControlAfterFee = new QLabel(widgetCoinControl);
++        labelCoinControlAfterFee->setObjectName(QStringLiteral("labelCoinControlAfterFee"));
++        labelCoinControlAfterFee->setFont(font1);
++        labelCoinControlAfterFee->setCursor(QCursor(Qt::IBeamCursor));
++        labelCoinControlAfterFee->setContextMenuPolicy(Qt::ActionsContextMenu);
++        labelCoinControlAfterFee->setText(QStringLiteral("0.00 BTC"));
++        labelCoinControlAfterFee->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayoutCoinControl4->setWidget(0, QFormLayout::FieldRole, labelCoinControlAfterFee);
++
++        labelCoinControlChangeText = new QLabel(widgetCoinControl);
++        labelCoinControlChangeText->setObjectName(QStringLiteral("labelCoinControlChangeText"));
++        labelCoinControlChangeText->setStyleSheet(QStringLiteral("font-weight:bold;"));
++
++        formLayoutCoinControl4->setWidget(1, QFormLayout::LabelRole, labelCoinControlChangeText);
++
++        labelCoinControlChange = new QLabel(widgetCoinControl);
++        labelCoinControlChange->setObjectName(QStringLiteral("labelCoinControlChange"));
++        labelCoinControlChange->setFont(font1);
++        labelCoinControlChange->setCursor(QCursor(Qt::IBeamCursor));
++        labelCoinControlChange->setContextMenuPolicy(Qt::ActionsContextMenu);
++        labelCoinControlChange->setText(QStringLiteral("0.00 BTC"));
++        labelCoinControlChange->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        formLayoutCoinControl4->setWidget(1, QFormLayout::FieldRole, labelCoinControlChange);
++
++
++        horizontalLayoutCoinControl3->addLayout(formLayoutCoinControl4);
++
++        horizontalLayoutCoinControl3->setStretch(3, 1);
++
++        horizontalLayoutCoinControl5->addLayout(horizontalLayoutCoinControl3);
++
++
++        verticalLayoutCoinControl->addWidget(widgetCoinControl);
++
++        horizontalLayoutCoinControl4 = new QHBoxLayout();
++        horizontalLayoutCoinControl4->setSpacing(12);
++        horizontalLayoutCoinControl4->setObjectName(QStringLiteral("horizontalLayoutCoinControl4"));
++        horizontalLayoutCoinControl4->setSizeConstraint(QLayout::SetDefaultConstraint);
++        horizontalLayoutCoinControl4->setContentsMargins(-1, 5, 5, -1);
++        checkBoxCoinControlChange = new QCheckBox(frameCoinControl);
++        checkBoxCoinControlChange->setObjectName(QStringLiteral("checkBoxCoinControlChange"));
++
++        horizontalLayoutCoinControl4->addWidget(checkBoxCoinControlChange);
++
++        lineEditCoinControlChange = new QLineEdit(frameCoinControl);
++        lineEditCoinControlChange->setObjectName(QStringLiteral("lineEditCoinControlChange"));
++        lineEditCoinControlChange->setEnabled(false);
++        QSizePolicy sizePolicy3(QSizePolicy::Expanding, QSizePolicy::Fixed);
++        sizePolicy3.setHorizontalStretch(0);
++        sizePolicy3.setVerticalStretch(0);
++        sizePolicy3.setHeightForWidth(lineEditCoinControlChange->sizePolicy().hasHeightForWidth());
++        lineEditCoinControlChange->setSizePolicy(sizePolicy3);
++
++        horizontalLayoutCoinControl4->addWidget(lineEditCoinControlChange);
++
++        labelCoinControlChangeLabel = new QLabel(frameCoinControl);
++        labelCoinControlChangeLabel->setObjectName(QStringLiteral("labelCoinControlChangeLabel"));
++        QSizePolicy sizePolicy4(QSizePolicy::Preferred, QSizePolicy::Expanding);
++        sizePolicy4.setHorizontalStretch(0);
++        sizePolicy4.setVerticalStretch(0);
++        sizePolicy4.setHeightForWidth(labelCoinControlChangeLabel->sizePolicy().hasHeightForWidth());
++        labelCoinControlChangeLabel->setSizePolicy(sizePolicy4);
++        labelCoinControlChangeLabel->setMinimumSize(QSize(0, 0));
++        labelCoinControlChangeLabel->setMargin(3);
++
++        horizontalLayoutCoinControl4->addWidget(labelCoinControlChangeLabel);
++
++
++        verticalLayoutCoinControl->addLayout(horizontalLayoutCoinControl4);
++
++        verticalSpacerCoinControl = new QSpacerItem(800, 1, QSizePolicy::Minimum, QSizePolicy::Expanding);
++
++        verticalLayoutCoinControl->addItem(verticalSpacerCoinControl);
++
++        verticalLayoutCoinControl->setStretch(4, 1);
++
++        verticalLayoutCoinControl2->addLayout(verticalLayoutCoinControl);
++
++
++        verticalLayout->addWidget(frameCoinControl);
++
++        scrollArea = new QScrollArea(SendCoinsDialog);
++        scrollArea->setObjectName(QStringLiteral("scrollArea"));
++        scrollArea->setWidgetResizable(true);
++        scrollAreaWidgetContents = new QWidget();
++        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
++        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 830, 165));
++        verticalLayout_2 = new QVBoxLayout(scrollAreaWidgetContents);
++        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
++        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
++        entries = new QVBoxLayout();
++        entries->setSpacing(6);
++        entries->setObjectName(QStringLiteral("entries"));
++
++        verticalLayout_2->addLayout(entries);
++
++        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
++
++        verticalLayout_2->addItem(verticalSpacer);
++
++        scrollArea->setWidget(scrollAreaWidgetContents);
++
++        verticalLayout->addWidget(scrollArea);
++
++        horizontalLayout = new QHBoxLayout();
++        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
++        addButton = new QPushButton(SendCoinsDialog);
++        addButton->setObjectName(QStringLiteral("addButton"));
++        QIcon icon;
++        icon.addFile(QStringLiteral(":/icons/add"), QSize(), QIcon::Normal, QIcon::Off);
++        addButton->setIcon(icon);
++        addButton->setAutoDefault(false);
++
++        horizontalLayout->addWidget(addButton);
++
++        clearButton = new QPushButton(SendCoinsDialog);
++        clearButton->setObjectName(QStringLiteral("clearButton"));
++        QSizePolicy sizePolicy5(QSizePolicy::Minimum, QSizePolicy::Fixed);
++        sizePolicy5.setHorizontalStretch(0);
++        sizePolicy5.setVerticalStretch(0);
++        sizePolicy5.setHeightForWidth(clearButton->sizePolicy().hasHeightForWidth());
++        clearButton->setSizePolicy(sizePolicy5);
++        QIcon icon1;
++        icon1.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
++        clearButton->setIcon(icon1);
++        clearButton->setAutoRepeatDelay(300);
++        clearButton->setAutoDefault(false);
++
++        horizontalLayout->addWidget(clearButton);
++
++        horizontalLayout_2 = new QHBoxLayout();
++        horizontalLayout_2->setSpacing(3);
++        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
++        label = new QLabel(SendCoinsDialog);
++        label->setObjectName(QStringLiteral("label"));
++
++        horizontalLayout_2->addWidget(label);
++
++        labelBalance = new QLabel(SendCoinsDialog);
++        labelBalance->setObjectName(QStringLiteral("labelBalance"));
++        labelBalance->setCursor(QCursor(Qt::IBeamCursor));
++        labelBalance->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
++
++        horizontalLayout_2->addWidget(labelBalance);
++
++
++        horizontalLayout->addLayout(horizontalLayout_2);
++
++        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayout->addItem(horizontalSpacer);
++
++        sendButton = new QPushButton(SendCoinsDialog);
++        sendButton->setObjectName(QStringLiteral("sendButton"));
++        sendButton->setMinimumSize(QSize(150, 0));
++        QIcon icon2;
++        icon2.addFile(QStringLiteral(":/icons/send"), QSize(), QIcon::Normal, QIcon::Off);
++        sendButton->setIcon(icon2);
++        sendButton->setDefault(true);
++
++        horizontalLayout->addWidget(sendButton);
++
++
++        verticalLayout->addLayout(horizontalLayout);
++
++        verticalLayout->setStretch(1, 1);
++
++        retranslateUi(SendCoinsDialog);
++
++        QMetaObject::connectSlotsByName(SendCoinsDialog);
++    } // setupUi
++
++    void retranslateUi(QDialog *SendCoinsDialog)
++    {
++        SendCoinsDialog->setWindowTitle(QApplication::translate("SendCoinsDialog", "Send Coins", 0));
++        labelCoinControlFeatures->setText(QApplication::translate("SendCoinsDialog", "Coin Control Features", 0));
++        pushButtonCoinControl->setText(QApplication::translate("SendCoinsDialog", "Inputs...", 0));
++        labelCoinControlAutomaticallySelected->setText(QApplication::translate("SendCoinsDialog", "automatically selected", 0));
++        labelCoinControlInsuffFunds->setText(QApplication::translate("SendCoinsDialog", "Insufficient funds!", 0));
++        labelCoinControlQuantityText->setText(QApplication::translate("SendCoinsDialog", "Quantity:", 0));
++        labelCoinControlBytesText->setText(QApplication::translate("SendCoinsDialog", "Bytes:", 0));
++        labelCoinControlAmountText->setText(QApplication::translate("SendCoinsDialog", "Amount:", 0));
++        labelCoinControlPriorityText->setText(QApplication::translate("SendCoinsDialog", "Priority:", 0));
++        labelCoinControlPriority->setText(QApplication::translate("SendCoinsDialog", "medium", 0));
++        labelCoinControlFeeText->setText(QApplication::translate("SendCoinsDialog", "Fee:", 0));
++        labelCoinControlLowOutputText->setText(QApplication::translate("SendCoinsDialog", "Low Output:", 0));
++        labelCoinControlLowOutput->setText(QApplication::translate("SendCoinsDialog", "no", 0));
++        labelCoinControlAfterFeeText->setText(QApplication::translate("SendCoinsDialog", "After Fee:", 0));
++        labelCoinControlChangeText->setText(QApplication::translate("SendCoinsDialog", "Change:", 0));
++        checkBoxCoinControlChange->setText(QApplication::translate("SendCoinsDialog", "custom change address", 0));
++        labelCoinControlChangeLabel->setText(QString());
++#ifndef QT_NO_TOOLTIP
++        addButton->setToolTip(QApplication::translate("SendCoinsDialog", "Send to multiple recipients at once", 0));
++#endif // QT_NO_TOOLTIP
++        addButton->setText(QApplication::translate("SendCoinsDialog", "Add &Recipient", 0));
++#ifndef QT_NO_TOOLTIP
++        clearButton->setToolTip(QApplication::translate("SendCoinsDialog", "Remove all transaction fields", 0));
++#endif // QT_NO_TOOLTIP
++        clearButton->setText(QApplication::translate("SendCoinsDialog", "Clear &All", 0));
++        label->setText(QApplication::translate("SendCoinsDialog", "Balance:", 0));
++        labelBalance->setText(QApplication::translate("SendCoinsDialog", "123.456 LTC", 0));
++#ifndef QT_NO_TOOLTIP
++        sendButton->setToolTip(QApplication::translate("SendCoinsDialog", "Confirm the send action", 0));
++#endif // QT_NO_TOOLTIP
++        sendButton->setText(QApplication::translate("SendCoinsDialog", "S&end", 0));
++    } // retranslateUi
++
++};
++
++namespace Ui {
++    class SendCoinsDialog: public Ui_SendCoinsDialog {};
++} // namespace Ui
++
++QT_END_NAMESPACE
++
++#endif // UI_SENDCOINSDIALOG_H
+--- /dev/null
++++ woodcoin-1.2/build/ui_sendcoinsentry.h
+@@ -0,0 +1,163 @@
++/********************************************************************************
++** Form generated from reading UI file 'sendcoinsentry.ui'
++**
++** Created by: Qt User Interface Compiler version 5.4.2
++**
++** WARNING! All changes made in this file will be lost when recompiling UI file!
++********************************************************************************/
++
++#ifndef UI_SENDCOINSENTRY_H
++#define UI_SENDCOINSENTRY_H
++
++#include <QtCore/QVariant>
++#include <QtWidgets/QAction>
++#include <QtWidgets/QApplication>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QFrame>
++#include <QtWidgets/QGridLayout>
++#include <QtWidgets/QHBoxLayout>
++#include <QtWidgets/QHeaderView>
++#include <QtWidgets/QLabel>
++#include <QtWidgets/QToolButton>
++#include "bitcoinamountfield.h"
++#include "qvalidatedlineedit.h"
++
++QT_BEGIN_NAMESPACE
++
++class Ui_SendCoinsEntry
++{
++public:
++    QGridLayout *gridLayout;
++    QLabel *label;
++    QLabel *label_2;
++    BitcoinAmountField *payAmount;
++    QLabel *label_4;
++    QHBoxLayout *payToLayout;
++    QValidatedLineEdit *payTo;
++    QToolButton *addressBookButton;
++    QToolButton *pasteButton;
++    QToolButton *deleteButton;
++    QValidatedLineEdit *addAsLabel;
++
++    void setupUi(QFrame *SendCoinsEntry)
++    {
++        if (SendCoinsEntry->objectName().isEmpty())
++            SendCoinsEntry->setObjectName(QStringLiteral("SendCoinsEntry"));
++        SendCoinsEntry->resize(729, 136);
++        SendCoinsEntry->setFrameShape(QFrame::StyledPanel);
++        SendCoinsEntry->setFrameShadow(QFrame::Sunken);
++        gridLayout = new QGridLayout(SendCoinsEntry);
++        gridLayout->setSpacing(12);
++        gridLayout->setObjectName(QStringLiteral("gridLayout"));
++        label = new QLabel(SendCoinsEntry);
++        label->setObjectName(QStringLiteral("label"));
++        label->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
++
++        gridLayout->addWidget(label, 5, 0, 1, 1);
++
++        label_2 = new QLabel(SendCoinsEntry);
++        label_2->setObjectName(QStringLiteral("label_2"));
++        label_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
++
++        gridLayout->addWidget(label_2, 3, 0, 1, 1);
++
++        payAmount = new BitcoinAmountField(SendCoinsEntry);
++        payAmount->setObjectName(QStringLiteral("payAmount"));
++
++        gridLayout->addWidget(payAmount, 5, 1, 1, 1);
++
++        label_4 = new QLabel(SendCoinsEntry);
++        label_4->setObjectName(QStringLiteral("label_4"));
++        label_4->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
++
++        gridLayout->addWidget(label_4, 4, 0, 1, 1);
++
++        payToLayout = new QHBoxLayout();
++        payToLayout->setSpacing(0);
++        payToLayout->setObjectName(QStringLiteral("payToLayout"));
++        payTo = new QValidatedLineEdit(SendCoinsEntry);
++        payTo->setObjectName(QStringLiteral("payTo"));
++        payTo->setMaxLength(34);
++
++        payToLayout->addWidget(payTo);
++
++        addressBookButton = new QToolButton(SendCoinsEntry);
++        addressBookButton->setObjectName(QStringLiteral("addressBookButton"));
++        QIcon icon;
++        icon.addFile(QStringLiteral(":/icons/address-book"), QSize(), QIcon::Normal, QIcon::Off);
++        addressBookButton->setIcon(icon);
++
++        payToLayout->addWidget(addressBookButton);
++
++        pasteButton = new QToolButton(SendCoinsEntry);
++        pasteButton->setObjectName(QStringLiteral("pasteButton"));
++        QIcon icon1;
++        icon1.addFile(QStringLiteral(":/icons/editpaste"), QSize(), QIcon::Normal, QIcon::Off);
++        pasteButton->setIcon(icon1);
++
++        payToLayout->addWidget(pasteButton);
++
++        deleteButton = new QToolButton(SendCoinsEntry);
++        deleteButton->setObjectName(QStringLiteral("deleteButton"));
++        QIcon icon2;
++        icon2.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
++        deleteButton->setIcon(icon2);
++
++        payToLayout->addWidget(deleteButton);
++
++
++        gridLayout->addLayout(payToLayout, 3, 1, 1, 1);
++
++        addAsLabel = new QValidatedLineEdit(SendCoinsEntry);
++        addAsLabel->setObjectName(QStringLiteral("addAsLabel"));
++
++        gridLayout->addWidget(addAsLabel, 4, 1, 1, 1);
++
++#ifndef QT_NO_SHORTCUT
++        label->setBuddy(payAmount);
++        label_2->setBuddy(payTo);
++        label_4->setBuddy(addAsLabel);
++#endif // QT_NO_SHORTCUT
++
++        retranslateUi(SendCoinsEntry);
++
++        QMetaObject::connectSlotsByName(SendCoinsEntry);
++    } // setupUi
++
++    void retranslateUi(QFrame *SendCoinsEntry)
++    {
++        SendCoinsEntry->setWindowTitle(QApplication::translate("SendCoinsEntry", "Form", 0));
++        label->setText(QApplication::translate("SendCoinsEntry", "A&mount:", 0));
++        label_2->setText(QApplication::translate("SendCoinsEntry", "Pay &To:", 0));
++        label_4->setText(QApplication::translate("SendCoinsEntry", "&Label:", 0));
++#ifndef QT_NO_TOOLTIP
++        payTo->setToolTip(QApplication::translate("SendCoinsEntry", "The address to send the payment to (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)", 0));
++#endif // QT_NO_TOOLTIP
++#ifndef QT_NO_TOOLTIP
++        addressBookButton->setToolTip(QApplication::translate("SendCoinsEntry", "Choose address from address book", 0));
++#endif // QT_NO_TOOLTIP
++        addressBookButton->setText(QString());
++        addressBookButton->setShortcut(QApplication::translate("SendCoinsEntry", "Alt+A", 0));
++#ifndef QT_NO_TOOLTIP
++        pasteButton->setToolTip(QApplication::translate("SendCoinsEntry", "Paste address from clipboard", 0));
++#endif // QT_NO_TOOLTIP
++        pasteButton->setText(QString());
++        pasteButton->setShortcut(QApplication::translate("SendCoinsEntry", "Alt+P", 0));
++#ifndef QT_NO_TOOLTIP
++        deleteButton->setToolTip(QApplication::translate("SendCoinsEntry", "Remove this recipient", 0));
++#endif // QT_NO_TOOLTIP
++        deleteButton->setText(QString());
++#ifndef QT_NO_TOOLTIP
++        addAsLabel->setToolTip(QApplication::translate("SendCoinsEntry", "Enter a label for this address to add it to your address book", 0));
++#endif // QT_NO_TOOLTIP
++    } // retranslateUi
++
++};
++
++namespace Ui {
++    class SendCoinsEntry: public Ui_SendCoinsEntry {};
++} // namespace Ui
++
++QT_END_NAMESPACE
++
++#endif // UI_SENDCOINSENTRY_H
+--- /dev/null
++++ woodcoin-1.2/build/ui_signverifymessagedialog.h
+@@ -0,0 +1,351 @@
++/********************************************************************************
++** Form generated from reading UI file 'signverifymessagedialog.ui'
++**
++** Created by: Qt User Interface Compiler version 5.4.2
++**
++** WARNING! All changes made in this file will be lost when recompiling UI file!
++********************************************************************************/
++
++#ifndef UI_SIGNVERIFYMESSAGEDIALOG_H
++#define UI_SIGNVERIFYMESSAGEDIALOG_H
++
++#include <QtCore/QVariant>
++#include <QtWidgets/QAction>
++#include <QtWidgets/QApplication>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QDialog>
++#include <QtWidgets/QHBoxLayout>
++#include <QtWidgets/QHeaderView>
++#include <QtWidgets/QLabel>
++#include <QtWidgets/QLineEdit>
++#include <QtWidgets/QPlainTextEdit>
++#include <QtWidgets/QPushButton>
++#include <QtWidgets/QSpacerItem>
++#include <QtWidgets/QTabWidget>
++#include <QtWidgets/QVBoxLayout>
++#include <QtWidgets/QWidget>
++#include "qvalidatedlineedit.h"
++
++QT_BEGIN_NAMESPACE
++
++class Ui_SignVerifyMessageDialog
++{
++public:
++    QVBoxLayout *verticalLayout;
++    QTabWidget *tabWidget;
++    QWidget *tabSignMessage;
++    QVBoxLayout *verticalLayout_SM;
++    QLabel *infoLabel_SM;
++    QHBoxLayout *horizontalLayout_1_SM;
++    QValidatedLineEdit *addressIn_SM;
++    QPushButton *addressBookButton_SM;
++    QPushButton *pasteButton_SM;
++    QPlainTextEdit *messageIn_SM;
++    QLabel *signatureLabel_SM;
++    QHBoxLayout *horizontalLayout_2_SM;
++    QLineEdit *signatureOut_SM;
++    QPushButton *copySignatureButton_SM;
++    QHBoxLayout *horizontalLayout_3_SM;
++    QPushButton *signMessageButton_SM;
++    QPushButton *clearButton_SM;
++    QSpacerItem *horizontalSpacer_1_SM;
++    QLabel *statusLabel_SM;
++    QSpacerItem *horizontalSpacer_2_SM;
++    QWidget *tabVerifyMessage;
++    QVBoxLayout *verticalLayout_VM;
++    QLabel *infoLabel_VM;
++    QHBoxLayout *horizontalLayout_1_VM;
++    QValidatedLineEdit *addressIn_VM;
++    QPushButton *addressBookButton_VM;
++    QPlainTextEdit *messageIn_VM;
++    QValidatedLineEdit *signatureIn_VM;
++    QHBoxLayout *horizontalLayout_2_VM;
++    QPushButton *verifyMessageButton_VM;
++    QPushButton *clearButton_VM;
++    QSpacerItem *horizontalSpacer_1_VM;
++    QLabel *statusLabel_VM;
++    QSpacerItem *horizontalSpacer_2_VM;
++
++    void setupUi(QDialog *SignVerifyMessageDialog)
++    {
++        if (SignVerifyMessageDialog->objectName().isEmpty())
++            SignVerifyMessageDialog->setObjectName(QStringLiteral("SignVerifyMessageDialog"));
++        SignVerifyMessageDialog->resize(700, 380);
++        SignVerifyMessageDialog->setModal(true);
++        verticalLayout = new QVBoxLayout(SignVerifyMessageDialog);
++        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
++        tabWidget = new QTabWidget(SignVerifyMessageDialog);
++        tabWidget->setObjectName(QStringLiteral("tabWidget"));
++        tabSignMessage = new QWidget();
++        tabSignMessage->setObjectName(QStringLiteral("tabSignMessage"));
++        verticalLayout_SM = new QVBoxLayout(tabSignMessage);
++        verticalLayout_SM->setObjectName(QStringLiteral("verticalLayout_SM"));
++        infoLabel_SM = new QLabel(tabSignMessage);
++        infoLabel_SM->setObjectName(QStringLiteral("infoLabel_SM"));
++        infoLabel_SM->setTextFormat(Qt::PlainText);
++        infoLabel_SM->setWordWrap(true);
++
++        verticalLayout_SM->addWidget(infoLabel_SM);
++
++        horizontalLayout_1_SM = new QHBoxLayout();
++        horizontalLayout_1_SM->setSpacing(0);
++        horizontalLayout_1_SM->setObjectName(QStringLiteral("horizontalLayout_1_SM"));
++        addressIn_SM = new QValidatedLineEdit(tabSignMessage);
++        addressIn_SM->setObjectName(QStringLiteral("addressIn_SM"));
++        addressIn_SM->setMaxLength(34);
++
++        horizontalLayout_1_SM->addWidget(addressIn_SM);
++
++        addressBookButton_SM = new QPushButton(tabSignMessage);
++        addressBookButton_SM->setObjectName(QStringLiteral("addressBookButton_SM"));
++        QIcon icon;
++        icon.addFile(QStringLiteral(":/icons/address-book"), QSize(), QIcon::Normal, QIcon::Off);
++        addressBookButton_SM->setIcon(icon);
++        addressBookButton_SM->setAutoDefault(false);
++
++        horizontalLayout_1_SM->addWidget(addressBookButton_SM);
++
++        pasteButton_SM = new QPushButton(tabSignMessage);
++        pasteButton_SM->setObjectName(QStringLiteral("pasteButton_SM"));
++        QIcon icon1;
++        icon1.addFile(QStringLiteral(":/icons/editpaste"), QSize(), QIcon::Normal, QIcon::Off);
++        pasteButton_SM->setIcon(icon1);
++        pasteButton_SM->setAutoDefault(false);
++
++        horizontalLayout_1_SM->addWidget(pasteButton_SM);
++
++
++        verticalLayout_SM->addLayout(horizontalLayout_1_SM);
++
++        messageIn_SM = new QPlainTextEdit(tabSignMessage);
++        messageIn_SM->setObjectName(QStringLiteral("messageIn_SM"));
++
++        verticalLayout_SM->addWidget(messageIn_SM);
++
++        signatureLabel_SM = new QLabel(tabSignMessage);
++        signatureLabel_SM->setObjectName(QStringLiteral("signatureLabel_SM"));
++        signatureLabel_SM->setTextFormat(Qt::PlainText);
++
++        verticalLayout_SM->addWidget(signatureLabel_SM);
++
++        horizontalLayout_2_SM = new QHBoxLayout();
++        horizontalLayout_2_SM->setSpacing(0);
++        horizontalLayout_2_SM->setObjectName(QStringLiteral("horizontalLayout_2_SM"));
++        signatureOut_SM = new QLineEdit(tabSignMessage);
++        signatureOut_SM->setObjectName(QStringLiteral("signatureOut_SM"));
++        QFont font;
++        font.setItalic(true);
++        signatureOut_SM->setFont(font);
++        signatureOut_SM->setReadOnly(true);
++
++        horizontalLayout_2_SM->addWidget(signatureOut_SM);
++
++        copySignatureButton_SM = new QPushButton(tabSignMessage);
++        copySignatureButton_SM->setObjectName(QStringLiteral("copySignatureButton_SM"));
++        QIcon icon2;
++        icon2.addFile(QStringLiteral(":/icons/editcopy"), QSize(), QIcon::Normal, QIcon::Off);
++        copySignatureButton_SM->setIcon(icon2);
++        copySignatureButton_SM->setAutoDefault(false);
++
++        horizontalLayout_2_SM->addWidget(copySignatureButton_SM);
++
++
++        verticalLayout_SM->addLayout(horizontalLayout_2_SM);
++
++        horizontalLayout_3_SM = new QHBoxLayout();
++        horizontalLayout_3_SM->setObjectName(QStringLiteral("horizontalLayout_3_SM"));
++        signMessageButton_SM = new QPushButton(tabSignMessage);
++        signMessageButton_SM->setObjectName(QStringLiteral("signMessageButton_SM"));
++        QIcon icon3;
++        icon3.addFile(QStringLiteral(":/icons/edit"), QSize(), QIcon::Normal, QIcon::Off);
++        signMessageButton_SM->setIcon(icon3);
++        signMessageButton_SM->setAutoDefault(false);
++
++        horizontalLayout_3_SM->addWidget(signMessageButton_SM);
++
++        clearButton_SM = new QPushButton(tabSignMessage);
++        clearButton_SM->setObjectName(QStringLiteral("clearButton_SM"));
++        QIcon icon4;
++        icon4.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
++        clearButton_SM->setIcon(icon4);
++        clearButton_SM->setAutoDefault(false);
++
++        horizontalLayout_3_SM->addWidget(clearButton_SM);
++
++        horizontalSpacer_1_SM = new QSpacerItem(40, 48, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayout_3_SM->addItem(horizontalSpacer_1_SM);
++
++        statusLabel_SM = new QLabel(tabSignMessage);
++        statusLabel_SM->setObjectName(QStringLiteral("statusLabel_SM"));
++        QFont font1;
++        font1.setBold(true);
++        font1.setWeight(75);
++        statusLabel_SM->setFont(font1);
++        statusLabel_SM->setWordWrap(true);
++
++        horizontalLayout_3_SM->addWidget(statusLabel_SM);
++
++        horizontalSpacer_2_SM = new QSpacerItem(40, 48, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayout_3_SM->addItem(horizontalSpacer_2_SM);
++
++
++        verticalLayout_SM->addLayout(horizontalLayout_3_SM);
++
++        tabWidget->addTab(tabSignMessage, QString());
++        tabVerifyMessage = new QWidget();
++        tabVerifyMessage->setObjectName(QStringLiteral("tabVerifyMessage"));
++        verticalLayout_VM = new QVBoxLayout(tabVerifyMessage);
++        verticalLayout_VM->setObjectName(QStringLiteral("verticalLayout_VM"));
++        infoLabel_VM = new QLabel(tabVerifyMessage);
++        infoLabel_VM->setObjectName(QStringLiteral("infoLabel_VM"));
++        infoLabel_VM->setTextFormat(Qt::PlainText);
++        infoLabel_VM->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
++        infoLabel_VM->setWordWrap(true);
++
++        verticalLayout_VM->addWidget(infoLabel_VM);
++
++        horizontalLayout_1_VM = new QHBoxLayout();
++        horizontalLayout_1_VM->setSpacing(0);
++        horizontalLayout_1_VM->setObjectName(QStringLiteral("horizontalLayout_1_VM"));
++        addressIn_VM = new QValidatedLineEdit(tabVerifyMessage);
++        addressIn_VM->setObjectName(QStringLiteral("addressIn_VM"));
++        addressIn_VM->setMaxLength(34);
++
++        horizontalLayout_1_VM->addWidget(addressIn_VM);
++
++        addressBookButton_VM = new QPushButton(tabVerifyMessage);
++        addressBookButton_VM->setObjectName(QStringLiteral("addressBookButton_VM"));
++        addressBookButton_VM->setIcon(icon);
++        addressBookButton_VM->setAutoDefault(false);
++
++        horizontalLayout_1_VM->addWidget(addressBookButton_VM);
++
++
++        verticalLayout_VM->addLayout(horizontalLayout_1_VM);
++
++        messageIn_VM = new QPlainTextEdit(tabVerifyMessage);
++        messageIn_VM->setObjectName(QStringLiteral("messageIn_VM"));
++
++        verticalLayout_VM->addWidget(messageIn_VM);
++
++        signatureIn_VM = new QValidatedLineEdit(tabVerifyMessage);
++        signatureIn_VM->setObjectName(QStringLiteral("signatureIn_VM"));
++
++        verticalLayout_VM->addWidget(signatureIn_VM);
++
++        horizontalLayout_2_VM = new QHBoxLayout();
++        horizontalLayout_2_VM->setObjectName(QStringLiteral("horizontalLayout_2_VM"));
++        verifyMessageButton_VM = new QPushButton(tabVerifyMessage);
++        verifyMessageButton_VM->setObjectName(QStringLiteral("verifyMessageButton_VM"));
++        QIcon icon5;
++        icon5.addFile(QStringLiteral(":/icons/transaction_0"), QSize(), QIcon::Normal, QIcon::Off);
++        verifyMessageButton_VM->setIcon(icon5);
++        verifyMessageButton_VM->setAutoDefault(false);
++
++        horizontalLayout_2_VM->addWidget(verifyMessageButton_VM);
++
++        clearButton_VM = new QPushButton(tabVerifyMessage);
++        clearButton_VM->setObjectName(QStringLiteral("clearButton_VM"));
++        clearButton_VM->setIcon(icon4);
++        clearButton_VM->setAutoDefault(false);
++
++        horizontalLayout_2_VM->addWidget(clearButton_VM);
++
++        horizontalSpacer_1_VM = new QSpacerItem(40, 48, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayout_2_VM->addItem(horizontalSpacer_1_VM);
++
++        statusLabel_VM = new QLabel(tabVerifyMessage);
++        statusLabel_VM->setObjectName(QStringLiteral("statusLabel_VM"));
++        statusLabel_VM->setFont(font1);
++        statusLabel_VM->setWordWrap(true);
++
++        horizontalLayout_2_VM->addWidget(statusLabel_VM);
++
++        horizontalSpacer_2_VM = new QSpacerItem(40, 48, QSizePolicy::Expanding, QSizePolicy::Minimum);
++
++        horizontalLayout_2_VM->addItem(horizontalSpacer_2_VM);
++
++
++        verticalLayout_VM->addLayout(horizontalLayout_2_VM);
++
++        tabWidget->addTab(tabVerifyMessage, QString());
++
++        verticalLayout->addWidget(tabWidget);
++
++
++        retranslateUi(SignVerifyMessageDialog);
++
++        tabWidget->setCurrentIndex(0);
++
++
++        QMetaObject::connectSlotsByName(SignVerifyMessageDialog);
++    } // setupUi
++
++    void retranslateUi(QDialog *SignVerifyMessageDialog)
++    {
++        SignVerifyMessageDialog->setWindowTitle(QApplication::translate("SignVerifyMessageDialog", "Signatures - Sign / Verify a Message", 0));
++        infoLabel_SM->setText(QApplication::translate("SignVerifyMessageDialog", "You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.", 0));
++#ifndef QT_NO_TOOLTIP
++        addressIn_SM->setToolTip(QApplication::translate("SignVerifyMessageDialog", "The address to sign the message with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)", 0));
++#endif // QT_NO_TOOLTIP
++#ifndef QT_NO_TOOLTIP
++        addressBookButton_SM->setToolTip(QApplication::translate("SignVerifyMessageDialog", "Choose an address from the address book", 0));
++#endif // QT_NO_TOOLTIP
++        addressBookButton_SM->setText(QString());
++        addressBookButton_SM->setShortcut(QApplication::translate("SignVerifyMessageDialog", "Alt+A", 0));
++#ifndef QT_NO_TOOLTIP
++        pasteButton_SM->setToolTip(QApplication::translate("SignVerifyMessageDialog", "Paste address from clipboard", 0));
++#endif // QT_NO_TOOLTIP
++        pasteButton_SM->setText(QString());
++        pasteButton_SM->setShortcut(QApplication::translate("SignVerifyMessageDialog", "Alt+P", 0));
++#ifndef QT_NO_TOOLTIP
++        messageIn_SM->setToolTip(QApplication::translate("SignVerifyMessageDialog", "Enter the message you want to sign here", 0));
++#endif // QT_NO_TOOLTIP
++        signatureLabel_SM->setText(QApplication::translate("SignVerifyMessageDialog", "Signature", 0));
++#ifndef QT_NO_TOOLTIP
++        copySignatureButton_SM->setToolTip(QApplication::translate("SignVerifyMessageDialog", "Copy the current signature to the system clipboard", 0));
++#endif // QT_NO_TOOLTIP
++        copySignatureButton_SM->setText(QString());
++#ifndef QT_NO_TOOLTIP
++        signMessageButton_SM->setToolTip(QApplication::translate("SignVerifyMessageDialog", "Sign the message to prove you own this Woodcoin address", 0));
++#endif // QT_NO_TOOLTIP
++        signMessageButton_SM->setText(QApplication::translate("SignVerifyMessageDialog", "Sign &Message", 0));
++#ifndef QT_NO_TOOLTIP
++        clearButton_SM->setToolTip(QApplication::translate("SignVerifyMessageDialog", "Reset all sign message fields", 0));
++#endif // QT_NO_TOOLTIP
++        clearButton_SM->setText(QApplication::translate("SignVerifyMessageDialog", "Clear &All", 0));
++        statusLabel_SM->setText(QString());
++        tabWidget->setTabText(tabWidget->indexOf(tabSignMessage), QApplication::translate("SignVerifyMessageDialog", "&Sign Message", 0));
++        infoLabel_VM->setText(QApplication::translate("SignVerifyMessageDialog", "Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.", 0));
++#ifndef QT_NO_TOOLTIP
++        addressIn_VM->setToolTip(QApplication::translate("SignVerifyMessageDialog", "The address the message was signed with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)", 0));
++#endif // QT_NO_TOOLTIP
++#ifndef QT_NO_TOOLTIP
++        addressBookButton_VM->setToolTip(QApplication::translate("SignVerifyMessageDialog", "Choose an address from the address book", 0));
++#endif // QT_NO_TOOLTIP
++        addressBookButton_VM->setText(QString());
++        addressBookButton_VM->setShortcut(QApplication::translate("SignVerifyMessageDialog", "Alt+A", 0));
++#ifndef QT_NO_TOOLTIP
++        verifyMessageButton_VM->setToolTip(QApplication::translate("SignVerifyMessageDialog", "Verify the message to ensure it was signed with the specified Woodcoin address", 0));
++#endif // QT_NO_TOOLTIP
++        verifyMessageButton_VM->setText(QApplication::translate("SignVerifyMessageDialog", "Verify &Message", 0));
++#ifndef QT_NO_TOOLTIP
++        clearButton_VM->setToolTip(QApplication::translate("SignVerifyMessageDialog", "Reset all verify message fields", 0));
++#endif // QT_NO_TOOLTIP
++        clearButton_VM->setText(QApplication::translate("SignVerifyMessageDialog", "Clear &All", 0));
++        statusLabel_VM->setText(QString());
++        tabWidget->setTabText(tabWidget->indexOf(tabVerifyMessage), QApplication::translate("SignVerifyMessageDialog", "&Verify Message", 0));
++    } // retranslateUi
++
++};
++
++namespace Ui {
++    class SignVerifyMessageDialog: public Ui_SignVerifyMessageDialog {};
++} // namespace Ui
++
++QT_END_NAMESPACE
++
++#endif // UI_SIGNVERIFYMESSAGEDIALOG_H
+--- /dev/null
++++ woodcoin-1.2/build/ui_transactiondescdialog.h
+@@ -0,0 +1,75 @@
++/********************************************************************************
++** Form generated from reading UI file 'transactiondescdialog.ui'
++**
++** Created by: Qt User Interface Compiler version 5.4.2
++**
++** WARNING! All changes made in this file will be lost when recompiling UI file!
++********************************************************************************/
++
++#ifndef UI_TRANSACTIONDESCDIALOG_H
++#define UI_TRANSACTIONDESCDIALOG_H
++
++#include <QtCore/QVariant>
++#include <QtWidgets/QAction>
++#include <QtWidgets/QApplication>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QDialog>
++#include <QtWidgets/QDialogButtonBox>
++#include <QtWidgets/QHeaderView>
++#include <QtWidgets/QTextEdit>
++#include <QtWidgets/QVBoxLayout>
++
++QT_BEGIN_NAMESPACE
++
++class Ui_TransactionDescDialog
++{
++public:
++    QVBoxLayout *verticalLayout;
++    QTextEdit *detailText;
++    QDialogButtonBox *buttonBox;
++
++    void setupUi(QDialog *TransactionDescDialog)
++    {
++        if (TransactionDescDialog->objectName().isEmpty())
++            TransactionDescDialog->setObjectName(QStringLiteral("TransactionDescDialog"));
++        TransactionDescDialog->resize(620, 250);
++        verticalLayout = new QVBoxLayout(TransactionDescDialog);
++        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
++        detailText = new QTextEdit(TransactionDescDialog);
++        detailText->setObjectName(QStringLiteral("detailText"));
++        detailText->setReadOnly(true);
++
++        verticalLayout->addWidget(detailText);
++
++        buttonBox = new QDialogButtonBox(TransactionDescDialog);
++        buttonBox->setObjectName(QStringLiteral("buttonBox"));
++        buttonBox->setOrientation(Qt::Horizontal);
++        buttonBox->setStandardButtons(QDialogButtonBox::Close);
++
++        verticalLayout->addWidget(buttonBox);
++
++
++        retranslateUi(TransactionDescDialog);
++        QObject::connect(buttonBox, SIGNAL(accepted()), TransactionDescDialog, SLOT(accept()));
++        QObject::connect(buttonBox, SIGNAL(rejected()), TransactionDescDialog, SLOT(reject()));
++
++        QMetaObject::connectSlotsByName(TransactionDescDialog);
++    } // setupUi
++
++    void retranslateUi(QDialog *TransactionDescDialog)
++    {
++        TransactionDescDialog->setWindowTitle(QApplication::translate("TransactionDescDialog", "Transaction details", 0));
++#ifndef QT_NO_TOOLTIP
++        detailText->setToolTip(QApplication::translate("TransactionDescDialog", "This pane shows a detailed description of the transaction", 0));
++#endif // QT_NO_TOOLTIP
++    } // retranslateUi
++
++};
++
++namespace Ui {
++    class TransactionDescDialog: public Ui_TransactionDescDialog {};
++} // namespace Ui
++
++QT_END_NAMESPACE
++
++#endif // UI_TRANSACTIONDESCDIALOG_H
+--- woodcoin-1.2.orig/leveldb/build_config.mk
++++ woodcoin-1.2/leveldb/build_config.mk
+@@ -1,6 +1,6 @@
+ SOURCES=db/builder.cc db/c.cc db/dbformat.cc db/db_impl.cc db/db_iter.cc db/filename.cc db/log_reader.cc db/log_writer.cc db/memtable.cc db/repair.cc db/table_cache.cc db/version_edit.cc db/version_set.cc db/write_batch.cc table/block_builder.cc table/block.cc table/filter_block.cc table/format.cc table/iterator.cc table/merger.cc table/table_builder.cc table/table.cc table/two_level_iterator.cc util/arena.cc util/bloom.cc util/cache.cc util/coding.cc util/comparator.cc util/crc32c.cc util/env.cc util/env_posix.cc util/env_win.cc util/filter_policy.cc util/hash.cc util/histogram.cc util/logging.cc util/options.cc util/status.cc  port/port_posix.cc
+ MEMENV_SOURCES=helpers/memenv/memenv.cc
+-CC=cc
++CC=gcc
+ CXX=g++
+ PLATFORM=OS_LINUX
+ PLATFORM_LDFLAGS=-pthread
+--- woodcoin-1.2.orig/qt/walletmodel.h
++++ woodcoin-1.2/qt/walletmodel.h
+@@ -9,7 +9,7 @@
+ #include <vector>
+ #include <map>
+ 
+-#include "allocators.h" /* for SecureString */
++#include "../allocators.h" /* for SecureString */
+ 
+ class OptionsModel;
+ class AddressTableModel;

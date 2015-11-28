@@ -1,0 +1,27 @@
+Source: woodcoin
+Section: utils
+Priority: optional
+Maintainer: P. H. Madore <phm@woodcoin.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+Homepage: http://woodcoin.org
+Vcs-Git: git://github.com/funkshelper/woodcoin.git
+         git+ssh://git.launchpad.net/woodcoin
+Vcs-Browser: https://github.com/funkshelper/woodcoin
+             https://code.launchpad.net/~moonpunter/woodcoin/main
+
+Package: woodcoin
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, build-essential, libqt5core5a, libqt5gui5, qt5-qmake, libqt5printsupport5, libqt5widgets5, libqt5network5, libssl-dev, libdb-dev, libdb++-dev, libboost-all-dev, libboost-all-dev, libboost-system-dev, libboost-filesystem-dev, libboost-program-options-dev, libboost-thread-dev, libminiupnpc-dev, libqrencode3, qrencode, libqrencode-dev
+Description: Logarithmic cryptocurrency made w/Skein.
+ Six years ago the great wizard Satoshi Nakamoto delivered middle earth from the clutches of the
+ counterfeiters by publicizing the proof of work algorithm in the first implementation of a public
+ cryptocurrency: bitcoin. Our current work, woodcoin, is an experimental cryptocurrency
+ which is built in much the same way as bitcoin, sharing in the code base with bitcoin and two of
+ its successors: litecoin and quark. The objective of woodcoin is to take a very long view and
+ design a coin that remains viable and stable extremely far into the future. See Woodcoin.org for
+ more information.
+ .
+ Woodcoin allows you to begin earning money simply by running it with "setgenerate true."
+ .
+ Write to phm@woodcoin.org if you have any trouble. 

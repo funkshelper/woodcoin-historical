@@ -1,0 +1,47 @@
+Description: <short summary of the patch>
+ TODO: Put a short summary on the line above and replace this paragraph
+ with a longer explanation of this change. Complete the meta-information
+ with other relevant fields (see below for details). To make it easier, the
+ information below has been extracted from the changelog. Adjust it or drop
+ it.
+ .
+ woodcoin (1.2-1) unstable; urgency=low
+ .
+   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+Author: P. H. Madore <moonpunter@gmail.com>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- woodcoin-1.2.orig/woodcoin-qt.pro
++++ woodcoin-1.2/woodcoin-qt.pro
+@@ -124,7 +124,7 @@ QMAKE_CLEAN += $$PWD/leveldb/libleveldb.
+ # regenerate build.h
+ !win32|contains(USE_BUILD_INFO, 1) {
+     genbuild.depends = FORCE
+-    genbuild.commands = cd $$PWD; /bin/sh $$OUT_PWD/share/genbuild.sh $$OUT_PWD/build/build.h
++    genbuild.commands = cd $$PWD; /bin/sh ../share/genbuild.sh $$OUT_PWD/build/build.h
+     genbuild.target = $$OUT_PWD/build/build.h
+     PRE_TARGETDEPS += $$OUT_PWD/build/build.h
+     QMAKE_EXTRA_TARGETS += genbuild
+--- woodcoin-1.2.orig/woodcoinqt.mk
++++ woodcoin-1.2/woodcoinqt.mk
+@@ -691,7 +691,7 @@ distclean: clean
+ 	cd /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb && CC=gcc CXX=g++ $(MAKE) OPT="-m64 -pipe -fstack-protector-all -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -O2" libleveldb.a libmemenv.a
+ 
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/build/build.h: FORCE
+-	cd /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2; /bin/sh $(CURDIR)/share/genbuild.sh /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/build/build.h
++	cd /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2; /bin/sh /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/share/genbuild.sh /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/build/build.h
+ 
+ mocclean: compiler_moc_header_clean compiler_moc_source_clean
+ 

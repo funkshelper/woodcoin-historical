@@ -1,0 +1,276 @@
+Description: <short summary of the patch>
+ TODO: Put a short summary on the line above and replace this paragraph
+ with a longer explanation of this change. Complete the meta-information
+ with other relevant fields (see below for details). To make it easier, the
+ information below has been extracted from the changelog. Adjust it or drop
+ it.
+ .
+ woodcoin (1.2-1) unstable; urgency=low
+ .
+   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+Author: P. H. Madore <moonpunter@gmail.com>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- woodcoin-1.2.orig/obj/init.P
++++ woodcoin-1.2/obj/init.P
+@@ -1111,15 +1111,12 @@ init.o: init.cpp /usr/include/stdc-prede
+  /usr/include/boost/preprocessor/iteration/local.hpp \
+  /usr/include/boost/preprocessor/iteration/self.hpp \
+  /usr/include/boost/signals2/detail/signal_template.hpp hashblock.h \
+- sph_skein.h sph_types.h leveldb.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/db.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/iterator.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/slice.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/status.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/options.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/write_batch.h \
+- walletdb.h db.h /usr/include/db_cxx.h /usr/include/db.h base58.h \
+- bitcoinrpc.h json/json_spirit_reader_template.h json/json_spirit_value.h \
++ sph_skein.h sph_types.h leveldb.h leveldb/include/leveldb/db.h \
++ leveldb/include/leveldb/iterator.h leveldb/include/leveldb/slice.h \
++ leveldb/include/leveldb/status.h leveldb/include/leveldb/options.h \
++ leveldb/include/leveldb/write_batch.h walletdb.h db.h \
++ /usr/include/db_cxx.h /usr/include/db.h base58.h bitcoinrpc.h \
++ json/json_spirit_reader_template.h json/json_spirit_value.h \
+  json/json_spirit_error_position.h \
+  /usr/include/boost/spirit/include/classic_core.hpp \
+  /usr/include/boost/spirit/home/classic/core.hpp \
+@@ -2405,15 +2402,12 @@ init.cpp /usr/include/stdc-predef.h txdb
+  /usr/include/boost/preprocessor/iteration/local.hpp :
+  /usr/include/boost/preprocessor/iteration/self.hpp :
+  /usr/include/boost/signals2/detail/signal_template.hpp hashblock.h :
+- sph_skein.h sph_types.h leveldb.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/db.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/iterator.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/slice.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/status.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/options.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/write_batch.h :
+- walletdb.h db.h /usr/include/db_cxx.h /usr/include/db.h base58.h :
+- bitcoinrpc.h json/json_spirit_reader_template.h json/json_spirit_value.h :
++ sph_skein.h sph_types.h leveldb.h leveldb/include/leveldb/db.h :
++ leveldb/include/leveldb/iterator.h leveldb/include/leveldb/slice.h :
++ leveldb/include/leveldb/status.h leveldb/include/leveldb/options.h :
++ leveldb/include/leveldb/write_batch.h walletdb.h db.h :
++ /usr/include/db_cxx.h /usr/include/db.h base58.h bitcoinrpc.h :
++ json/json_spirit_reader_template.h json/json_spirit_value.h :
+  json/json_spirit_error_position.h :
+  /usr/include/boost/spirit/include/classic_core.hpp :
+  /usr/include/boost/spirit/home/classic/core.hpp :
+--- woodcoin-1.2.orig/obj/leveldb.P
++++ woodcoin-1.2/obj/leveldb.P
+@@ -560,13 +560,10 @@ leveldb.o: leveldb.cpp /usr/include/stdc
+  /usr/include/openssl/symhacks.h /usr/include/x86_64-linux-gnu/sys/mman.h \
+  /usr/include/x86_64-linux-gnu/bits/mman.h \
+  /usr/include/x86_64-linux-gnu/bits/mman-linux.h version.h \
+- clientversion.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/db.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/iterator.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/slice.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/status.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/options.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/write_batch.h \
++ clientversion.h leveldb/include/leveldb/db.h \
++ leveldb/include/leveldb/iterator.h leveldb/include/leveldb/slice.h \
++ leveldb/include/leveldb/status.h leveldb/include/leveldb/options.h \
++ leveldb/include/leveldb/write_batch.h \
+  /usr/include/boost/filesystem/path.hpp \
+  /usr/include/boost/filesystem/config.hpp \
+  /usr/include/boost/filesystem/path_traits.hpp /usr/include/c++/5/list \
+@@ -885,7 +882,9 @@ leveldb.o: leveldb.cpp /usr/include/stdc
+  /usr/include/ifaddrs.h \
+  /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/env.h \
+  /usr/include/c++/5/cstdarg \
++ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/status.h \
+  /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/cache.h \
++ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/slice.h \
+  /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/filter_policy.h \
+  /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/helpers/memenv/memenv.h
+ leveldb.cpp /usr/include/stdc-predef.h leveldb.h serialize.h :
+@@ -1450,13 +1449,10 @@ leveldb.cpp /usr/include/stdc-predef.h l
+  /usr/include/openssl/symhacks.h /usr/include/x86_64-linux-gnu/sys/mman.h :
+  /usr/include/x86_64-linux-gnu/bits/mman.h :
+  /usr/include/x86_64-linux-gnu/bits/mman-linux.h version.h :
+- clientversion.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/db.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/iterator.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/slice.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/status.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/options.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/write_batch.h :
++ clientversion.h leveldb/include/leveldb/db.h :
++ leveldb/include/leveldb/iterator.h leveldb/include/leveldb/slice.h :
++ leveldb/include/leveldb/status.h leveldb/include/leveldb/options.h :
++ leveldb/include/leveldb/write_batch.h :
+  /usr/include/boost/filesystem/path.hpp :
+  /usr/include/boost/filesystem/config.hpp :
+  /usr/include/boost/filesystem/path_traits.hpp /usr/include/c++/5/list :
+@@ -1775,6 +1771,8 @@ leveldb.cpp /usr/include/stdc-predef.h l
+  /usr/include/ifaddrs.h :
+  /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/env.h :
+  /usr/include/c++/5/cstdarg :
++ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/status.h :
+  /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/cache.h :
++ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/slice.h :
+  /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/filter_policy.h :
+  /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/helpers/memenv/memenv.h :
+--- woodcoin-1.2.orig/obj/main.P
++++ woodcoin-1.2/obj/main.P
+@@ -1112,14 +1112,10 @@ main.o: main.cpp /usr/include/stdc-prede
+  /usr/include/boost/preprocessor/iteration/self.hpp \
+  /usr/include/boost/signals2/detail/signal_template.hpp hashblock.h \
+  sph_skein.h sph_types.h /usr/include/db_cxx.h /usr/include/db.h txdb.h \
+- leveldb.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/db.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/iterator.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/slice.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/status.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/options.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/write_batch.h \
+- init.h wallet.h ui_interface.h \
++ leveldb.h leveldb/include/leveldb/db.h \
++ leveldb/include/leveldb/iterator.h leveldb/include/leveldb/slice.h \
++ leveldb/include/leveldb/status.h leveldb/include/leveldb/options.h \
++ leveldb/include/leveldb/write_batch.h init.h wallet.h ui_interface.h \
+  /usr/include/boost/signals2/last_value.hpp walletdb.h base58.h \
+  checkqueue.h /usr/include/boost/algorithm/string/replace.hpp \
+  /usr/include/boost/algorithm/string/config.hpp \
+@@ -2297,14 +2293,10 @@ main.cpp /usr/include/stdc-predef.h aler
+  /usr/include/boost/preprocessor/iteration/self.hpp :
+  /usr/include/boost/signals2/detail/signal_template.hpp hashblock.h :
+  sph_skein.h sph_types.h /usr/include/db_cxx.h /usr/include/db.h txdb.h :
+- leveldb.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/db.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/iterator.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/slice.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/status.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/options.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/write_batch.h :
+- init.h wallet.h ui_interface.h :
++ leveldb.h leveldb/include/leveldb/db.h :
++ leveldb/include/leveldb/iterator.h leveldb/include/leveldb/slice.h :
++ leveldb/include/leveldb/status.h leveldb/include/leveldb/options.h :
++ leveldb/include/leveldb/write_batch.h init.h wallet.h ui_interface.h :
+  /usr/include/boost/signals2/last_value.hpp walletdb.h base58.h :
+  checkqueue.h /usr/include/boost/algorithm/string/replace.hpp :
+  /usr/include/boost/algorithm/string/config.hpp :
+--- woodcoin-1.2.orig/obj/txdb.P
++++ woodcoin-1.2/obj/txdb.P
+@@ -1111,13 +1111,10 @@ txdb.o: txdb.cpp /usr/include/stdc-prede
+  /usr/include/boost/preprocessor/iteration/local.hpp \
+  /usr/include/boost/preprocessor/iteration/self.hpp \
+  /usr/include/boost/signals2/detail/signal_template.hpp hashblock.h \
+- sph_skein.h sph_types.h leveldb.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/db.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/iterator.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/slice.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/status.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/options.h \
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/write_batch.h
++ sph_skein.h sph_types.h leveldb.h leveldb/include/leveldb/db.h \
++ leveldb/include/leveldb/iterator.h leveldb/include/leveldb/slice.h \
++ leveldb/include/leveldb/status.h leveldb/include/leveldb/options.h \
++ leveldb/include/leveldb/write_batch.h
+ txdb.cpp /usr/include/stdc-predef.h txdb.h main.h bignum.h :
+  /usr/include/c++/5/stdexcept /usr/include/c++/5/exception :
+  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h :
+@@ -2231,10 +2228,7 @@ txdb.cpp /usr/include/stdc-predef.h txdb
+  /usr/include/boost/preprocessor/iteration/local.hpp :
+  /usr/include/boost/preprocessor/iteration/self.hpp :
+  /usr/include/boost/signals2/detail/signal_template.hpp hashblock.h :
+- sph_skein.h sph_types.h leveldb.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/db.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/iterator.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/slice.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/status.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/options.h :
+- /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/write_batch.h :
++ sph_skein.h sph_types.h leveldb.h leveldb/include/leveldb/db.h :
++ leveldb/include/leveldb/iterator.h leveldb/include/leveldb/slice.h :
++ leveldb/include/leveldb/status.h leveldb/include/leveldb/options.h :
++ leveldb/include/leveldb/write_batch.h :
+--- woodcoin-1.2.orig/qt/clientmodel.cpp
++++ woodcoin-1.2/qt/clientmodel.cpp
+@@ -9,10 +9,10 @@
+ #include "addresstablemodel.h"
+ #include "transactiontablemodel.h"
+ 
+-#include "alert.h"
+-#include "main.h"
+-#include "checkpoints.h"
+-#include "ui_interface.h"
++#include "../alert.h"
++#include "../main.h"
++#include "../checkpoints.h"
++#include "../ui_interface.h"
+ 
+ #include <QDateTime>
+ #include <QTimer>
+--- woodcoin-1.2.orig/woodcoinqt.mk
++++ woodcoin-1.2/woodcoinqt.mk
+@@ -1636,6 +1636,12 @@ build/main.o: main.cpp alert.h \
+ 		sph_types.h \
+ 		txdb.h \
+ 		leveldb.h \
++		leveldb/include/leveldb/db.h \
++		leveldb/include/leveldb/iterator.h \
++		leveldb/include/leveldb/slice.h \
++		leveldb/include/leveldb/status.h \
++		leveldb/include/leveldb/options.h \
++		leveldb/include/leveldb/write_batch.h \
+ 		init.h \
+ 		wallet.h \
+ 		ui_interface.h \
+@@ -1672,6 +1678,12 @@ build/init.o: init.cpp txdb.h \
+ 		sph_skein.h \
+ 		sph_types.h \
+ 		leveldb.h \
++		leveldb/include/leveldb/db.h \
++		leveldb/include/leveldb/iterator.h \
++		leveldb/include/leveldb/slice.h \
++		leveldb/include/leveldb/status.h \
++		leveldb/include/leveldb/options.h \
++		leveldb/include/leveldb/write_batch.h \
+ 		walletdb.h \
+ 		db.h \
+ 		base58.h \
+@@ -2553,6 +2565,12 @@ build/leveldb.o: leveldb.cpp leveldb.h \
+ 		allocators.h \
+ 		version.h \
+ 		clientversion.h \
++		leveldb/include/leveldb/db.h \
++		leveldb/include/leveldb/iterator.h \
++		leveldb/include/leveldb/slice.h \
++		leveldb/include/leveldb/status.h \
++		leveldb/include/leveldb/options.h \
++		leveldb/include/leveldb/write_batch.h \
+ 		util.h \
+ 		uint256.h \
+ 		netbase.h \
+@@ -2586,7 +2604,13 @@ build/txdb.o: txdb.cpp txdb.h \
+ 		hashblock.h \
+ 		sph_skein.h \
+ 		sph_types.h \
+-		leveldb.h
++		leveldb.h \
++		leveldb/include/leveldb/db.h \
++		leveldb/include/leveldb/iterator.h \
++		leveldb/include/leveldb/slice.h \
++		leveldb/include/leveldb/status.h \
++		leveldb/include/leveldb/options.h \
++		leveldb/include/leveldb/write_batch.h
+ 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/txdb.o txdb.cpp
+ 
+ build/splashscreen.o: qt/splashscreen.cpp qt/splashscreen.h \

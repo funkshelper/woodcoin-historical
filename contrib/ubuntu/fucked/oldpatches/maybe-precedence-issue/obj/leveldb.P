@@ -1,0 +1,26 @@
+obj/leveldb.o: leveldb.cpp leveldb.h serialize.h allocators.h version.h \
+ clientversion.h \
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/db.h \
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/iterator.h \
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/slice.h \
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/status.h \
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/options.h \
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/write_batch.h \
+ util.h uint256.h netbase.h compat.h \
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/env.h \
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/cache.h \
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/filter_policy.h \
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/helpers/memenv/memenv.h
+leveldb.cpp leveldb.h serialize.h allocators.h version.h :
+ clientversion.h :
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/db.h :
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/iterator.h :
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/slice.h :
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/status.h :
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/options.h :
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/write_batch.h :
+ util.h uint256.h netbase.h compat.h :
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/env.h :
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/leveldb/cache.h :
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/include/filter_policy.h :
+ /home/phm/stuff/Paul/Coding/current-code/woodcoin-stuff/woodcoin-launchpad/contrib/ubuntu/woodcoin-1.2/leveldb/helpers/memenv/memenv.h :

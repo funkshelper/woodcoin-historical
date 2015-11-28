@@ -1,0 +1,6 @@
+woodcoin (1.2-1) unstable; urgency=low
+
+  * Initial repo/.deb release of Woodcoin. Package 
+  * installs both daemon and Graphical wallet. 
+
+ -- P. H. Madore <moonpunter@gmail.com>  Sat, 28 Nov 2015 00:00:00 -0600
