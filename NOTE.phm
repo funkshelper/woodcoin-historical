@@ -1,0 +1,9 @@
+Compiled on Debian Sid.
+
+Notes: 
+1. Had to build libqrencode from source.
+2. QR codes not displaying in paper wallet screen whether with QRCODE=1 flag or not. 
+3. Possibly due to missing /contrib/qrcode folder. Remedying that and going to try fresh today. 
+
+2/4/16 - 12:55PM CST
+
