@@ -27,6 +27,7 @@ public:
 
     void setModel(WalletModel *model);
 
+
 private:
     Ui::PaperWalletDialog *ui;
     WalletModel *model;
@@ -36,6 +37,7 @@ private:
 private slots:
     void on_getNewAddress_clicked();
     void on_printButton_clicked();
+    void paperWalletSelect();
 };
 
 

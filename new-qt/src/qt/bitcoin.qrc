@@ -41,6 +41,10 @@
         <file alias="qrcode">res/icons/qrcode.png</file>
         <file alias="debugwindow">res/icons/debugwindow.png</file>
     </qresource>
+    <qresource prefix="/icons/qt2.0">
+        <file alias="print_paper_wallet">res/icons/qt2.0/print_paper_wallet.png</file>
+        <file alias="select_paper_wallet">res/icons/qt2.0/select_paper_wallet.png</file>
+    </qresource>
     <qresource prefix="/images">
         <file alias="about">res/images/about.png</file>
         <file alias="splash">res/images/splash.png</file>
