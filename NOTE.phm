@@ -1,3 +1,10 @@
+Update 3/1/16 - 13:21PM CST
+
+1. Still working on Qrcode issue. Need to test on other systems to isolate problem.
+2. We need a protocol for testing builds properly. In the end, so long as woodcoind runs, life goes on. 
+
+
+
 Compiled on Debian Sid.
 
 Notes: 
