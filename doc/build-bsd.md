@@ -15,7 +15,7 @@ The last two have strictly to do with how your pkg manager installed libdb4.8.
 
 If you're unsure, you can try creating a symbolic link to to /usr/include/db4.8 and simply use the above sequence:
 
-ln -s /usr/local/include/db4.8 /usr/include/db4.8
+`ln -s /usr/local/include/db4.8 /usr/include/db4.8`
 
 Or vice versa. 
 
@@ -55,6 +55,7 @@ export CXX=c++
 export CXXFLAGS="-I/usr/local/include -I/usr/local/include/db48"
 export LDFLAGS="-L/usr/local/lib -L/usr/local/lib/db48"
 chmod +xr leveldb
+rm db.h && mv db.bsd.h db.h
 gmake -f makefile.bsd "USE_UPNP=-"
 ```
 
