@@ -10,6 +10,7 @@ src/test_woodcoin
 *.o
 *.patch
 .woodcoin
+*.core
 
 # Compilation and Qt preprocessor part
 *.qm

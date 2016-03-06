@@ -1,5 +1,5 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="da" version="2.0">
-<defauLOGodec>UTF-8</defauLOGodec>
+<defaultcodec>UTF-8</defaultcodec>
 <context>
     <name>AboutDialog</name>
     <message>
