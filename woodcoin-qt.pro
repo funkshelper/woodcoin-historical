@@ -77,6 +77,22 @@ contains(USE_UPNP, -) {
     win32:LIBS += -liphlpapi
 }
 
+isEmpty(BDB_INCLUDE_PATH){
+    message(default libdb path used)
+}
+contains(BDB_INCLUDE_PATH, /usr/include/db4.8) {
+    message(db4.8 custom inclusion acknowledged)
+}
+contains(BDB_LIB_PATH, /usr/local/lib/db4.8) {
+    message(db4.8 custom library path acknowledged)
+}
+contains(BDB_LIB_SUFFIX, -4.8) {
+    message(correctly using libdb 4.8)
+} else {
+    message(ensure you have libdb4.8 installed but run me anyway)
+}
+
+
 # use: qmake "USE_DBUS=1"
 contains(USE_DBUS, 1) {
     message(Building with DBUS (Freedesktop notifications) support)
