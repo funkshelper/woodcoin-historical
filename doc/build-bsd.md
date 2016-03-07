@@ -1,6 +1,6 @@
-BSD BUILD NOTES
+# BSD BUILD NOTES
 
-# General
+## General
 
 Potentially helpful are the following lines, though with many configurations they will be unnecessary: 
 
@@ -19,15 +19,15 @@ ln -s /usr/local/include/db4.8 /usr/include/db4.8
 
 Or vice versa. 
 
-# QT
+## QT
 
 To build the **QT Wallet** on FreeBSD 10.x: 
 
-## Dependencies
+### Dependencies
 
 `pkg install gmake qt4 qt4-qmake databases/db48 devel/boost-libs openssl libqrencode`
 
-## Sequence
+### Sequence
 
 ```
 qmake-qt4 woodcoin-qt.pro "BDB_LIB_PATH=/usr/local/lib/db4.8" "BDB_INCLUDE_PATH=/usr/include/db4.8" "BDB_LIB_SUFFIX=-4.8" "USE_UPNP=-"
@@ -36,11 +36,11 @@ gmake
 
 This should build an executable of the QT graphical wallet. 
 
-# Daemon (woodcoind)
+## Daemon (woodcoind)
 
 To only build **woodcoind** on BSD:
 
-## Dependencies
+### Dependencies
 
 (As root:)
 
