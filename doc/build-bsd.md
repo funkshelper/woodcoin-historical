@@ -4,7 +4,8 @@ BSD BUILD NOTES
 
 Potentially helpful are the following lines, though with many configurations they will be unnecessary: 
 
-```export CC=clang
+```
+export CC=clang
 export CXX=clang++ **OR** export CXX=c++ *(try one if the other does not work)*
 export CXXFLAGS="-I/usr/local/include -I/usr/local/include/db48"
 export LDFLAGS="-L/usr/local/lib -L/usr/local/lib/db48"
@@ -28,7 +29,8 @@ To build the **QT Wallet** on FreeBSD 10.x:
 
 ## Sequence
 
-```qmake-qt4 woodcoin-qt.pro "BDB_LIB_PATH=/usr/local/lib/db4.8" "BDB_INCLUDE_PATH=/usr/include/db4.8" "BDB_LIB_SUFFIX=-4.8" "USE_UPNP=-"
+```
+qmake-qt4 woodcoin-qt.pro "BDB_LIB_PATH=/usr/local/lib/db4.8" "BDB_INCLUDE_PATH=/usr/include/db4.8" "BDB_LIB_SUFFIX=-4.8" "USE_UPNP=-"
 gmake
 ```
 
@@ -46,7 +48,8 @@ To only build **woodcoind** on BSD:
 
 ### Sequence
 
-```cd src
+```
+cd src
 export CC=clang
 export CXX=c++
 export CXXFLAGS="-I/usr/local/include -I/usr/local/include/db48"
