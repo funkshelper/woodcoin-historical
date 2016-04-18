@@ -61,10 +61,24 @@ the easiest way to do so is to use svn instead of git to pull the repository. Th
 More information on this method is available here: 
    http://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo
 =============================================
+Build Instructions
 
+TYou will need these dependencies or equivalent:
+
+sudo apt-get install git build-essential libboost-all-dev libcurl4-openssl-dev libdb5.1-dev libdb5.1++-dev qt-sdk libminiupnpc-dev
+
+Get the source with this command:
+
+git clone https://github.com/funkshelper/woodcoin.git
+
+To build woodcoin-qt issue “qmake” and then “make“.  qt4 is required, on some systems you may need to issue “export QT_SELECT=qt4” to ensure the proper version is used.
+
+To build woodcoind by itself navigate to /src/ and issue make -f makefile.unix.
+
+--------------------------------------------
 ## Mining
 
-To start mining with woodcoind, simply launch it like this: 
+To start woodcutting with woodcoind, simply launch it like this: 
 
 ```./woodcoind setgenerate true```
 
